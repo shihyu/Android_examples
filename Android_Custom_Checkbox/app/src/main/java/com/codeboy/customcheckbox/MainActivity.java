@@ -1,10 +1,14 @@
 package com.codeboy.customcheckbox;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener
 {
     CheckBox normal;
@@ -21,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         setContentView(R.layout.activity_main);
         parent = findViewById(R.id.parent);
         CheckBox normal = findViewById(R.id.normal);
+        //normal.setEnabled(true);
+        //normal.setChecked(true);
         CheckBox square = findViewById(R.id.square);
         CheckBox round = findViewById(R.id.round);
         CheckBox star = findViewById(R.id.star);
