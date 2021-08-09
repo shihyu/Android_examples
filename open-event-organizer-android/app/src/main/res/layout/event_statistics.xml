@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.eventyay.organizer.ui.binding.BindingAdapters" />
+
+        <variable
+            name="eventStatistics"
+            type="com.eventyay.organizer.data.event.EventStatistics" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/event_statistics_outer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/event_statistics"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_small" />
+
+        <LinearLayout
+            android:id="@+id/event_sales_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <LinearLayout
+                android:id="@+id/event_statistics_layout"
+                android:layout_width="@dimen/spacing_zero"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:layout_weight="100"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{eventStatistics.sessionsConfirmed}"
+                        android:textSize="@dimen/text_size_large"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{"/" + eventStatistics.sessionsSubmitted}'
+                        android:textSize="@dimen/text_size_small" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/sessions_confirmed"
+                    android:textSize="@dimen/text_size_normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="@{eventStatistics.sessionsSubmitted == 0 ? 0 : (int) ((eventStatistics.sessionsConfirmed*100)/eventStatistics.sessionsSubmitted)}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_extra_small"
+                        android:layout_marginStart="@dimen/spacing_extra_small"
+                        android:text='@{(eventStatistics.sessionsSubmitted == 0 ? 0 : (int) ((eventStatistics.sessionsConfirmed*100)/eventStatistics.sessionsSubmitted)) + "%"}' />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/rl_separator"
+                android:layout_width="@dimen/spacing_tiny"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:background="@color/color_bottom_surface" />
+
+            <LinearLayout
+                android:id="@+id/sales_statistics_layout"
+                android:layout_width="@dimen/spacing_zero"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="100"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:layout_marginRight="@dimen/spacing_normal"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/spacing_extra_small"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginStart="@dimen/spacing_large"
+                        android:textSize="@dimen/text_size_normal"
+                        android:text="@string/speakers" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginStart="@dimen/spacing_large"
+                        android:textSize="@dimen/text_size_normal"
+                        android:text="@string/sponsors" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/spacing_extra_small"
+                    android:layout_marginRight="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_speakers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginStart="@dimen/spacing_large"
+                        android:text="@{ BindingAdapters.longToStr(eventStatistics.speakers.confirmed) }"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_sponsors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginStart="@dimen/spacing_large"
+                        android:text="@{ BindingAdapters.longToStr(eventStatistics.sponsors) }"
+                        android:textSize="@dimen/text_size_normal"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_separator_four"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_tiniest"
+            android:background="@color/color_shadow"
+            android:layout_marginTop="@dimen/spacing_normal"
+            bind:layout_constraintStart_toStartOf="parent"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintTop_toBottomOf="@id/event_sales_layout" />
+
+        <FrameLayout
+            android:id="@+id/frame_separator_five"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_small"
+            android:background="@color/color_bottom_surface" />
+
+    </LinearLayout>
+</layout>

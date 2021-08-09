@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="action"
+            type="Runnable" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/defaultUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:paddingLeft="@dimen/spacing_tiny"
+            android:text="@string/default_base_url"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/toggleUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:paddingLeft="@dimen/spacing_tiny"
+            android:text="@string/use_another_url"
+            android:textColor="@color/color_accent"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="gone"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/base_url_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/spacing_normal"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/baseUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/other_url"
+                android:imeOptions="actionGo"
+                android:inputType="textUri"
+                app:go="@{() -> action.run() }" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+</layout>

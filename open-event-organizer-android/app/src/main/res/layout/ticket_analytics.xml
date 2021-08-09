@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="event"
+            type="com.eventyay.organizer.data.event.Event" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/chartBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_normal"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:text="@string/sales_summary"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_small" />
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/chartSales"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_chart_height"
+                    android:layout_marginBottom="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:layout_marginLeft="@dimen/spacing_normal"
+                    android:layout_marginRight="@dimen/spacing_normal"
+                    android:layout_marginStart="@dimen/spacing_normal"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_tiniest"
+                        android:background="@color/color_shadow"/>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_small"
+                        android:background="@color/color_bottom_surface"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|top"
+                android:alpha="0.6"
+                android:background="@color/grey_600"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_extra_small">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnChartFullScreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/ic_full_screen" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/chartBoxCheckIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_normal"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:text="@string/check_in_summary"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_small" />
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/chartCheckIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_chart_height"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:layout_marginLeft="@dimen/spacing_normal"
+                    android:layout_marginRight="@dimen/spacing_normal"
+                    android:layout_marginStart="@dimen/spacing_normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/check_in_time"
+                    android:textSize="10sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_tiniest"
+                        android:background="@color/color_shadow" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_small"
+                        android:background="@color/color_bottom_surface" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/tickets"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_small" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/spacing_normal">
+
+            <include
+                layout="@layout/ticket_analytics_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:color='@{"light_blue"}'
+                bind:completed="@{event.analytics.soldFreeTickets}"
+                bind:ticketName="@{@string/ticket_free}"
+                bind:total="@{event.analytics.freeTickets}" />
+
+            <include
+                layout="@layout/ticket_analytics_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:color='@{"purple"}'
+                bind:completed="@{event.analytics.soldPaidTickets}"
+                bind:ticketName="@{@string/ticket_paid}"
+                bind:total="@{event.analytics.paidTickets}" />
+
+            <include
+                layout="@layout/ticket_analytics_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:color='@{"red"}'
+                bind:completed="@{event.analytics.soldDonationTickets}"
+                bind:ticketName="@{@string/ticket_donation}"
+                bind:total="@{event.analytics.donationTickets}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_tiniest"
+                android:background="@color/color_shadow"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_small"
+                android:background="@color/color_bottom_surface"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

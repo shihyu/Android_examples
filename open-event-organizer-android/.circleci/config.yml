@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-28-alpha
+    environment:
+      _JAVA_OPTIONS: -Xmx2048m -Dorg.gradle.daemon=false
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies --no-daemon
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Spotless Test
+          command: ./gradlew spotlessJavaCheck
+      - run:
+          name: Run Tests
+          command: ./gradlew lintPlayStoreDebug androidCheck androidPmd --max-workers 4
+      - run:
+          name: Test Coverage
+          command: ./gradlew testPlayStoreDebugUnitTestCoverage --max-workers 4
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      - store_artifacts:
+          path: app/build/outputs
+          destination: outputs
+      - store_test_results:
+          path: app/build/test-results

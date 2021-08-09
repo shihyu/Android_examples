@@ -1,0 +1,76 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/PreferenceFixTheme.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+    <style name="AppTheme.Main" parent="AppTheme.NoActionBar">
+        <!-- Defined in v19/styles.xml -->
+    </style>
+
+    <style name="AppTheme.Main.Light" parent="AppTheme.NoActionBar">
+        <!-- Defined in v21/styles.xml -->
+    </style>
+
+    <style name="TextCapsule">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/grey_800</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center|top</item>
+        <item name="android:background">@drawable/rounded_rectangle</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ItemPadding">
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+        <item name="android:paddingLeft">@dimen/spacing_normal</item>
+        <item name="android:paddingRight">@dimen/spacing_normal</item>
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing_normal</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing_normal</item>\
+    </style>
+
+    <style name="ExpandedAppBar" parent="@style/TextAppearance.Design.CollapsingToolbar.Expanded">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SubmitButton">
+        <item name="android:padding">@dimen/spacing_submit_button</item>
+        <item name="android:background">@color/green_500</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AlertDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+    <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+</resources>

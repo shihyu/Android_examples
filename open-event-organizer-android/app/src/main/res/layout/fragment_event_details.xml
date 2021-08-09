@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data class="EventDetailBinding">
+
+        <import type="com.eventyay.organizer.common.ContextManager" />
+
+        <variable
+            name="presenter"
+            type="com.eventyay.organizer.core.event.dashboard.EventDashboardPresenter" />
+
+        <variable
+            name="event"
+            type="com.eventyay.organizer.data.event.Event" />
+
+        <variable
+            name="eventStats"
+            type="com.eventyay.organizer.data.event.EventStatistics" />
+
+        <variable
+            name="orderStats"
+            type="com.eventyay.organizer.data.order.OrderStatistics" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_top_surface">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/publish_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switchEventState"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:layout_marginRight="@dimen/spacing_normal"
+                            android:layout_marginBottom="@dimen/spacing_normal"
+                            android:checked='@{ event.state.equalsIgnoreCase("published") ? true : false }'
+                            android:onClick="@{ () -> presenter.confirmToggle() }"
+                            bind:layout_constraintEnd_toEndOf="parent"
+                            bind:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_event_state_publish"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:layout_marginRight="@dimen/spacing_normal"
+                            android:layout_marginBottom="@dimen/spacing_normal"
+                            android:text="@string/event_state_publish"
+                            android:textSize="@dimen/text_size_normal"
+                            bind:layout_constraintRight_toLeftOf="@+id/switchEventState"
+                            bind:layout_constraintTop_toTopOf="parent" />
+
+                        <FrameLayout
+                            android:id="@+id/frame_separator_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spacing_tiniest"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:background="@color/color_shadow"
+                            bind:layout_constraintEnd_toEndOf="parent"
+                            bind:layout_constraintStart_toStartOf="parent"
+                            bind:layout_constraintTop_toBottomOf="@+id/tv_event_state_publish" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/check_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:paddingStart="@dimen/spacing_normal"
+                        android:paddingTop="@dimen/spacing_medium"
+                        android:paddingEnd="@dimen/spacing_normal"
+                        android:paddingBottom="@dimen/spacing_medium"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@+id/publish_layout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/qrcode_scan" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:text="@string/check_in"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_size_large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/orders"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:paddingStart="@dimen/spacing_normal"
+                        android:paddingTop="@dimen/spacing_medium"
+                        android:paddingEnd="@dimen/spacing_normal"
+                        android:paddingBottom="@dimen/spacing_medium"
+                        android:visibility="gone"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@+id/check_in">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_order" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:text="@string/orders"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_size_large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tickets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:paddingStart="@dimen/spacing_normal"
+                        android:paddingTop="@dimen/spacing_medium"
+                        android:paddingEnd="@dimen/spacing_normal"
+                        android:paddingBottom="@dimen/spacing_medium"
+                        android:visibility="gone"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@+id/orders">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_ticket" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:text="@string/tickets"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_size_large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/edit_event"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:paddingStart="@dimen/spacing_normal"
+                        android:paddingTop="@dimen/spacing_medium"
+                        android:paddingEnd="@dimen/spacing_normal"
+                        android:paddingBottom="@dimen/spacing_medium"
+                        android:visibility="gone"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@+id/tickets">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_edit" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:text="@string/edit_event"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_size_large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/check_in_settings"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:paddingStart="@dimen/spacing_normal"
+                        android:paddingTop="@dimen/spacing_medium"
+                        android:paddingEnd="@dimen/spacing_normal"
+                        android:paddingBottom="@dimen/spacing_medium"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@+id/edit_event">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_settings" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:text="@string/check_in_settings"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_size_large" />
+
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frame_separator_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_tiniest"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:background="@color/color_shadow"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/check_in_settings" />
+
+                    <FrameLayout
+                        android:id="@+id/frame_separator_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_small"
+                        android:background="@color/color_bottom_surface"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/frame_separator_two" />
+
+                    <TextView
+                        android:id="@+id/tv_gross_sales_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        android:layout_marginLeft="@dimen/spacing_normal"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:text="@string/gross_sales"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/text_size_small"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/frame_separator_two" />
+
+                    <TextView
+                        android:id="@+id/tv_gross_sales_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        android:layout_marginLeft="@dimen/spacing_normal"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:text='@{ContextManager.getCurrency() + " " + orderStats.sales.total}'
+                        android:textColor="@color/color_accent"
+                        android:textSize="@dimen/text_size_extra_large"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/tv_gross_sales_text" />
+
+                    <FrameLayout
+                        android:id="@+id/frame_separator_four"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_tiniest"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:background="@color/color_shadow"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/tv_gross_sales_value" />
+
+                    <FrameLayout
+                        android:id="@+id/frame_separator_five"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_small"
+                        android:background="@color/color_bottom_surface"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/frame_separator_four" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout_tickets_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:orientation="horizontal"
+                        bind:layout_constraintEnd_toStartOf="@id/rl_separator"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/frame_separator_four">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{orderStats.tickets.completed}"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{"/" + event.ticketsAvailable}'
+                            android:textSize="@dimen/text_size_small" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_tickets_sold_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tickets_sold"
+                        android:textSize="@dimen/text_size_normal"
+                        bind:layout_constraintEnd_toStartOf="@id/rl_separator"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/linear_layout_tickets_info" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout_tickets_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_extra_small"
+                        bind:layout_constraintEnd_toStartOf="@id/rl_separator"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/tv_tickets_sold_text">
+
+                        <ProgressBar
+                            android:id="@+id/progress_bar_tickets_sold"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:max="100"
+                            android:progress="@{event.ticketsAvailable == 0 ? 0 : (int) ((orderStats.tickets.completed*100)/event.ticketsAvailable)}" />
+
+                        <TextView
+                            android:id="@+id/tv_tickets_progress_percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_extra_small"
+                            android:layout_marginLeft="@dimen/spacing_extra_small"
+                            android:text='@{(event.ticketsAvailable == 0 ? 0 : (int) ((orderStats.tickets.completed*100)/event.ticketsAvailable)) + "%"}' />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_separator"
+                        android:layout_width="@dimen/spacing_tiniest"
+                        android:layout_height="@dimen/spacing_zero"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:background="@color/color_bottom_surface"
+                        bind:layout_constraintBottom_toTopOf="@+id/frame_separator_five"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/frame_separator_four" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout_second"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:orientation="horizontal"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toEndOf="@id/rl_separator"
+                        bind:layout_constraintTop_toBottomOf="@id/frame_separator_four">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{event.analytics.checkedIn}"
+                            android:textSize="@dimen/text_size_large"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{"/" + orderStats.tickets.completed}'
+                            android:textSize="@dimen/text_size_small" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_checked_in_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/checked_in"
+                        android:textSize="@dimen/text_size_normal"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toEndOf="@id/rl_separator"
+                        bind:layout_constraintTop_toBottomOf="@id/linear_layout_second" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_extra_small"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:orientation="horizontal"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toEndOf="@id/rl_separator"
+                        bind:layout_constraintTop_toBottomOf="@id/tv_checked_in_text">
+
+                        <ProgressBar
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:max="100"
+                            android:progress="@{orderStats.tickets.completed == 0 ? 0 : (int) ((event.analytics.checkedIn*100)/orderStats.tickets.completed)}" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_extra_small"
+                            android:layout_marginLeft="@dimen/spacing_extra_small"
+                            android:text='@{(orderStats.tickets.completed == 0 ? 0 : (int) ((event.analytics.checkedIn*100)/orderStats.tickets.completed)) + "%"}' />
+
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frame_separator_six"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_tiniest"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:background="@color/color_shadow"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/linear_layout_tickets_progress" />
+
+                    <FrameLayout
+                        android:id="@+id/frame_separator_seven"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_small"
+                        android:background="@color/color_bottom_surface"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/frame_separator_six" />
+
+                    <FrameLayout
+                        android:id="@+id/ticket_analytics_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/frame_separator_seven">
+
+                        <include
+                            android:id="@+id/ticket_analytics"
+                            layout="@layout/ticket_analytics"
+                            bind:event="@{event}" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/order_statistics_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@id/ticket_analytics_frame">
+
+                        <include
+                            android:id="@+id/order_statistics"
+                            layout="@layout/order_statistics"
+                            bind:orderStatistics="@{orderStats}" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/event_statistics_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@+id/order_statistics_frame">
+
+                        <include
+                            android:id="@+id/event_statistics"
+                            layout="@layout/event_statistics"
+                            bind:eventStatistics="@{eventStats}" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/event_owner_detail_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toBottomOf="@+id/event_statistics_frame">
+
+                        <include
+                            android:id="@+id/event_owner_detail"
+                            layout="@layout/event_owner_detail"
+                            bind:eventOwner="@{event}" />
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <FrameLayout
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+            <include layout="@layout/progressbar_layout" />
+        </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.eventyay.organizer.utils.DateUtils" />
+
+        <import type="com.eventyay.organizer.utils.StringUtils"/>
+
+        <variable
+            name="event"
+            type="com.eventyay.organizer.data.event.Event" />
+
+        <variable
+            name="copyright"
+            type="com.eventyay.organizer.data.copyright.Copyright" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:visibility='@{ event.hasOwnerInfo ? View.VISIBLE : View.GONE }'>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#dedede"
+                        android:padding="@dimen/spacing_small"
+                        android:text="Organizer"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="?android:textColorSecondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_info }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_person}"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ event.ownerName }' />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_info }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_info }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ event.ownerDescription }' />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#dedede"
+                        android:padding="@dimen/spacing_small"
+                        android:text="Date and Time"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="?android:textColorSecondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_clock }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_clock }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ "Starts: " + DateUtils.formatDateWithDefault(DateUtils.FORMAT_DAY_COMPLETE, event.startsAt) }' />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_clock }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_clock }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ "Ends: " + DateUtils.formatDateWithDefault(DateUtils.FORMAT_DAY_COMPLETE, event.endsAt) }' />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_time }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_time }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ event.timezone }' />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:visibility="@{ (event.longitude == null || event.latitude == null) ? View.GONE : View.VISIBLE }">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#dedede"
+                        android:padding="@dimen/spacing_small"
+                        android:text="Location"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="?android:textColorSecondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_location }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_location }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ event.latitude + " " + event.longitude }' />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_location }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_location }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ event.searchableLocationName }'
+                        android:visibility="@{ StringUtils.emptyToNull(event.searchableLocationName) != null ? View.VISIBLE : View.GONE }" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#dedede"
+                        android:padding="@dimen/spacing_small"
+                        android:text="Payment"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="?android:textColorSecondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_earth }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_earth }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ event.paymentCountry }'
+                        android:visibility="@{ (StringUtils.emptyToNull(event.paymentCountry) != null) ? View.VISIBLE : View.GONE }" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_coin }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_coin }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ event.paymentCurrency }'
+                        android:visibility="@{ (StringUtils.emptyToNull(event.paymentCurrency) != null) ? View.VISIBLE : View.GONE }"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_email }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_email }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{"Paypal Email: " +  event.paypalEmail }'
+                        android:visibility='@{ event.canPayByPaypal ? View.VISIBLE : View.GONE }' />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_cheque }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_cheque }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ "Cheque Details: " + event.chequeDetails }'
+                        android:visibility="@{ event.canPayByCheque ? View.VISIBLE : View.GONE }" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_bank }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_bank }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ "Bank Details: " + event.bankDetails }'
+                        android:visibility="@{ event.canPayByBank ? View.VISIBLE : View.GONE }" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_payment }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_payment }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ "Onsite Details: " + event.onsiteDetails }'
+                        android:visibility="@{ event.canPayOnsite ? View.VISIBLE : View.GONE }" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:visibility='@{ StringUtils.emptyToNull(event.codeOfConduct) == null ? View.GONE : View.VISIBLE }'>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#dedede"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/code_of_conduct"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="?android:textColorSecondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_gavel }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_gavel }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ event.codeOfConduct }' />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:visibility='@{ StringUtils.emptyToNull(event.description) == null ? View.GONE : View.VISIBLE }'>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#dedede"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/description"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="?android:textColorSecondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_info }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_info }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ event.description }' />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:background="#dedede"
+                            android:padding="@dimen/spacing_small"
+                            android:text="@string/copyright"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                            android:textColor="?android:textColorSecondary" />
+
+                        <ImageButton
+                            android:id="@+id/action_create_copyright"
+                            android:layout_width="@dimen/spacing_larger"
+                            android:layout_height="match_parent"
+                            android:background="#dedede"
+                            android:tint="@color/menu_icon_color"
+                            android:contentDescription="@string/create_copyright"
+                            app:srcCompat="@drawable/ic_add" />
+
+                        <ImageButton
+                            android:id="@+id/action_change_copyright"
+                            android:layout_width="@dimen/spacing_larger"
+                            android:layout_height="match_parent"
+                            android:background="#dedede"
+                            android:contentDescription="@string/edit_copyright"
+                            app:srcCompat="@drawable/ic_edit" />
+
+
+                        <ImageButton
+                            android:id="@+id/action_delete_copyright"
+                            android:layout_width="@dimen/spacing_larger"
+                            android:layout_height="match_parent"
+                            android:background="#dedede"
+                            android:contentDescription="@string/delete_copyright"
+                            app:srcCompat="@drawable/ic_delete" />
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_person }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_person }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:visibility='@{ StringUtils.emptyToNull(copyright.holder) == null ? View.GONE : View.VISIBLE }'
+                        android:text='@{ copyright.holder }' />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_events }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_events }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:visibility='@{ StringUtils.emptyToNull(copyright.year) == null ? View.GONE : View.VISIBLE }'
+                        android:text='@{ copyright.year }' />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_copyright }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_copyright }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:visibility='@{ StringUtils.emptyToNull(copyright.licence) == null ? View.GONE : View.VISIBLE }'
+                        android:text='@{ copyright.licence }' />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@{ @drawable/ic_email }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:drawableStart="@{ @drawable/ic_email }"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:visibility='@{ StringUtils.emptyToNull(copyright.licenceUrl) == null ? View.GONE : View.VISIBLE }'
+                        android:text='@{ copyright.licenceUrl }' />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

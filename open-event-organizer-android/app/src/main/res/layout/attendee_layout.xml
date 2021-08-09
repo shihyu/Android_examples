@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="attendee"
+            type="com.eventyay.organizer.data.attendee.Attendee" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:foreground="?selectableItemBackground"
+        android:layout_margin="@dimen/spacing_extra_small"
+        style="@style/ItemPadding">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="@android:color/black"
+                android:text='@{attendee.firstname + " " + attendee.lastname}'
+                tools:text="FirstName LastName"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{attendee.email}"
+                tools:text="email@site.com"
+                android:textSize="@dimen/text_size_extra_small"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textAllCaps="true"
+                android:text="@{attendee.ticket.type}"
+                tools:text="Ticket Type"
+                android:textSize="@dimen/text_size_extra_small"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/rounded_rectangle"
+            android:gravity="center"
+            android:padding="@dimen/spacing_extra_small"
+            app:backgroundTint="@{ attendee.isCheckedIn ? @color/light_green_500 : @color/red_500 }"
+            app:tint="@color/translucent_light"
+            android:contentDescription="@string/check_in_status" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom"
+            app:srcCompat="@{ attendee.checking ? @drawable/ic_local_sync : @drawable/ic_server_sync }"/>
+
+    </LinearLayout>
+</layout>

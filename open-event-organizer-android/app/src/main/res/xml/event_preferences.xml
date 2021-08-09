@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="@string/scan_settings_key"
+        android:title="@string/scan_settings"/>
+
+    <Preference
+        android:key="@string/check_in_restrictions_key"
+        android:title="@string/check_in_restrictions"/>
+
+    <Preference
+        android:key="@string/auto_check_in_key"
+        android:title="@string/auto_check_in"/>
+
+</PreferenceScreen>

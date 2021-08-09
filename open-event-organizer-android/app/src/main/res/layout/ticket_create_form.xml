@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.eventyay.organizer.ui.binding.BindingAdapters" />
+
+        <variable
+            name="ticket"
+            type="com.eventyay.organizer.data.ticket.Ticket" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/ItemPadding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/spacing_large">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small"
+                app:srcCompat="@drawable/ic_ticket" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/ticket_name"
+                    android:text="@={ ticket.name }"
+                    app:validateEmpty="@{true}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:checkedButton="@={ BindingAdapters.toId(ticket.type) }"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/free"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="@string/ticket_free" />
+
+            <RadioButton
+                android:id="@+id/paid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ticket_paid" />
+
+            <RadioButton
+                android:id="@+id/donation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ticket_donation" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small"
+                app:srcCompat="@drawable/ic_receipt" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/quantity"
+                    android:text="@={ BindingAdapters.longToStr(ticket.quantity) }"
+                    android:inputType="number"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="@{ paid.checked ? View.VISIBLE : View.GONE }">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small"
+                app:srcCompat="@drawable/ic_coin" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/price"
+                    android:text="@={ BindingAdapters.floatToStr(ticket.price) }"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <include
+            layout="@layout/starts_at_time_picker"
+            bind:date="@={ ticket.salesStartsAt }"
+            bind:label="@{ @string/starts_at }"/>
+
+        <include
+            layout="@layout/ends_at_time_picker"
+            bind:date="@={ ticket.salesEndsAt }"
+            bind:label="@{ @string/ends_at }"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/minOrder"
+                android:text="@={ BindingAdapters.integerToStr(ticket.minOrder) }" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/maxOrder"
+                android:text="@={ BindingAdapters.integerToStr(ticket.maxOrder) }" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+</layout>

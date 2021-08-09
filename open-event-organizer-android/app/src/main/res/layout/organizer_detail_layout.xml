@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.eventyay.organizer.utils.DateUtils" />
+
+        <import type="android.text.TextUtils"/>
+
+        <variable
+            name="user"
+            type="com.eventyay.organizer.data.user.User" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/profile_picture"
+                        android:layout_width="@dimen/avatar_size"
+                        android:layout_height="@dimen/avatar_size"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/spacing_medium"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:padding="@dimen/spacing_normal"
+                        android:contentDescription="@string/profile_picture"
+                        android:scaleType="centerCrop"
+                        app:circleImageUrl="@{ user.avatarUrl }"
+                        app:placeholder="@{ @drawable/ic_account_circle }" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/delete_profile_picture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_size_large"
+                        app:fabSize="mini"
+                        android:backgroundTint="@color/material_red"
+                        app:layout_constraintRight_toRightOf="@id/profile_picture"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_picture"
+                        android:visibility="@{ user.avatarUrl != null ? View.VISIBLE : View.GONE }"
+                        app:srcCompat="@drawable/ic_delete_white" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#dedede"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/profile"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="?android:textColorSecondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@{ @drawable/ic_clock }"
+                        android:drawableLeft="@{ @drawable/ic_clock }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ "Joined: " + DateUtils.formatDateWithDefault(DateUtils.FORMAT_DAY_COMPLETE, user.createdAt) }' />
+
+                    <TextView
+                        android:id="@+id/organizer_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@{ @drawable/ic_email }"
+                        android:drawableLeft="@{ @drawable/ic_email }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ user.email }' />
+
+                    <TextView
+                        android:id="@+id/organizer_contact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@{ @drawable/ic_phone }"
+                        android:drawableLeft="@{ @drawable/ic_phone }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ user.contact }'
+                        android:visibility='@{ TextUtils.isEmpty(user.contact) ? View.GONE : View.VISIBLE }' />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@{ @drawable/ic_server_sync }"
+                            android:drawableLeft="@{ @drawable/ic_server_sync }"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/spacing_small"
+                            android:text='@{ user.isVerified ? @string/verified : @string/not_verified }' />
+
+                        <TextView
+                            android:id="@+id/resend_verification_mail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/resend_verification_mail"
+                            android:textColor="@color/color_accent"
+                            android:padding="@dimen/spacing_small"
+                            android:visibility="@{user.isVerified ? View.GONE : View.VISIBLE}" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@{ @drawable/ic_info }"
+                        android:drawableLeft="@{ @drawable/ic_info }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ user.details }'
+                        android:visibility='@{ TextUtils.isEmpty(user.details) ? View.GONE : View.VISIBLE}' />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnChangePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/spacing_small"
+                app:backgroundTint="@color/color_accent"
+                android:text="@string/change_password"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:visibility="@{user.facebookUrl != null || user.twitterUrl != null || user.googlePlusUrl != null || user.instagramUrl != null ? View.VISIBLE : View.GONE}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#dedede"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/social_media_profiles"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="?android:textColorSecondary" />
+
+                    <TextView
+                        android:id="@+id/organizer_facebook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@{ @drawable/ic_facebook }"
+                        android:drawableLeft="@{ @drawable/ic_facebook }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ user.facebookUrl }'
+                        android:visibility="@{user.facebookUrl == null ? View.GONE : View.VISIBLE}" />
+
+                    <TextView
+                        android:id="@+id/organizer_twitter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@{ @drawable/ic_twitter }"
+                        android:drawableLeft="@{ @drawable/ic_twitter }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ user.twitterUrl }'
+                        android:visibility="@{user.twitterUrl == null ? View.GONE : View.VISIBLE}" />
+
+                    <TextView
+                        android:id="@+id/organizer_google_plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@{ @drawable/ic_google_plus }"
+                        android:drawableLeft="@{ @drawable/ic_google_plus }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ user.googlePlusUrl }'
+                        android:visibility="@{user.googlePlusUrl == null ? View.GONE : View.VISIBLE}" />
+
+                    <TextView
+                        android:id="@+id/organizer_instagram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@{ @drawable/ic_instagram }"
+                        android:drawableLeft="@{ @drawable/ic_instagram }"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_small"
+                        android:text='@{ user.instagramUrl }'
+                        android:visibility="@{user.instagramUrl == null ? View.GONE : View.VISIBLE}" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

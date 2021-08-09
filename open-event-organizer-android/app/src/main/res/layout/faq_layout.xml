@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.eventyay.organizer.common.ContextManager" />
+
+        <variable
+            name="faqListViewModel"
+            type="com.eventyay.organizer.core.faq.list.FaqListViewModel"/>
+
+        <variable
+            name="faq"
+            type="com.eventyay.organizer.data.faq.Faq" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/faq_outer_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:layout_margin="@dimen/spacing_small">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        app:backgroundTint="@{ faqListViewModel.getFaqSelected(faq) ? @color/blue_200 : 0 }"
+        android:background="@android:color/white"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            style="@style/ItemPadding"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/question_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/question_initial"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:text='@{ faq.question }'
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_size_normal"/>
+                <ImageView
+                    android:id="@+id/add_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_arrow_drop_down" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/answer_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:animateLayoutChanges="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/answer_initial"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:text='@{ faq.answer }'
+                    android:textSize="@dimen/text_size_small"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

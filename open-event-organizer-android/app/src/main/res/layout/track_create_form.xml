@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.eventyay.organizer.ui.binding.BindingAdapters" />
+
+        <variable
+            name="track"
+            type="com.eventyay.organizer.data.tracks.Track" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/ItemPadding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/const_normal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small"
+                app:srcCompat="@drawable/ic_event_note" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/track_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name"
+                    android:text="@={ track.name }"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    app:validateEmpty="@{true}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small"
+                app:srcCompat="@drawable/ic_event_note" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/track_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/description"
+                    android:text="@={ track.description }"
+                    app:validateEmpty="@{false}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small"
+                app:srcCompat="@drawable/ic_color_lens" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_extra_small"
+                android:layout_weight="20">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/track_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/color"
+                    android:text="@={ track.color }"
+                    app:validateEmpty="@{true}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/color_picker"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="10dp"
+                android:layout_weight="0.2" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

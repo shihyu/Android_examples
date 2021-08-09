@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.eventyay.organizer.ui.binding.BindingAdapters" />
+
+        <variable
+            name="orderStatistics"
+            type="com.eventyay.organizer.data.order.OrderStatistics" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/order_statistics_outer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/order_statistics"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_small" />
+
+        <LinearLayout
+            android:id="@+id/order_sales_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <LinearLayout
+                android:id="@+id/order_statistics_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_weight="100"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_normal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{orderStatistics.orders.completed}"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{"/" + orderStatistics.orders.total}'
+                        android:textSize="@dimen/text_size_small" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/orders"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/text_size_normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="@{orderStatistics.orders.total == 0 ? 0 : (int) ((orderStatistics.orders.completed*100)/orderStatistics.orders.total)}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_extra_small"
+                        android:layout_marginStart="@dimen/spacing_extra_small"
+                        android:text='@{(orderStatistics.orders.total == 0 ? 0 : (int) ((orderStatistics.orders.completed*100)/orderStatistics.orders.total)) + "%"}' />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/rl_separator"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:background="@color/color_bottom_surface" />
+
+            <LinearLayout
+                android:id="@+id/sales_statistics_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="100"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_normal" >
+
+                <LinearLayout
+                    android:id="@+id/linear_layout_sales_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{orderStatistics.sales.completed}"
+                        android:textSize="@dimen/text_size_large"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{"/" + orderStatistics.sales.total}'
+                        android:textSize="@dimen/text_size_small" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sales"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/text_size_normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="@{orderStatistics.sales.total == 0 ? 0 : (int) ((orderStatistics.sales.completed*100)/orderStatistics.sales.total)}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_extra_small"
+                        android:layout_marginStart="@dimen/spacing_extra_small"
+                        android:text='@{(orderStatistics.sales.total == 0 ? 0 : (int) ((orderStatistics.sales.completed*100)/orderStatistics.sales.total)) + "%"}' />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_separator_four"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_shadow"
+            android:layout_marginTop="@dimen/spacing_normal"
+            bind:layout_constraintStart_toStartOf="parent"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintTop_toBottomOf="@id/order_sales_layout" />
+
+        <FrameLayout
+            android:id="@+id/frame_separator_five"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_small"
+            android:background="@color/color_bottom_surface" />
+
+    </LinearLayout>
+</layout>

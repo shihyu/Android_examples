@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="tracksPresenter"
+            type="com.eventyay.organizer.core.track.list.TracksPresenter"/>
+
+        <variable
+            name="track"
+            type="com.eventyay.organizer.data.tracks.Track" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/track_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_small"
+        android:background="@{ tracksPresenter.isTrackSelected(track.getId()) ? @color/blue_200 : @android:color/white }">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            circular_progress_color="android:"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_small"
+                android:text='@{ track.name }'
+                android:background="@{ tracksPresenter.getTrackColor(track) }"
+                android:textColor='@{ tracksPresenter.getTrackFontColor(track) }'
+                style="@style/TextAppearance.AppCompat.Headline"
+                tools:text="Track Name"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_small"
+                android:text='@{ track.description }'
+                style="@style/TextAppearance.AppCompat.Body1"
+                tools:text="Track Description"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

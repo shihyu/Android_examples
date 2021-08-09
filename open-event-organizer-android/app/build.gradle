@@ -1,0 +1,306 @@
+plugins {
+    id "com.diffplug.gradle.spotless" version "4.5.1"
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.sentry.android.gradle'
+apply plugin: 'com.noveogroup.android.check'
+apply from: './jacoco.gradle'
+apply plugin: 'com.google.gms.oss.licenses.plugin'
+apply plugin: "net.ltgt.errorprone"
+apply plugin: "com.github.b3er.local.properties"
+
+def app_name = System.getenv('app_name') ?: "Eventyay Organizer"
+def MAPBOX_ACCESS_TOKEN = System.getenv('MAPBOX_ACCESS_TOKEN') ?: "YOUR_ACCESS_TOKEN"
+
+def LOCAL_KEY_PRESENT = project.hasProperty('SIGNING_KEY_FILE') && rootProject.file(SIGNING_KEY_FILE).exists()
+
+android {
+    lintOptions {
+        warning 'InvalidPackage'
+        disable 'MissingTranslation'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/LICENSE'
+    }
+
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        applicationId "com.eventyay.organizer"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 17
+        versionName "1.7.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        manifestPlaceholders = [
+            appName            : app_name,
+            MAPBOX_ACCESS_TOKEN: MAPBOX_ACCESS_TOKEN
+        ]
+    }
+
+    signingConfigs {
+        if (TRAVIS_BUILD) {
+            release {
+                storeFile KEYSTORE_FILE
+                storePassword System.getenv("STORE_PASS")
+                keyAlias System.getenv("ALIAS")
+                keyPassword System.getenv("KEY_PASS")
+            }
+        } else if (LOCAL_KEY_PRESENT) {
+            release {
+                storeFile rootProject.file(SIGNING_KEY_FILE)
+                storePassword STORE_PASS
+                keyAlias ALIAS
+                keyPassword KEY_PASS
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "DEFAULT_BASE_URL", '"https://api.eventyay.com/v1/"'
+            resValue "string", "default_base_url", '"https://api.eventyay.com/v1/"'
+            resValue "string", "FRONTEND_HOST", "eventyay.com"
+
+            if (LOCAL_KEY_PRESENT || TRAVIS_BUILD)
+                signingConfig signingConfigs.release
+        }
+        debug {
+            testCoverageEnabled = true
+            buildConfigField "String", "DEFAULT_BASE_URL", '"https://open-event-api-dev.herokuapp.com/v1/"'
+            resValue "string", "default_base_url", '"https://open-event-api-dev.herokuapp.com/v1/"'
+            resValue "string", "FRONTEND_HOST", "open-event-fe.netlify.com"
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+    defaultConfig {
+        multiDexEnabled true
+        resValue "string", "FACEBOOK_ID", "eventyay"
+        resValue "string", "TWITTER_ID", "eventyay"
+        resValue "string", "YOUTUBE_ID", "UCQprMsG-raCIMlBudm20iLQ"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            unitTests.returnDefaultValues = true
+            all {
+                maxHeapSize = "512m"
+            }
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        fdroid {
+            dimension "default"
+        }
+
+        playStore {
+            dimension "default"
+        }
+    }
+}
+
+spotless {
+    java {
+        removeUnusedImports()
+        indentWithSpaces(2)
+        endWithNewline()
+        trimTrailingWhitespace()
+        target '**/*.java'
+    }
+}
+
+gradle.projectsEvaluated {
+    preBuild.dependsOn(spotlessApply)
+}
+
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.errorprone.disableWarningsInGeneratedCode = true
+}
+
+sentry {
+    // Disables or enables the automatic configuration of proguard
+    // for Sentry.  This injects a default config for proguard so
+    // you don't need to do it manually.
+    autoProguardConfig true
+
+    // Enables or disables the automatic upload of mapping files
+    // during a build.  If you disable this you'll need to manually
+    // upload the mapping files with sentry-cli when you do a release.
+    autoUpload false
+}
+
+configurations.all { config ->
+    resolutionStrategy {
+        force 'com.android.support:multidex:1.0.3'
+    }
+}
+
+check {
+    abortOnError false
+    findbugs { skip true }
+    checkstyle { skip true }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Support Lib
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation "androidx.appcompat:appcompat:1.2.0"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "com.google.android.material:material:1.2.0-beta01"
+    implementation "androidx.browser:browser:1.2.0"
+    implementation "androidx.palette:palette:1.0.0"
+    implementation "com.takisoft.fix:preference-v7:${versions.support_lib}.0"
+    //implementation "androidx.media:media:1.1.0-alpha04" // GradleIncompatible Workaround
+    //implementation "androidx.legacy:legacy-support-v4:1.0.0" // GradleIncompatible Workaround
+    annotationProcessor 'androidx.annotation:annotation:1.1.0' // Required for Glide
+    playStoreImplementation "com.google.android.gms:play-services-vision:${versions.play_services_vision}"
+    playStoreImplementation "com.google.android.libraries.places:places:${versions.places}"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    // Misc
+    implementation "com.jakewharton.timber:timber:${versions.timber}"
+    implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+    implementation 'com.github.Ilhasoft:data-binding-validator:2.0.0'
+    implementation "io.sentry:sentry-android:${versions.sentry_android}"
+    implementation "com.github.PhilJay:MPAndroidChart:${versions.mp_android_chart}"
+    compileOnly 'com.google.code.findbugs:findbugs-annotations:3.0.1'
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime:${versions.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:${versions.lifecycle}"
+
+    //WorkManager
+    implementation "android.arch.work:work-runtime:${versions.work_manager}"
+
+    // DbFlow
+    implementation "com.github.raizlabs.dbflow:dbflow-core:${versions.dbflow}"
+    implementation "com.github.raizlabs.dbflow:dbflow:${versions.dbflow}"
+    implementation "com.github.raizlabs.dbflow:dbflow-rx2:${versions.dbflow}"
+    annotationProcessor "com.github.raizlabs.dbflow:dbflow-processor:${versions.dbflow}"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android-support:${versions.dagger}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${versions.dagger}"
+    annotationProcessor "com.google.dagger:dagger-android-processor:${versions.dagger}"
+
+    // Retrofit
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-jackson:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'com.github.jasminb:jsonapi-converter:0.10'
+
+
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}"
+    implementation "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
+    implementation 'com.f2prateek.rx.preferences2:rx-preferences:2.0.1'
+
+    // Fast Adapter
+    implementation "com.mikepenz:fastadapter:4.1.2"
+    implementation 'com.timehop.stickyheadersrecyclerview:library:0.4.3'
+    implementation 'me.xdrop:fuzzywuzzy:1.1.9'
+
+    // Glide
+    implementation("com.github.florent37:glidepalette:2.1.2") {
+        transitive = false
+    }
+    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    implementation "com.github.bumptech.glide:okhttp3-integration:${versions.glide}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${versions.glide}"
+
+    // ThreeTen
+    implementation "com.jakewharton.threetenabp:threetenabp:${versions.threetenbp}"
+    testImplementation 'org.threeten:threetenbp:1.5.0'
+
+    // Leak Canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:${versions.leak_canary}"
+
+    // Stetho
+    debugImplementation "com.facebook.stetho:stetho:${versions.stetho}"
+    debugImplementation "com.facebook.stetho:stetho-okhttp3:${versions.stetho}"
+    releaseImplementation "com.github.mypplication:stetho-noop:${versions.stetho_no_op}"
+    testImplementation "com.github.mypplication:stetho-noop:${versions.stetho_no_op}"
+
+    // Butterknife
+    implementation "com.jakewharton:butterknife:${versions.butterknife}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterknife}"
+
+    // Lombok
+    compileOnly "org.projectlombok:lombok:${versions.lombok}"
+    testCompileOnly "org.projectlombok:lombok:${versions.lombok}"
+    annotationProcessor "org.projectlombok:lombok:${versions.lombok}"
+    testAnnotationProcessor "org.projectlombok:lombok:${versions.lombok}"
+
+    //colorpicker
+    implementation 'com.pes.materialcolorpicker:library:1.2.5'
+
+    //stepper
+    implementation 'com.github.badoualy:stepper-indicator:1.0.7'
+
+    // TimeLine View
+    implementation "com.github.vipulasri:timelineview:${versions.timelineView}"
+
+    //Rich text editor
+    implementation "jp.wasabeef:richeditor-android:2.0.0"
+
+    // Chrome Custom Tabs
+    playStoreImplementation "androidx.browser:browser:1.2.0"
+
+    //open-source licenses
+    playStoreImplementation "com.google.android.gms:play-services-oss-licenses:${versions.play_services}"
+
+    // QR Code Scanner
+    fdroidImplementation 'com.github.blikoon:QRCodeScanner:0.1.2'
+
+    // Mapbox
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-places-v8:0.9.0'
+
+    // About Page
+    implementation 'com.github.medyo:android-about-page:1.2.5'
+
+    //Testing
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.3.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation("androidx.arch.core:core-testing:2.1.0", {
+        exclude group: 'com.android.support', module: 'support-compat'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-core-utils'
+    })
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-inline:3.6.0'
+    testImplementation 'org.json:json:20180130'
+    testImplementation "org.robolectric:robolectric:${versions.roboelectric}"
+    testImplementation "org.robolectric:shadows-multidex:${versions.roboelectric}"
+    // testImplementation "org.robolectric:shadows-supportv4:${versions.roboelectric}"
+}

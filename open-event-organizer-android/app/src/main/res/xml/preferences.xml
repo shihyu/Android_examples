@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.preference.CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/play_sounds_key"
+        android:summary="@string/play_sound_on_check_in_out"
+        android:title="@string/play_sounds" />
+
+    <androidx.preference.CheckBoxPreference
+        android:defaultValue="false"
+        android:key="local_date"
+        android:summaryOff="Dates are shown in Event Timezone now"
+        android:summaryOn="Dates are shown in Local Timezone now"
+        android:title="Show dates in local timezone" />
+
+    <androidx.preference.EditTextPreference
+        android:key="device_name"
+        android:summary="@string/device_name_summary"
+        android:title="Device Name" />
+
+    <Preference
+        android:key="@string/sales_data_display_key"
+        android:title="@string/sales_data_display" />
+
+    <Preference
+        android:key="@string/developer_mode_key"
+        android:selectable="true"
+        android:title="@string/developer_mode" />
+
+</androidx.preference.PreferenceScreen>

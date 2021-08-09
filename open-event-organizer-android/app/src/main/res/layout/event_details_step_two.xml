@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.eventyay.organizer.ui.binding.BindingAdapters" />
+
+        <variable
+            name="event"
+            type="com.eventyay.organizer.data.event.Event" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/spacing_larger">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_medium"
+            android:divider="?android:dividerHorizontal"
+            android:orientation="vertical"
+            android:showDividers="beginning">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:divider="?android:dividerHorizontal"
+                android:padding="@dimen/spacing_extra_small"
+                android:showDividers="beginning"
+                android:text="@string/ticketing_details"
+                android:textSize="@dimen/text_size_normal"
+                android:textStyle="bold"/>
+
+            <CheckBox
+                android:id="@+id/ticketing_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onCheckedChanged="@{ (switch, checked) -> event.setTicketingEnabled(checked) }"
+                android:padding="@dimen/spacing_extra_small"
+                android:text="@string/use_ticketing_system" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="@{ ticketingDetails.checked ? View.GONE : View.VISIBLE }">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/ticket_url"
+                    android:padding="@dimen/spacing_extra_small"
+                    app:srcCompat="@drawable/ic_link" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ticket_url_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_extra_small">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ticket_url"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/ticket_url"
+                        android:inputType="text"
+                        android:text="@={ event.ticketUrl }" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:divider="?android:dividerHorizontal"
+                android:orientation="vertical"
+                android:showDividers="beginning">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:padding="@dimen/spacing_extra_small"
+                    android:text="@string/listing_privacy"
+                    android:textSize="@dimen/text_size_normal"
+                    android:textStyle="bold"/>
+
+                <RadioGroup
+                    android:id="@+id/listing_privacy_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_extra_small">
+
+                    <RadioButton
+                        android:id="@+id/public_privacy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:onCheckedChanged='@{ (switch, checked) -> (checked == true) ? event.setPrivacy("public") : event.setPrivacy("private") }'
+                        android:text="@string/public_event" />
+
+                    <RadioButton
+                        android:id="@+id/private_privacy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/private_event" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
