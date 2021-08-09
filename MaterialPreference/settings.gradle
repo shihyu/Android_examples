@@ -1,0 +1,7 @@
+include ':preference-android'
+include ':preference-simplemenu-android'
+include ':sample-android'
+
+include ':preference-appcompat'
+include ':preference-simplemenu-appcompat'
+include ':sample-appcompat'

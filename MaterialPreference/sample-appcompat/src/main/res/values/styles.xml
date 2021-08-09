@@ -1,0 +1,21 @@
+<resources>
+    <style name="Base.Light" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="preferenceTheme">@style/ThemeOverlay.Preference</item>
+    </style>
+
+    <style name="Base" parent="Theme.MaterialComponents">
+        <item name="preferenceTheme">@style/ThemeOverlay.Preference</item>
+    </style>
+
+    <style name="AppTheme" parent="Base.Light"/>
+
+    <style name="ThemeOverlay.Preference" parent="PreferenceThemeOverlay">
+        <item name="simpleMenuPreferenceStyle">@style/Preference.SimpleMenuPreference</item>
+
+        <!-- custom text style, use MaterialComponents style as example -->
+        <item name="preferenceTitleTextAppearance">?textAppearanceSubtitle1</item>
+        <item name="preferenceSummaryTextAppearance">?textAppearanceBody2</item>
+        <item name="preferenceCategoryTextAppearance">?textAppearanceSubtitle2</item>
+    </style>
+
+</resources>

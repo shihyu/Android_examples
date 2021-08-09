@@ -1,0 +1,17 @@
+<resources>
+
+    <style name="Base.Light" parent="android:Theme.Material.Light">
+        <item name="preferenceTheme">@style/ThemeOverlay.Preference</item>
+    </style>
+
+    <style name="Base" parent="android:Theme.Material">
+        <item name="preferenceTheme">@style/ThemeOverlay.Preference</item>
+    </style>
+
+    <style name="AppTheme" parent="Base.Light"/>
+
+    <style name="ThemeOverlay.Preference" parent="PreferenceThemeOverlay">
+        <item name="simpleMenuPreferenceStyle">@style/Preference.SimpleMenuPreference</item>
+    </style>
+
+</resources>
