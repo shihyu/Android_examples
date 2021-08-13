@@ -13,9 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.textlinkify;
-
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -26,7 +24,6 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.widget.TextView;
-
 /**
  * This sample demonstrates how clickable links can be added to a
  * {@link android.widget.TextView}.
@@ -48,14 +45,11 @@ import android.widget.TextView;
  */
 public class MainActivity extends Activity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.sample_main);
-
         // BEGIN_INCLUDE(text_auto_linkify)
         /*
          *  text_auto_linkify shows the android:autoLink property, which
@@ -69,7 +63,6 @@ public class MainActivity extends Activity
          *  auto-linking email addresses or phone numbers
          */
         // END_INCLUDE(text_auto_linkify)
-
         // BEGIN_INCLUDE(text_html_resource)
         /*
          * text_html_resource has links specified by putting anchor tags (<a>) in the string
@@ -82,7 +75,6 @@ public class MainActivity extends Activity
             Html.fromHtml(getResources().getString(R.string.link_text_manual)));
         textViewResource.setMovementMethod(LinkMovementMethod.getInstance());
         // END_INCLUDE(text_html_resource)
-
         // BEGIN_INCLUDE(text_html_program)
         /*
          * text_html_program shows creating text with links from HTML in the Java
@@ -100,7 +92,6 @@ public class MainActivity extends Activity
                 + "created in the Java source code using HTML."));
         textViewHtml.setMovementMethod(LinkMovementMethod.getInstance());
         // END_INCLUDE(text_html_program)
-
         // BEGIN_INCLUDE(text_spannable)
         /*
          * text_spannable illustrates constructing a styled string containing a
@@ -110,7 +101,6 @@ public class MainActivity extends Activity
          */
         SpannableString ss = new SpannableString(
             "text_spannable: Manually created spans. Click here to dial the phone.");
-
         /*
          * Make the first 38 characters bold by applying a StyleSpan with bold typeface.
          *
@@ -124,10 +114,8 @@ public class MainActivity extends Activity
                    Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         ss.setSpan(new URLSpan("tel:4155551212"), 40 + 6, 40 + 10,
                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
         TextView textViewSpan = (TextView) findViewById(R.id.text_spannable);
         textViewSpan.setText(ss);
-
         /*
          * Set the movement method to move between links in this TextView.
          * This means that the user traverses through links in this TextView, automatically
@@ -136,5 +124,4 @@ public class MainActivity extends Activity
         textViewSpan.setMovementMethod(LinkMovementMethod.getInstance());
         // END_INCLUDE(text_spannable)
     }
-
 }

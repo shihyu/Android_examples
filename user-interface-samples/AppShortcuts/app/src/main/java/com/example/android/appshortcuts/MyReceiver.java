@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 package com.example.android.appshortcuts;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-
 public class MyReceiver extends BroadcastReceiver
 {
     private static final String TAG = Main.TAG;
-
     @Override
     public void onReceive(Context context, Intent intent)
     {

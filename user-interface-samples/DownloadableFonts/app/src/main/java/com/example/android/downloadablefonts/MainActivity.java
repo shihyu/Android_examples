@@ -13,9 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.downloadablefonts;
-
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,41 +35,31 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Arrays;
-
 import static com.example.android.downloadablefonts.Constants.ITALIC_DEFAULT;
 import static com.example.android.downloadablefonts.Constants.WEIGHT_DEFAULT;
 import static com.example.android.downloadablefonts.Constants.WEIGHT_MAX;
 import static com.example.android.downloadablefonts.Constants.WIDTH_DEFAULT;
 import static com.example.android.downloadablefonts.Constants.WIDTH_MAX;
-
 public class MainActivity extends AppCompatActivity
 {
-
     private static final String TAG = "MainActivity";
-
     private Handler mHandler = null;
-
     private TextView mDownloadableFontTextView;
     private SeekBar mWidthSeekBar;
     private SeekBar mWeightSeekBar;
     private SeekBar mItalicSeekBar;
     private CheckBox mBestEffort;
     private Button mRequestDownloadButton;
-
     private ArraySet<String> mFamilyNameSet;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initializeSeekBars();
         mFamilyNameSet = new ArraySet<>();
         mFamilyNameSet.addAll(Arrays.asList(getResources().getStringArray(R.array.family_names)));
-
         mDownloadableFontTextView = findViewById(R.id.textview);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_dropdown_item_1line,
@@ -86,7 +74,6 @@ public class MainActivity extends AppCompatActivity
                                           int after) {
                 // No op
             }
-
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int count, int after) {
                 if (isValidFamilyName(charSequence.toString())) {
@@ -97,13 +84,11 @@ public class MainActivity extends AppCompatActivity
                     familyNameInput.setError(getString(R.string.invalid_family_name));
                 }
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
                 // No op
             }
         });
-
         mRequestDownloadButton = findViewById(R.id.button_request);
         mRequestDownloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +111,6 @@ public class MainActivity extends AppCompatActivity
         });
         mBestEffort = findViewById(R.id.checkbox_best_effort);
     }
-
     private void requestDownload(String familyName)
     {
         QueryBuilder queryBuilder = new QueryBuilder(familyName)
@@ -135,17 +119,14 @@ public class MainActivity extends AppCompatActivity
         .withItalic(progressToItalic(mItalicSeekBar.getProgress()))
         .withBestEffort(mBestEffort.isChecked());
         String query = queryBuilder.build();
-
         Log.d(TAG, "Requesting a font. Query: " + query);
         FontRequest request = new FontRequest(
             "com.google.android.gms.fonts",
             "com.google.android.gms",
             query,
             R.array.com_google_android_gms_fonts_certs);
-
         final ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-
         FontsContractCompat.FontRequestCallback callback = new FontsContractCompat
         .FontRequestCallback() {
             @Override
@@ -154,7 +135,6 @@ public class MainActivity extends AppCompatActivity
                 progressBar.setVisibility(View.GONE);
                 mRequestDownloadButton.setEnabled(true);
             }
-
             @Override
             public void onTypefaceRequestFailed(int reason) {
                 Toast.makeText(MainActivity.this,
@@ -168,7 +148,6 @@ public class MainActivity extends AppCompatActivity
         .requestFont(MainActivity.this, request, callback,
                      getHandlerThreadHandler());
     }
-
     private void initializeSeekBars()
     {
         mWidthSeekBar = findViewById(R.id.seek_bar_width);
@@ -182,16 +161,13 @@ public class MainActivity extends AppCompatActivity
                 widthTextView
                 .setText(String.valueOf(progressToWidth(progress)));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-
         mWeightSeekBar = findViewById(R.id.seek_bar_weight);
         float weightValue = (float) WEIGHT_DEFAULT / (float) WEIGHT_MAX * 100;
         mWeightSeekBar.setProgress((int) weightValue);
@@ -203,16 +179,13 @@ public class MainActivity extends AppCompatActivity
                 weightTextView
                 .setText(String.valueOf(progressToWeight(progress)));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-
         mItalicSeekBar = findViewById(R.id.seek_bar_italic);
         mItalicSeekBar.setProgress((int) ITALIC_DEFAULT);
         final TextView italicTextView = findViewById(R.id.textview_italic);
@@ -223,22 +196,18 @@ public class MainActivity extends AppCompatActivity
                 italicTextView
                 .setText(String.valueOf(progressToItalic(progress)));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
     }
-
     private boolean isValidFamilyName(String familyName)
     {
         return familyName != null && mFamilyNameSet.contains(familyName);
     }
-
     private Handler getHandlerThreadHandler()
     {
         if (mHandler == null) {
@@ -249,7 +218,6 @@ public class MainActivity extends AppCompatActivity
 
         return mHandler;
     }
-
     /**
      * Converts progress from a SeekBar to the value of width.
      * @param progress is passed from 0 to 100 inclusive
@@ -259,7 +227,6 @@ public class MainActivity extends AppCompatActivity
     {
         return progress == 0 ? 1 : progress * WIDTH_MAX / 100;
     }
-
     /**
      * Converts progress from a SeekBar to the value of weight.
      * @param progress is passed from 0 to 100 inclusive
@@ -275,7 +242,6 @@ public class MainActivity extends AppCompatActivity
             return WEIGHT_MAX * progress / 100;
         }
     }
-
     /**
      * Converts progress from a SeekBar to the value of italic.
      * @param progress is passed from 0 to 100 inclusive.

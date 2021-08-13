@@ -13,9 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.windowmanagersample;
-
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,40 +22,32 @@ import androidx.window.WindowInfoRepo;
 import androidx.window.WindowLayoutInfo;
 import androidx.window.java.WindowInfoRepoJavaAdapter;
 import com.example.windowmanagersample.databinding.ActivitySplitLayoutBinding;
-
 public class SplitLayoutActivity extends AppCompatActivity
 {
-
     private WindowInfoRepoJavaAdapter windowInfoRepo;
     private ActivitySplitLayoutBinding binding;
     private final LayoutStateChangeCallback layoutStateChangeCallback =
         new LayoutStateChangeCallback();
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
         binding = ActivitySplitLayoutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         windowInfoRepo = new WindowInfoRepoJavaAdapter(WindowInfoRepo.create(this));
     }
-
     @Override
     protected void onStart()
     {
         super.onStart();
         windowInfoRepo.addWindowLayoutInfoListener(Runnable::run, layoutStateChangeCallback);
     }
-
     @Override
     protected void onStop()
     {
         super.onStop();
         windowInfoRepo.removeWindowLayoutInfoListener(layoutStateChangeCallback);
     }
-
     class LayoutStateChangeCallback implements Consumer<WindowLayoutInfo>
     {
         @Override

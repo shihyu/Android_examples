@@ -29,30 +29,23 @@
 * limitations under the License.
 */
 package com.example.android.basicimmersivemode.tests;
-
 import com.example.android.basicimmersivemode.*;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.UiThreadTest;
-
 /**
 * Tests for immersive mode sample.
 */
 public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
 {
-
     private MainActivity mTestActivity;
     private BasicImmersiveModeFragment mTestFragment;
-
     public SampleTests()
     {
         super(MainActivity.class);
     }
-
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-
         // Starts the activity under test using the default Intent with:
         // action = {@link Intent#ACTION_MAIN}
         // flags = {@link Intent#FLAG_ACTIVITY_NEW_TASK}
@@ -61,7 +54,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         mTestFragment = (BasicImmersiveModeFragment)
         mTestActivity.getSupportFragmentManager().getFragments().get(1);
     }
-
     /**
     * Test if the test fixture has been set up correctly.
     */
@@ -72,7 +64,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         assertNotNull("mTestActivity is null", mTestActivity);
         assertNotNull("mTestFragment is null", mTestFragment);
     }
-
     /**
      * Verify that the UI flags actually changed when the toggle method is called.
      */
@@ -84,7 +75,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         int newUiFlags = getActivity().getWindow().getDecorView().getSystemUiVisibility();
         assertTrue("UI Flags didn't toggle.", uiFlags != newUiFlags);
     }
-
     /**
      * Verify that the view's height actually changed when the toggle method is called.
      * This should result in a change in height for the DecorView.
@@ -113,7 +103,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
                 // on the UI thread, or crashing will occur.
                 mTestActivity.runOnUiThread(testRunnable);
                 testRunnable.wait();
-
             }
             synchronized(this) {
                 //Wait about 200ms for the change to take place

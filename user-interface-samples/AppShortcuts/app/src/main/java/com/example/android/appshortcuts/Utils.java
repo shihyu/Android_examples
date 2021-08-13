@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 package com.example.android.appshortcuts;
-
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
-
 public class Utils
 {
     private Utils()
     {
     }
-
     public static void showToast(Context context, String message)
     {
         new Handler(Looper.getMainLooper()).post(() -> {

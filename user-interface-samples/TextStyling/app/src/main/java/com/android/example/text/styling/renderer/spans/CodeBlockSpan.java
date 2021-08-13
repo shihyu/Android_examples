@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 package com.android.example.text.styling.renderer.spans;
-
 import android.graphics.Typeface;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.style.BackgroundColorSpan;
-
 /**
  * To draw a code block, we set a font for the text and a background color.
  * The same effect can be achieved if on a text block, we set two spans: {@link FontSpan} and
@@ -28,15 +26,12 @@ import android.text.style.BackgroundColorSpan;
  */
 public class CodeBlockSpan extends FontSpan
 {
-
     private final @ColorInt int backgroundColor;
-
     public CodeBlockSpan(@NonNull final Typeface font, final @ColorInt int backgroundColor)
     {
         super(font);
         this.backgroundColor = backgroundColor;
     }
-
     // Since we're only changing the background color, it will not affect the measure state, so
     // just override the update draw state.
     @Override

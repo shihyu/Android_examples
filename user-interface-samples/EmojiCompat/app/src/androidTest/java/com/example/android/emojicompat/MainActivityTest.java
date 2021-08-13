@@ -13,31 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.emojicompat;
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-
 import androidx.annotation.StringRes;
 import androidx.test.filters.MediumTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest
 {
-
     @Rule
     public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
-
     @Test
     @MediumTest
     public void allTextsDisplayed() throws Exception {
@@ -55,5 +47,4 @@ public class MainActivityTest
             onView(withText(text)).check(matches(isDisplayed()));
         }
     }
-
 }

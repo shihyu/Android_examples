@@ -13,17 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.darktheme;
-
 import android.app.Application;
 import android.content.SharedPreferences;
-
 import androidx.preference.PreferenceManager;
-
 public class DarkThemeApplication extends Application
 {
-
     public void onCreate()
     {
         super.onCreate();

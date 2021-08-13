@@ -14,61 +14,46 @@
  * limitations under the License.
  */
 package com.android.example.text.styling.parser;
-
 import static com.android.example.text.styling.parser.Element.Type.BULLET_POINT;
 import static com.android.example.text.styling.parser.Element.Type.CODE_BLOCK;
 import static com.android.example.text.styling.parser.Element.Type.QUOTE;
 import static com.android.example.text.styling.parser.Element.Type.TEXT;
-
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
-
 import java.util.List;
-
 /**
  * Tests for {@link Parser}
  */
 public class ParserTest
 {
-
     private final String LINE_SEPARATOR = System.getProperty("line.separator");
-
     @Test
     public void quoteBeginingOfText()
     {
         String withQuote = "> This is a quote." + LINE_SEPARATOR + "This is not";
-
         List<Element> elements = new Parser().parse(withQuote).getElements();
-
         assertEquals(elements.size(), 2);
         assertEquals(elements.get(0).getType(), QUOTE);
         assertEquals(elements.get(0).getText(), "This is a quote." + LINE_SEPARATOR);
         assertEquals(elements.get(1).getType(), TEXT);
         assertEquals(elements.get(1).getText(), "This is not");
     }
-
     @Test
     public void quoteEndOfText()
     {
         String withQuote = "This is not a quote." + LINE_SEPARATOR + "> This is a quote";
-
         List<Element> elements = new Parser().parse(withQuote).getElements();
-
         assertEquals(elements.size(), 2);
         assertEquals(elements.get(0).getType(), TEXT);
         assertEquals(elements.get(0).getText(), "This is not a quote." + LINE_SEPARATOR);
         assertEquals(elements.get(1).getType(), QUOTE);
         assertEquals(elements.get(1).getText(), "This is a quote");
     }
-
     @Test
     public void simpleBulletPoints()
     {
         String bulletPoints = "Bullet points:" + LINE_SEPARATOR + "* One" + LINE_SEPARATOR + "+ Two" + LINE_SEPARATOR + "* Three";
-
         List<Element> elements = new Parser().parse(bulletPoints).getElements();
-
         assertEquals(elements.size(), 4);
         assertEquals(elements.get(0).getType(), TEXT);
         assertEquals(elements.get(0).getText(), "Bullet points:" + LINE_SEPARATOR);
@@ -79,14 +64,11 @@ public class ParserTest
         assertEquals(elements.get(3).getType(), BULLET_POINT);
         assertEquals(elements.get(3).getText(), "Three");
     }
-
     @Test
     public void simpleCode()
     {
         String code = "Styling `Text` in `Java`";
-
         List<Element> elements = new Parser().parse(code).getElements();
-
         assertEquals(elements.size(), 4);
         assertEquals(elements.get(0).getType(), TEXT);
         assertEquals(elements.get(0).getText(), "Styling ");
@@ -97,14 +79,11 @@ public class ParserTest
         assertEquals(elements.get(3).getType(), CODE_BLOCK);
         assertEquals(elements.get(3).getText(), "Java");
     }
-
     @Test
     public void codeWithExtraTick()
     {
         String code = "Styling `Text` in `Java";
-
         List<Element> elements = new Parser().parse(code).getElements();
-
         assertEquals(elements.size(), 4);
         assertEquals(elements.get(0).getType(), TEXT);
         assertEquals(elements.get(0).getText(), "Styling ");
@@ -115,14 +94,11 @@ public class ParserTest
         assertEquals(elements.get(3).getType(), TEXT);
         assertEquals(elements.get(3).getText(), "`Java");
     }
-
     @Test
     public void quoteBulletPointsCode()
     {
         String text = "Complex:" + LINE_SEPARATOR + "> Quote" + LINE_SEPARATOR + "With points:" + LINE_SEPARATOR + "+ bullet `one`" + LINE_SEPARATOR + "* bullet `two` is `long`";
-
         List<Element> elements = new Parser().parse(text).getElements();
-
         assertEquals(elements.size(), 5);
         assertEquals(elements.get(0).getType(), TEXT);
         assertEquals(elements.get(0).getText(), "Complex:" + LINE_SEPARATOR);

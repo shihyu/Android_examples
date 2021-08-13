@@ -13,20 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.darktheme;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-
 import androidx.annotation.AttrRes;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-
 public class ColorUtils
 {
-
     /**
      * Queries the theme of the given {@code context} for a theme color.
      *

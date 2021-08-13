@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 package com.android.example.text.styling.renderer;
-
 import android.graphics.Typeface;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -25,31 +24,24 @@ import android.text.SpannedString;
 import android.text.style.LeadingMarginSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
-
 import com.android.example.text.styling.parser.Element;
 import com.android.example.text.styling.parser.Parser;
 import com.android.example.text.styling.parser.TextMarkdown;
 import com.android.example.text.styling.renderer.spans.BulletPointSpan;
 import com.android.example.text.styling.renderer.spans.CodeBlockSpan;
-
 /**
  * Renders the text as simple markdown, using spans.
  */
 public class MarkdownBuilder
 {
-
     @ColorInt
     private final int bulletPointColor;
-
     @ColorInt
     private final int codeBackgroundColor;
-
     @Nullable
     private final Typeface codeBlockTypeface;
-
     @NonNull
     private final Parser parser;
-
     public MarkdownBuilder(@ColorInt final int bulletPointColor,
                            @ColorInt final int codeBackgroundColor,
                            final Typeface codeBlockTypeface,
@@ -60,11 +52,9 @@ public class MarkdownBuilder
         this.codeBlockTypeface = codeBlockTypeface;
         this.parser = parser;
     }
-
     public SpannedString markdownToSpans(@NonNull final String string)
     {
         TextMarkdown markdown = parser.parse(string);
-
         // In the SpannableStringBuilder, the text and the markup are mutable.
         SpannableStringBuilder builder = new SpannableStringBuilder();
 
@@ -74,7 +64,6 @@ public class MarkdownBuilder
 
         return new SpannedString(builder);
     }
-
     /**
      * Build the spans for an element and insert them in the builder
      *
@@ -103,7 +92,6 @@ public class MarkdownBuilder
             break;
         }
     }
-
     private void buildBulletPointSpans(@NonNull final Element element,
                                        @NonNull final SpannableStringBuilder builder)
     {
@@ -116,7 +104,6 @@ public class MarkdownBuilder
         builder.setSpan(new BulletPointSpan(20, bulletPointColor), startIndex,
                         builder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
-
     private void buildQuoteSpans(@NonNull Element element, SpannableStringBuilder builder)
     {
         int startIndex = builder.length();
@@ -129,7 +116,6 @@ public class MarkdownBuilder
         builder.setSpan(new RelativeSizeSpan(1.1f), startIndex, builder.length(),
                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
-
     private void buildCodeBlockSpan(@NonNull Element element, SpannableStringBuilder builder)
     {
         int startIndex = builder.length();

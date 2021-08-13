@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 package com.example.android.common.logger;
-
 /**
  * Basic interface for a logging system that can output to one or more targets.
  * Note that in addition to classes that will output these logs in some format,
@@ -26,7 +25,6 @@ package com.example.android.common.logger;
  */
 public interface LogNode
 {
-
     /**
      * Instructs first LogNode in the list to print the log data provided.
      *
@@ -38,5 +36,4 @@ public interface LogNode
      *                 to extract and print useful information.
      */
     public void println(int priority, String tag, String msg, Throwable tr);
-
 }

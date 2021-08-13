@@ -14,19 +14,15 @@
  * limitations under the License.
  */
 package com.example.android.common.logger;
-
 import android.util.Log;
-
 /**
  * Helper class which wraps Android's native Log utility in the Logger interface.  This way
  * normal DDMS output can be one of the many targets receiving and outputting logs simultaneously.
  */
 public class LogWrapper implements LogNode
 {
-
     // For piping:  The next node to receive Log data after this one has done its work.
     private LogNode mNext;
-
     /**
      * Returns the next LogNode in the linked list.
      */
@@ -34,7 +30,6 @@ public class LogWrapper implements LogNode
     {
         return mNext;
     }
-
     /**
      * Sets the LogNode data will be sent to..
      */
@@ -42,7 +37,6 @@ public class LogWrapper implements LogNode
     {
         mNext = node;
     }
-
     /**
      * Prints data out to the console using Android's native log mechanism.
      * @param priority Log level of the data being logged.  Verbose, Error, etc.

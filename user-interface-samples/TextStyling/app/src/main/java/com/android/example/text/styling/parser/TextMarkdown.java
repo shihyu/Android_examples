@@ -14,26 +14,20 @@
  * limitations under the License.
  */
 package com.android.example.text.styling.parser;
-
 import androidx.annotation.NonNull;
-
 import java.util.List;
-
 /**
  * Simple markdown parsing of text.
  * Contains a list of markdown {@link Element}s
  */
 public class TextMarkdown
 {
-
     @NonNull
     private final List<Element> elements;
-
     public TextMarkdown(@NonNull final List<Element> elements)
     {
         this.elements = elements;
     }
-
     @NonNull
     public List<Element> getElements()
     {

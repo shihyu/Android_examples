@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 package com.example.android.common.logger;
-
 /**
  * Helper class for a list (or tree) of LoggerNodes.
  *
@@ -25,26 +24,17 @@ package com.example.android.common.logger;
  */
 public class Log
 {
-
     // Grabbing the native values from Android's native logging facilities,
     // to make for easy migration and interop.
     public static final int NONE = -1;
-
     public static final int VERBOSE = android.util.Log.VERBOSE;
-
     public static final int DEBUG = android.util.Log.DEBUG;
-
     public static final int INFO = android.util.Log.INFO;
-
     public static final int WARN = android.util.Log.WARN;
-
     public static final int ERROR = android.util.Log.ERROR;
-
     public static final int ASSERT = android.util.Log.ASSERT;
-
     // Stores the beginning of the LogNode topology.
     private static LogNode mLogNode;
-
     /**
      * Returns the next LogNode in the linked list.
      */
@@ -52,7 +42,6 @@ public class Log
     {
         return mLogNode;
     }
-
     /**
      * Sets the LogNode data will be sent to.
      */
@@ -60,7 +49,6 @@ public class Log
     {
         mLogNode = node;
     }
-
     /**
      * Instructs the LogNode to print the log data provided. Other LogNodes can
      * be chained to the end of the LogNode as desired.
@@ -78,7 +66,6 @@ public class Log
             mLogNode.println(priority, tag, msg, tr);
         }
     }
-
     /**
      * Instructs the LogNode to print the log data provided. Other LogNodes can
      * be chained to the end of the LogNode as desired.
@@ -91,7 +78,6 @@ public class Log
     {
         println(priority, tag, msg, null);
     }
-
     /**
      * Prints a message at VERBOSE priority.
      *
@@ -104,7 +90,6 @@ public class Log
     {
         println(VERBOSE, tag, msg, tr);
     }
-
     /**
      * Prints a message at VERBOSE priority.
      *
@@ -115,8 +100,6 @@ public class Log
     {
         v(tag, msg, null);
     }
-
-
     /**
      * Prints a message at DEBUG priority.
      *
@@ -129,7 +112,6 @@ public class Log
     {
         println(DEBUG, tag, msg, tr);
     }
-
     /**
      * Prints a message at DEBUG priority.
      *
@@ -140,7 +122,6 @@ public class Log
     {
         d(tag, msg, null);
     }
-
     /**
      * Prints a message at INFO priority.
      *
@@ -153,7 +134,6 @@ public class Log
     {
         println(INFO, tag, msg, tr);
     }
-
     /**
      * Prints a message at INFO priority.
      *
@@ -164,7 +144,6 @@ public class Log
     {
         i(tag, msg, null);
     }
-
     /**
      * Prints a message at WARN priority.
      *
@@ -177,7 +156,6 @@ public class Log
     {
         println(WARN, tag, msg, tr);
     }
-
     /**
      * Prints a message at WARN priority.
      *
@@ -188,7 +166,6 @@ public class Log
     {
         w(tag, msg, null);
     }
-
     /**
      * Prints a message at WARN priority.
      *
@@ -200,7 +177,6 @@ public class Log
     {
         w(tag, null, tr);
     }
-
     /**
      * Prints a message at ERROR priority.
      *
@@ -213,7 +189,6 @@ public class Log
     {
         println(ERROR, tag, msg, tr);
     }
-
     /**
      * Prints a message at ERROR priority.
      *
@@ -224,7 +199,6 @@ public class Log
     {
         e(tag, msg, null);
     }
-
     /**
      * Prints a message at ASSERT priority.
      *
@@ -237,7 +211,6 @@ public class Log
     {
         println(ASSERT, tag, msg, tr);
     }
-
     /**
      * Prints a message at ASSERT priority.
      *
@@ -248,7 +221,6 @@ public class Log
     {
         wtf(tag, msg, null);
     }
-
     /**
      * Prints a message at ASSERT priority.
      *

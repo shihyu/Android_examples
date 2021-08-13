@@ -13,29 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.darktheme;
-
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
-
 public class MainActivity extends AppCompatActivity
 {
-
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationListener
         = new BottomNavigationView.OnNavigationItemSelectedListener()
     {
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
@@ -55,15 +48,12 @@ public class MainActivity extends AppCompatActivity
             return false;
         }
     };
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationListener);
 
@@ -71,21 +61,17 @@ public class MainActivity extends AppCompatActivity
             showFragment(WelcomeFragment.TAG);
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.main_menu, menu);
-
         // This demonstrates how to programmatically tint a drawable
         MenuItem item = menu.findItem(R.id.action_more);
         Drawable drawableWrap = DrawableCompat.wrap(item.getIcon()).mutate();
         DrawableCompat.setTint(drawableWrap, ColorUtils.getThemeColor(this, R.attr.colorOnPrimary));
         item.setIcon(drawableWrap);
-
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -98,7 +84,6 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
     private void showFragment(@NonNull String tag)
     {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);

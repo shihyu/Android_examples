@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 package com.example.android.appshortcuts;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
@@ -26,7 +25,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.PersistableBundle;
 import android.util.Log;
-
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,26 +35,19 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.function.BooleanSupplier;
-
 public class ShortcutHelper
 {
     private static final String TAG = Main.TAG;
-
     private static final String EXTRA_LAST_REFRESH =
         "com.example.android.shortcutsample.EXTRA_LAST_REFRESH";
-
     private static final long REFRESH_INTERVAL_MS = 60 * 60 * 1000;
-
     private final Context mContext;
-
     private final ShortcutManager mShortcutManager;
-
     public ShortcutHelper(Context context)
     {
         mContext = context;
         mShortcutManager = mContext.getSystemService(ShortcutManager.class);
     }
-
     public void maybeRestoreAllDynamicShortcuts()
     {
         if (mShortcutManager.getDynamicShortcuts().size() == 0) {
@@ -66,12 +57,10 @@ public class ShortcutHelper
             // will *not* be restored but the pinned shortcuts *will*.
         }
     }
-
     public void reportShortcutUsed(String id)
     {
         mShortcutManager.reportShortcutUsed(id);
     }
-
     /**
      * Use this when interacting with ShortcutManager to show consistent error messages.
      */
@@ -86,7 +75,6 @@ public class ShortcutHelper
             Utils.showToast(mContext, "Error while calling ShortcutManager: " + e.toString());
         }
     }
-
     /**
      * Return all mutable shortcuts from this app self.
      */
@@ -94,7 +82,6 @@ public class ShortcutHelper
     {
         // Load mutable dynamic shortcuts and pinned shortcuts and put them into a single list
         // removing duplicates.
-
         final List<ShortcutInfo> ret = new ArrayList<>();
         final HashSet<String> seenKeys = new HashSet<>();
 
@@ -115,7 +102,6 @@ public class ShortcutHelper
 
         return ret;
     }
-
     /**
      * Called when the activity starts.  Looks for shortcuts that have been pushed and refreshes
      * them (but the refresh part isn't implemented yet...).
@@ -126,13 +112,10 @@ public class ShortcutHelper
             @Override
             protected Void doInBackground(Void... params) {
                 Log.i(TAG, "refreshingShortcuts...");
-
                 final long now = System.currentTimeMillis();
                 final long staleThreshold = force ? now : now - REFRESH_INTERVAL_MS;
-
                 // Check all existing dynamic and pinned shortcut, and if their last refresh
                 // time is older than a certain threshold, update them.
-
                 final List<ShortcutInfo> updateList = new ArrayList<>();
 
                 for (ShortcutInfo shortcut : getShortcuts()) {
@@ -148,13 +131,10 @@ public class ShortcutHelper
                     }
 
                     Log.i(TAG, "Refreshing shortcut: " + shortcut.getId());
-
                     final ShortcutInfo.Builder b = new ShortcutInfo.Builder(
                         mContext, shortcut.getId());
-
                     setSiteInformation(b, shortcut.getIntent().getData());
                     setExtras(b);
-
                     updateList.add(b.build());
                 }
 
@@ -167,29 +147,22 @@ public class ShortcutHelper
             }
         } .execute();
     }
-
     private ShortcutInfo createShortcutForUrl(String urlAsString)
     {
         Log.i(TAG, "createShortcutForUrl: " + urlAsString);
-
         final ShortcutInfo.Builder b = new ShortcutInfo.Builder(mContext, urlAsString);
-
         final Uri uri = Uri.parse(urlAsString);
         b.setIntent(new Intent(Intent.ACTION_VIEW, uri));
-
         setSiteInformation(b, uri);
         setExtras(b);
-
         return b.build();
     }
-
     private ShortcutInfo.Builder setSiteInformation(ShortcutInfo.Builder b, Uri uri)
     {
         // TODO Get the actual site <title> and use it.
         // TODO Set the current locale to accept-language to get localized title.
         b.setShortLabel(uri.getHost());
         b.setLongLabel(uri.toString());
-
         Bitmap bmp = fetchFavicon(uri);
 
         if (bmp != null) {
@@ -200,7 +173,6 @@ public class ShortcutHelper
 
         return b;
     }
-
     private ShortcutInfo.Builder setExtras(ShortcutInfo.Builder b)
     {
         final PersistableBundle extras = new PersistableBundle();
@@ -208,7 +180,6 @@ public class ShortcutHelper
         b.setExtras(extras);
         return b;
     }
-
     private String normalizeUrl(String urlAsString)
     {
         if (urlAsString.startsWith("http://") || urlAsString.startsWith("https://")) {
@@ -217,7 +188,6 @@ public class ShortcutHelper
             return "http://" + urlAsString;
         }
     }
-
     public void addWebSiteShortcut(String urlAsString)
     {
         final String uriFinal = urlAsString;
@@ -226,27 +196,22 @@ public class ShortcutHelper
             return mShortcutManager.addDynamicShortcuts(Arrays.asList(shortcut));
         });
     }
-
     public void removeShortcut(ShortcutInfo shortcut)
     {
         mShortcutManager.removeDynamicShortcuts(Arrays.asList(shortcut.getId()));
     }
-
     public void disableShortcut(ShortcutInfo shortcut)
     {
         mShortcutManager.disableShortcuts(Arrays.asList(shortcut.getId()));
     }
-
     public void enableShortcut(ShortcutInfo shortcut)
     {
         mShortcutManager.enableShortcuts(Arrays.asList(shortcut.getId()));
     }
-
     private Bitmap fetchFavicon(Uri uri)
     {
         final Uri iconUri = uri.buildUpon().path("favicon.ico").build();
         Log.i(TAG, "Fetching favicon from: " + iconUri);
-
         InputStream is = null;
         BufferedInputStream bis = null;
 

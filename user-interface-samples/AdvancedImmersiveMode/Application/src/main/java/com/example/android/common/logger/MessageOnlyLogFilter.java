@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 package com.example.android.common.logger;
-
 /**
  * Simple {@link LogNode} filter, removes everything except the message.
  * Useful for situations like on-screen log output where you don't want a lot of metadata displayed,
@@ -22,9 +21,7 @@ package com.example.android.common.logger;
  */
 public class MessageOnlyLogFilter implements LogNode
 {
-
     LogNode mNext;
-
     /**
      * Takes the "next" LogNode as a parameter, to simplify chaining.
      *
@@ -34,11 +31,9 @@ public class MessageOnlyLogFilter implements LogNode
     {
         mNext = next;
     }
-
     public MessageOnlyLogFilter()
     {
     }
-
     @Override
     public void println(int priority, String tag, String msg, Throwable tr)
     {
@@ -46,7 +41,6 @@ public class MessageOnlyLogFilter implements LogNode
             getNext().println(Log.NONE, null, msg, null);
         }
     }
-
     /**
      * Returns the next LogNode in the chain.
      */
@@ -54,7 +48,6 @@ public class MessageOnlyLogFilter implements LogNode
     {
         return mNext;
     }
-
     /**
      * Sets the LogNode data will be sent to..
      */
@@ -62,5 +55,4 @@ public class MessageOnlyLogFilter implements LogNode
     {
         mNext = node;
     }
-
 }

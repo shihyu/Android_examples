@@ -13,26 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.darktheme;
-
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-
 public class SettingsFragment extends PreferenceFragmentCompat
 {
-
     static final String TAG = "SettingsFragmentTag";
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
     {
         setPreferencesFromResource(R.xml.preferences, rootKey);
-
         ListPreference themePreference = findPreference("themePref");
 
         if (themePreference != null) {

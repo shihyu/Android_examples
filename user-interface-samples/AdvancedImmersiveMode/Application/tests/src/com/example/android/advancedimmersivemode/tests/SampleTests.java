@@ -29,35 +29,27 @@
 * limitations under the License.
 */
 package com.example.android.advancedimmersivemode.tests;
-
 import com.example.android.advancedimmersivemode.*;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.UiThreadTest;
-
 /**
 * Tests for AdvancedImmersiveMode sample.
 */
 public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
 {
-
     private MainActivity mTestActivity;
     private AdvancedImmersiveModeFragment mTestFragment;
-
     public SampleTests()
     {
         super(MainActivity.class);
     }
-
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-
         mTestActivity = getActivity();
         mTestFragment = (AdvancedImmersiveModeFragment)
         mTestActivity.getSupportFragmentManager().getFragments().get(1);
     }
-
     /**
     * Test if the test fixture has been set up correctly.
     */
@@ -66,8 +58,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         assertNotNull("mTestActivity is null", mTestActivity);
         assertNotNull("mTestFragment is null", mTestFragment);
     }
-
-
     /**
      * Verify that the UI flags actually changed when the toggle method is called.
      */

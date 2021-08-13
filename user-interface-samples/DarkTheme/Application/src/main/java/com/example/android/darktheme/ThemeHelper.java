@@ -13,22 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.darktheme;
-
 import android.os.Build;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.os.BuildCompat;
-
 public class ThemeHelper
 {
-
     public static final String LIGHT_MODE = "light";
     public static final String DARK_MODE = "dark";
     public static final String DEFAULT_MODE = "default";
-
     public static void applyTheme(@NonNull String themePref)
     {
         switch (themePref) {

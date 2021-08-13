@@ -13,24 +13,17 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
 package com.example.android.droptarget;
-
 import android.content.ClipData;
 import android.net.Uri;
 import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageView;
-
 public class ImageDragListener implements View.OnDragListener
 {
-
     private static final int COLOR_INACTIVE = 0xFF888888;
-
     private static final int COLOR_ACTIVE = 0xFFCCCCCC;
-
     private static final int COLOR_HOVER = 0xFFEEEEEE;
-
     @Override
     public boolean onDrag(View view, DragEvent event)
     {
@@ -64,12 +57,10 @@ public class ImageDragListener implements View.OnDragListener
 
         return false;
     }
-
     private void setTargetColor(View view, int color)
     {
         view.setBackgroundColor(color);
     }
-
     private boolean processDrop(View view, DragEvent event)
     {
         ClipData clipData = event.getClipData();
@@ -92,11 +83,9 @@ public class ImageDragListener implements View.OnDragListener
 
         return setImageUri(view, event, uri);
     }
-
     protected void processLocation(float x, float y)
     {
     }
-
     protected boolean setImageUri(View view, DragEvent event, Uri uri)
     {
         if (!(view instanceof ImageView)) {

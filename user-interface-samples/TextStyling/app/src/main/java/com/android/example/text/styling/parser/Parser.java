@@ -14,17 +14,13 @@
  * limitations under the License.
  */
 package com.android.example.text.styling.parser;
-
 import androidx.annotation.NonNull;
-
 import com.android.example.text.styling.parser.Element.Type;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 /**
  * The role of this parser is just to showcase ways of working with text. It should not be
  * expected to support complex markdown elements.
@@ -50,9 +46,7 @@ public class Parser
     private static final String CODE_BLOCK = "`";
     private static final String BULLET_POINT_CODE_BLOCK_REGEX = "(" + BULLET_POINT_REGEX + "|" +
             CODE_BLOCK + ")";
-
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
-
     /**
      * Parse a text and extract the {@link TextMarkdown}.
      *
@@ -63,10 +57,8 @@ public class Parser
     public TextMarkdown parse(@NonNull final String string)
     {
         List<Element> parents = new ArrayList<>();
-
         Pattern quotePattern = Pattern.compile(QUOTE_REGEX);
         Pattern pattern = Pattern.compile(BULLET_POINT_CODE_BLOCK_REGEX);
-
         Matcher matcher = quotePattern.matcher(string);
         int lastStartIndex = 0;
 
@@ -96,7 +88,6 @@ public class Parser
 
         return new TextMarkdown(parents);
     }
-
     private static int getEndOfParagraph(@NonNull String string, int endIndex)
     {
         int endOfParagraph = string.indexOf(LINE_SEPARATOR, endIndex);
@@ -112,7 +103,6 @@ public class Parser
 
         return endOfParagraph;
     }
-
     @NonNull
     private static List<Element> findElements(@NonNull final String string,
             @NonNull final Pattern pattern)

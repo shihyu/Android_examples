@@ -13,11 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.droptarget;
-
 import com.example.android.common.logger.Log;
-
 import android.app.Activity;
 import android.content.ClipDescription;
 import android.content.ContentResolver;
@@ -34,7 +31,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-
 /**
  * This sample demonstrates data can be moved between views in different applications via
  * drag and drop.
@@ -52,28 +48,19 @@ import android.widget.ImageView;
  */
 public class DropTargetFragment extends Fragment
 {
-
     private static final String IMAGE_URI = "IMAGE_URI";
-
     public static final String EXTRA_IMAGE_INFO = "IMAGE_INFO";
-
     private static final String TAG = "DropTargetFragment";
-
     private Uri mImageUri;
-
     private CheckBox mReleasePermissionCheckBox;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
-
         View rootView = inflater.inflate(R.layout.fragment_droptarget, container, false);
         final ImageView imageView = (ImageView) rootView.findViewById(R.id.image_target);
-
         ImageDragListener imageDragListener = new PermissionAwareImageDragListener();
-
         imageView.setOnDragListener(imageDragListener);
 
         // Restore the application state if an image was being displayed.
@@ -87,10 +74,8 @@ public class DropTargetFragment extends Fragment
         }
 
         mReleasePermissionCheckBox = (CheckBox) rootView.findViewById(R.id.release_checkbox);
-
         return rootView;
     }
-
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState)
     {
@@ -100,22 +85,18 @@ public class DropTargetFragment extends Fragment
 
         super.onSaveInstanceState(savedInstanceState);
     }
-
     private class PermissionAwareImageDragListener extends ImageDragListener
     {
-
         @Override
         protected void processLocation(float x, float y)
         {
             // Callback is received when the dragged image enters the drop area.
         }
-
         @Override
         protected boolean setImageUri(View view, DragEvent event, Uri uri)
         {
             // Read the string from the clip description extras.
             Log.d(TAG, "ClipDescription extra: " + getExtra(event));
-
             Log.d(TAG, "Setting image source to: " + uri.toString());
             mImageUri = uri;
 
@@ -152,7 +133,6 @@ public class DropTargetFragment extends Fragment
                 return super.setImageUri(view, event, uri);
             }
         }
-
         @Override
         public boolean onDrag(View view, DragEvent event)
         {
@@ -169,7 +149,6 @@ public class DropTargetFragment extends Fragment
             return super.onDrag(view, event);
         }
     }
-
     /**
      * DragEvents can contain additional data packaged in a {@link PersistableBundle}.
      * Extract the extras from the event and return the String stored for the

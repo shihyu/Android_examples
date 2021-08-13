@@ -14,31 +14,24 @@
 * limitations under the License.
 */
 package com.example.android.clippingbasic.tests;
-
 import com.example.android.clippingbasic.*;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.view.View;
-
 /**
 * Tests for ClippingBasic sample.
 */
 public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
 {
-
     private MainActivity mTestActivity;
     private ClippingBasicFragment mTestFragment;
-
     public SampleTests()
     {
         super(MainActivity.class);
     }
-
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-
         // Starts the activity under test using the default Intent with:
         // action = {@link Intent#ACTION_MAIN}
         // flags = {@link Intent#FLAG_ACTIVITY_NEW_TASK}
@@ -47,7 +40,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         mTestFragment = (ClippingBasicFragment)
         mTestActivity.getSupportFragmentManager().getFragments().get(1);
     }
-
     /**
     * Test if the test fixture has been set up correctly.
     */
@@ -58,20 +50,16 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         assertNotNull("Clipped frame is null", mTestActivity.findViewById(R.id.frame));
         assertNotNull("Text view is null", mTestActivity.findViewById(R.id.text_view));
     }
-
     /**
      * Triggers a click on the button and tests if the view is clipped afterwards.
      */
     public void testClipping()
     {
         View clippedView = mTestActivity.findViewById(R.id.frame);
-
         // Initially, the view is not clipped.
         assertFalse(clippedView.getClipToOutline());
-
         // Trigger a click on the button to activate clipping.
         TouchUtils.clickView(this, mTestActivity.findViewById(R.id.button));
-
         // Check that the view has been clipped.
         assertTrue(clippedView.getClipToOutline());
     }

@@ -14,35 +14,27 @@
 * limitations under the License.
 */
 package com.example.android.elevationdrag.tests;
-
 import com.example.android.elevationdrag.*;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.view.Gravity;
 import android.view.View;
-
 /**
 * Tests for ElevationDrag sample.
 */
 public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
 {
-
     private MainActivity mTestActivity;
     private ElevationDragFragment mTestFragment;
-
     private View mFloatingShape;
     private View mDragFrame;
-
     public SampleTests()
     {
         super(MainActivity.class);
     }
-
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-
         // Starts the activity under test using the default Intent with:
         // action = {@link Intent#ACTION_MAIN}
         // flags = {@link Intent#FLAG_ACTIVITY_NEW_TASK}
@@ -50,11 +42,9 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         mTestActivity = getActivity();
         mTestFragment = (ElevationDragFragment)
         mTestActivity.getSupportFragmentManager().getFragments().get(1);
-
         mFloatingShape = mTestActivity.findViewById(R.id.circle);
         mDragFrame = mTestActivity.findViewById(R.id.main_layout);
     }
-
     /**
     * Test if the test fixture has been set up correctly.
     */
@@ -69,7 +59,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         // Check that the view is not raised yet.
         assertEquals(mFloatingShape.getZ(), 0f);
     }
-
     /**
      * Test that the floating shape can be dragged and that it's raised while dragging.
      */
@@ -81,7 +70,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
                                mFloatingShape,
                                Gravity.CENTER,
                                0);
-
         // Check that the view is dragging and that it's been raised.
         // We need to use runOnMainSync here as fake dragging uses waitForIdleSync().
         getInstrumentation().runOnMainSync(new Runnable() {
@@ -90,7 +78,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
                 // Check that the view has moved.
                 float deltaX = mFloatingShape.getX() - initialX;
                 assertTrue(Math.abs(deltaX) > 0f);
-
                 // Check that the view is raised.
                 assertTrue(mFloatingShape.getZ() > 0f);
             }

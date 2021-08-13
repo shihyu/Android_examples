@@ -13,44 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.downloadablefonts;
-
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 /**
  * Builder class for constructing a query for downloading a font.
  */
 class QueryBuilder
 {
-
     @NonNull
     private String mFamilyName;
-
     @Nullable
     private Float mWidth = null;
-
     @Nullable
     private Integer mWeight = null;
-
     @Nullable
     private Float mItalic = null;
-
     @Nullable
     private Boolean mBesteffort = null;
-
     QueryBuilder(@NonNull String familyName)
     {
         mFamilyName = familyName;
     }
-
     QueryBuilder withFamilyName(@NonNull String familyName)
     {
         mFamilyName = familyName;
         return this;
     }
-
     QueryBuilder withWidth(float width)
     {
         if (width <= Constants.WIDTH_MIN) {
@@ -60,7 +49,6 @@ class QueryBuilder
         mWidth = width;
         return this;
     }
-
     QueryBuilder withWeight(int weight)
     {
         if (weight <= Constants.WEIGHT_MIN || weight >= Constants.WEIGHT_MAX) {
@@ -71,7 +59,6 @@ class QueryBuilder
         mWeight = weight;
         return this;
     }
-
     QueryBuilder withItalic(float italic)
     {
         if (italic < Constants.ITALIC_MIN || italic > Constants.ITALIC_MAX) {
@@ -81,13 +68,11 @@ class QueryBuilder
         mItalic = italic;
         return this;
     }
-
     QueryBuilder withBestEffort(boolean bestEffort)
     {
         mBesteffort = bestEffort;
         return this;
     }
-
     String build()
     {
         if (mWeight == null && mWidth == null && mItalic == null && mBesteffort == null) {

@@ -14,35 +14,27 @@
 * limitations under the License.
 */
 package com.example.android.elevationbasic.tests;
-
 import com.example.android.elevationbasic.ElevationBasicFragment;
 import com.example.android.elevationbasic.MainActivity;
 import com.example.android.elevationbasic.R;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
-
 /**
 * Tests for ElevationBasic sample.
 */
 public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
 {
-
     private MainActivity mTestActivity;
     private ElevationBasicFragment mTestFragment;
-
     private View mShape1;
     private View mShape2;
-
     public SampleTests()
     {
         super(MainActivity.class);
     }
-
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-
         // Starts the activity under test using the default Intent with:
         // action = {@link Intent#ACTION_MAIN}
         // flags = {@link Intent#FLAG_ACTIVITY_NEW_TASK}
@@ -53,7 +45,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         mShape1 = mTestActivity.findViewById(R.id.floating_shape);
         mShape2 = mTestActivity.findViewById(R.id.floating_shape_2);
     }
-
     /**
     * Test if the test fixture has been set up correctly.
     */
@@ -62,7 +53,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity>
         assertNotNull("mTestActivity is null", mTestActivity);
         assertNotNull("mTestFragment is null", mTestFragment);
     }
-
     /**
      * Test if the initial Z values of the shapes are correct.
      */

@@ -13,17 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.emojicompat;
-
 import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.emoji.widget.EmojiTextViewHelper;
 import androidx.appcompat.widget.AppCompatTextView;
 import android.text.InputFilter;
 import android.util.AttributeSet;
-
-
 /**
  * A sample implementation of custom TextView.
  *
@@ -32,38 +28,31 @@ import android.util.AttributeSet;
  */
 public class CustomTextView extends AppCompatTextView
 {
-
     private EmojiTextViewHelper mEmojiTextViewHelper;
-
     public CustomTextView(Context context)
     {
         this(context, null);
     }
-
     public CustomTextView(Context context, @Nullable AttributeSet attrs)
     {
         this(context, attrs, 0);
     }
-
     public CustomTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr)
     {
         super(context, attrs, defStyleAttr);
         getEmojiTextViewHelper().updateTransformationMethod();
     }
-
     @Override
     public void setFilters(InputFilter[] filters)
     {
         super.setFilters(getEmojiTextViewHelper().getFilters(filters));
     }
-
     @Override
     public void setAllCaps(boolean allCaps)
     {
         super.setAllCaps(allCaps);
         getEmojiTextViewHelper().setAllCaps(allCaps);
     }
-
     /**
      * Returns the {@link EmojiTextViewHelper} for this TextView.
      *
@@ -78,5 +67,4 @@ public class CustomTextView extends AppCompatTextView
 
         return mEmojiTextViewHelper;
     }
-
 }

@@ -13,15 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.documentcentricapps;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
 /**
  * Represents a "document" in the new overview notion. This is just a placeholder.
  * Real world examples of this could be:
@@ -36,10 +33,8 @@ import android.widget.TextView;
  */
 public class NewDocumentActivity extends Activity
 {
-
     private TextView mDocumentCounterTextView;
     private int mDocumentCount;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,7 +46,6 @@ public class NewDocumentActivity extends Activity
                                        R.id.hello_new_document_text_view);
         setDocumentCounterText(R.string.hello_new_document_counter);
     }
-
     @Override
     protected void onNewIntent(Intent intent)
     {
@@ -61,17 +55,14 @@ public class NewDocumentActivity extends Activity
          */
         setDocumentCounterText(R.string.reusing_document_counter);
     }
-
     public void onRemoveFromOverview(View view)
     {
         // It is good pratice to remove a document from the overview stack if not needed anymore.
         finishAndRemoveTask();
     }
-
     public void setDocumentCounterText(int resId)
     {
         mDocumentCounterTextView
         .setText(String.format(getString(resId), String.valueOf(mDocumentCount)));
     }
-
 }

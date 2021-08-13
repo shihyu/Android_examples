@@ -14,32 +14,26 @@
  * limitations under the License.
  */
 package com.example.android.common.logger;
-
 import android.app.Activity;
 import android.content.Context;
 import android.util.*;
 import android.widget.TextView;
-
 /** Simple TextView which is used to output log data received through the LogNode interface.
 */
 public class LogView extends TextView implements LogNode
 {
-
     public LogView(Context context)
     {
         super(context);
     }
-
     public LogView(Context context, AttributeSet attrs)
     {
         super(context, attrs);
     }
-
     public LogView(Context context, AttributeSet attrs, int defStyle)
     {
         super(context, attrs, defStyle);
     }
-
     /**
      * Formats the log data and prints it out to the LogView.
      * @param priority Log level of the data being logged.  Verbose, Error, etc.
@@ -51,8 +45,6 @@ public class LogView extends TextView implements LogNode
     @Override
     public void println(int priority, String tag, String msg, Throwable tr)
     {
-
-
         String priorityStr = null;
 
         // For the purposes of this View, we want to print the priority as readable text.
@@ -95,13 +87,11 @@ public class LogView extends TextView implements LogNode
         // Take the priority, tag, message, and exception, and concatenate as necessary
         // into one usable line of text.
         final StringBuilder outputBuilder = new StringBuilder();
-
         String delimiter = "\t";
         appendIfNotNull(outputBuilder, priorityStr, delimiter);
         appendIfNotNull(outputBuilder, tag, delimiter);
         appendIfNotNull(outputBuilder, msg, delimiter);
         appendIfNotNull(outputBuilder, exceptionStr, delimiter);
-
         // In case this was originally called from an AsyncTask or some other off-UI thread,
         // make sure the update occurs within the UI thread.
         ((Activity) getContext()).runOnUiThread((new Thread(new Runnable() {
@@ -116,17 +106,14 @@ public class LogView extends TextView implements LogNode
             mNext.println(priority, tag, msg, tr);
         }
     }
-
     public LogNode getNext()
     {
         return mNext;
     }
-
     public void setNext(LogNode node)
     {
         mNext = node;
     }
-
     /** Takes a string and adds to it, with a separator, if the bit to be added isn't null. Since
      * the logger takes so many arguments that might be null, this method helps cut out some of the
      * agonizing tedium of writing the same 3 lines over and over.
@@ -148,15 +135,11 @@ public class LogView extends TextView implements LogNode
 
         return source;
     }
-
     // The next LogNode in the chain.
     LogNode mNext;
-
     /** Outputs the string as a new line of log data in the LogView. */
     public void appendToLog(String s)
     {
         append("\n" + s);
     }
-
-
 }

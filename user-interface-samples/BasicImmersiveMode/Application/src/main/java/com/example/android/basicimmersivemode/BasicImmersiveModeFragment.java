@@ -14,26 +14,20 @@
 * limitations under the License.
 */
 package com.example.android.basicimmersivemode;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 import android.view.View;
-
 import com.example.android.common.logger.Log;
-
 public class BasicImmersiveModeFragment extends Fragment
 {
-
     public static final String TAG = "BasicImmersiveModeFragment";
-
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
     {
@@ -48,7 +42,6 @@ public class BasicImmersiveModeFragment extends Fragment
             }
         });
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -58,7 +51,6 @@ public class BasicImmersiveModeFragment extends Fragment
 
         return true;
     }
-
     /**
      * Detects and toggles immersive mode.
      */

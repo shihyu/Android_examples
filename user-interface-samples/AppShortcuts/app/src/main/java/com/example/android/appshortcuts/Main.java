@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 package com.example.android.appshortcuts;
-
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
@@ -31,34 +30,23 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 public class Main extends ListActivity implements OnClickListener
 {
     static final String TAG = "ShortcutSample";
-
     private static final String ID_ADD_WEBSITE = "add_website";
-
     private static final String ACTION_ADD_WEBSITE =
         "com.example.android.shortcutsample.ADD_WEBSITE";
-
     private MyAdapter mAdapter;
-
     private ShortcutHelper mHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.main);
-
         mHelper = new ShortcutHelper(this);
-
         mHelper.maybeRestoreAllDynamicShortcuts();
-
         mHelper.refreshShortcuts(/*force=*/ false);
 
         if (ACTION_ADD_WEBSITE.equals(getIntent().getAction())) {
@@ -69,14 +57,12 @@ public class Main extends ListActivity implements OnClickListener
         mAdapter = new MyAdapter(this.getApplicationContext());
         setListAdapter(mAdapter);
     }
-
     @Override
     protected void onResume()
     {
         super.onResume();
         refreshList();
     }
-
     /**
      * Handle the add button.
      */
@@ -84,19 +70,14 @@ public class Main extends ListActivity implements OnClickListener
     {
         addWebSite();
     }
-
     private void addWebSite()
     {
         Log.i(TAG, "addWebSite");
-
         // This is important.  This allows the launcher to build a prediction model.
         mHelper.reportShortcutUsed(ID_ADD_WEBSITE);
-
         final EditText editUri = new EditText(this);
-
         editUri.setHint("http://www.android.com/");
         editUri.setInputType(EditorInfo.TYPE_TEXT_VARIATION_URI);
-
         new AlertDialog.Builder(this)
         .setTitle("Add new website")
         .setMessage("Type URL of a website")
@@ -111,7 +92,6 @@ public class Main extends ListActivity implements OnClickListener
         })
         .show();
     }
-
     private void addUriAsync(String uri)
     {
         new AsyncTask<Void, Void, Void>() {
@@ -120,19 +100,16 @@ public class Main extends ListActivity implements OnClickListener
                 mHelper.addWebSiteShortcut(uri);
                 return null;
             }
-
             @Override
             protected void onPostExecute(Void aVoid) {
                 refreshList();
             }
         } .execute();
     }
-
     private void refreshList()
     {
         mAdapter.setShortcuts(mHelper.getShortcuts());
     }
-
     @Override
     public void onClick(View v)
     {
@@ -155,9 +132,7 @@ public class Main extends ListActivity implements OnClickListener
             break;
         }
     }
-
     private static final List<ShortcutInfo> EMPTY_LIST = new ArrayList<>();
-
     private String getType(ShortcutInfo shortcut)
     {
         final StringBuilder sb = new StringBuilder();
@@ -183,61 +158,51 @@ public class Main extends ListActivity implements OnClickListener
 
         return sb.toString();
     }
-
     private class MyAdapter extends BaseAdapter
     {
         private final Context mContext;
         private final LayoutInflater mInflater;
         private List<ShortcutInfo> mList = EMPTY_LIST;
-
         public MyAdapter(Context context)
         {
             mContext = context;
             mInflater = mContext.getSystemService(LayoutInflater.class);
         }
-
         @Override
         public int getCount()
         {
             return mList.size();
         }
-
         @Override
         public Object getItem(int position)
         {
             return mList.get(position);
         }
-
         @Override
         public long getItemId(int position)
         {
             return position;
         }
-
         @Override
         public boolean hasStableIds()
         {
             return false;
         }
-
         @Override
         public boolean areAllItemsEnabled()
         {
             return true;
         }
-
         @Override
         public boolean isEnabled(int position)
         {
             return true;
         }
-
         public void setShortcuts(List<ShortcutInfo> list)
         {
             mList = list;
             notifyDataSetChanged();
         }
-
         @Override
         public View getView(int position, View convertView, ViewGroup parent)
         {
@@ -250,27 +215,19 @@ public class Main extends ListActivity implements OnClickListener
             }
 
             bindView(view, position, mList.get(position));
-
             return view;
         }
-
         public void bindView(View view, int position, ShortcutInfo shortcut)
         {
             view.setTag(shortcut);
-
             final TextView line1 = (TextView) view.findViewById(R.id.line1);
             final TextView line2 = (TextView) view.findViewById(R.id.line2);
-
             line1.setText(shortcut.getLongLabel());
-
             line2.setText(getType(shortcut));
-
             final Button remove = (Button) view.findViewById(R.id.remove);
             final Button disable = (Button) view.findViewById(R.id.disable);
-
             disable.setText(
                 shortcut.isEnabled() ? R.string.disable_shortcut : R.string.enable_shortcut);
-
             remove.setOnClickListener(Main.this);
             disable.setOnClickListener(Main.this);
         }

@@ -14,31 +14,26 @@
  * limitations under the License.
  */
 package com.android.example.text.styling;
-
 import android.graphics.Typeface;
 import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
-
 import com.android.example.text.styling.parser.Parser;
 import com.android.example.text.styling.renderer.MarkdownBuilder;
-
 /**
  * This sample demonstrates techniques for stying text; it is not intended to be a full markdown
  * parser.
  */
 public class MainActivity extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView textView = findViewById(R.id.styled_text);
-
         // This is a simple markdown parser, where:
         // Paragraphs starting with “> ” are transformed into quotes. Quotes can't contain
         // other markdown elements
@@ -48,7 +43,6 @@ public class MainActivity extends AppCompatActivity
         int bulletPointColor = ContextCompat.getColor(this, R.color.colorAccent);
         int codeBackgroundColor = ContextCompat.getColor(this, R.color.code_background);
         Typeface codeBlockTypeface = ResourcesCompat.getFont(this, R.font.inconsolata);
-
         CharSequence text = new MarkdownBuilder(bulletPointColor, codeBackgroundColor,
                                                 codeBlockTypeface, new Parser())
         .markdownToSpans(getString(R.string.display_text));

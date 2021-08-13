@@ -13,21 +13,16 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
 package com.example.android.documentcentricapps.tests;
-
 import com.example.android.documentcentricapps.DocumentCentricActivity;
 import com.example.android.documentcentricapps.R;
-
 import android.app.ActivityManager;
 import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.test.suitebuilder.annotation.LargeTest;
 import android.widget.Button;
-
 import java.util.List;
-
 /**
  * Instrumentation tests for DocumentCentricApps sample.
  */
@@ -35,20 +30,16 @@ import java.util.List;
 public class DocumentCentricAppsInstrumentationTest extends
     ActivityInstrumentationTestCase2<DocumentCentricActivity>
 {
-
     private DocumentCentricActivity mDocumentCentricActivity;
-
     public DocumentCentricAppsInstrumentationTest()
     {
         super(DocumentCentricActivity.class);
     }
-
     @Override
     protected void setUp() throws Exception {
         super.setUp();
         mDocumentCentricActivity = getActivity();
     }
-
     public void testNewDocument_CreatesOverviewEntry()
     {
         // Given a initialized Activity
@@ -56,15 +47,12 @@ public class DocumentCentricAppsInstrumentationTest extends
         final Button createNewDocumentButton = (Button) mDocumentCentricActivity
                                                .findViewById(R.id.new_document_button);
         assertNotNull(createNewDocumentButton);
-
         // When "Create new Document" Button is clicked
         TouchUtils.clickView(this, createNewDocumentButton);
-
         // Then a entry in overview app tasks is created.
         List<ActivityManager.AppTask> recentAppTasks = getRecentAppTasks();
         assertEquals("# of recentAppTasks does not match", 2, recentAppTasks.size());
     }
-
     private List<ActivityManager.AppTask> getRecentAppTasks()
     {
         ActivityManager activityManager = (ActivityManager) getInstrumentation().getTargetContext()
@@ -72,5 +60,4 @@ public class DocumentCentricAppsInstrumentationTest extends
         List<ActivityManager.AppTask> appTasks = activityManager.getAppTasks();
         return appTasks;
     }
-
 }
