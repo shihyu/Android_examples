@@ -32,7 +32,7 @@ project.afterEvaluate {
             task "${testTaskName}Coverage" (type:JacocoReport, dependsOn: "$testTaskName") {
                 group = "Reporting"
                 description = "Generate Jacoco coverage reports on the ${sourceName.capitalize()} build."
-                classDirectories = fileTree(
+                classDirectories.from = fileTree(
                     dir: "${project.buildDir}/intermediates/classes/${sourcePath}",
                     excludes: [
                         '**/R.class',
