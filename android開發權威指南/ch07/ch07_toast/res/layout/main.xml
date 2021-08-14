@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" >
+	<Button android:id="@+id/btnTextToast" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="只顯示文字的Toast" />
+	<Button android:id="@+id/btnImageToast" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="顯示文字和影像的Toast" />
+</LinearLayout>

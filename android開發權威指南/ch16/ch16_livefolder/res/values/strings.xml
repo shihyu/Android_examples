@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">成功增加實時檔案夾（電話本）</string>
+    <string name="app_name">實時檔案夾</string>
+</resources>

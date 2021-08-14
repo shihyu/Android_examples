@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="旋轉的圓圈"
+		android:onClick="onClick_Demo1" />
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="變化的背景色"
+		android:onClick="onClick_Demo2" />
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="3D俄羅斯方塊"
+		android:onClick="onClick_Demo3" />
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="超級瑪麗"
+		android:onClick="onClick_Demo4" />
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="射擊遊戲"
+		android:onClick="onClick_Demo5" />
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="根據分辨率來存取頁面"
+		android:onClick="onClick_Demo6" />
+</LinearLayout>

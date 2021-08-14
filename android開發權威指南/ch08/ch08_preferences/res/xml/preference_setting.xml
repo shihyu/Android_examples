@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory android:title="我的位置源">
+
+		<CheckBoxPreference android:key="wireless_network"
+			android:title="使用無線網絡" android:summary="使用無線網絡檢視應用程式（例如Google地圖）中的位置" />
+		<CheckBoxPreference android:key="gps_satellite_setting"
+			android:title="啟用GPS衛星設定" android:summary="定位時，精確到街道級別（取消選擇可節約電量）" />
+	</PreferenceCategory>
+	<PreferenceCategory android:title="個人資訊設定">
+
+		<CheckBoxPreference android:key="yesno_save_individual_info"
+			android:title="是否儲存個人資訊" />
+		<EditTextPreference android:key="individual_name"
+			android:title="姓名" android:summary="請輸入真實姓名" />
+		<PreferenceScreen android:key="other_individual_msg"
+			android:title="其他個人資訊" android:summary="是否工作、手機">
+			<CheckBoxPreference android:key="is_an_employee"
+				android:title="是否工作" />
+			<EditTextPreference android:key="mobile"
+				android:title="手機" android:summary="請輸入真實的手機號" />
+		</PreferenceScreen>
+	</PreferenceCategory>
+
+
+
+</PreferenceScreen>

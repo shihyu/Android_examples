@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<products>
+	<product>
+		<id>10</id>
+		<name>電腦</name>
+		<price>2067.25</price>
+	</product>
+	<product>
+		<id>20</id>
+		<name>微波爐</name>
+		<price>520</price>
+	</product>
+	<product>
+		<id>30</id>
+		<name>洗衣機</name>
+		<price>2400</price>
+	</product>
+
+</products>

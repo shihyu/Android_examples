@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <string name="mode_ready">貪吃蛇\n觸摸屏幕開始遊戲</string>
+  <string name="mode_pause">暫停\n觸摸屏幕繼續</string>
+  <string name="mode_lose_prefix">遊戲結束\n分數: </string>
+  <string name="mode_lose_suffix">\n觸摸屏幕開始遊戲</string>
+
+    <string name="snake_layout_text_text"></string>
+</resources>

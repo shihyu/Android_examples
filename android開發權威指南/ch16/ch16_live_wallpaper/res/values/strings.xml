@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">動態壁紙</string>
+    <string name="settings_title">動態壁紙設定</string>
+    <string name="description">動態壁紙示範</string>
+    <string name="preference_radius_title">設定圓的半徑</string>
+    <string name="preference_radius_summary">持續觸摸屏幕顯示圓的軌跡</string>
+</resources>

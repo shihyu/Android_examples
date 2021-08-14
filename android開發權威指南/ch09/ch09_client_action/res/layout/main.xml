@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="呼叫其他程式的Activity"
+		android:onClick="onClick_OtherApp_Activity" />
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="呼叫處理音頻的程式"
+		android:onClick="onClick_Audio" />
+</LinearLayout>
