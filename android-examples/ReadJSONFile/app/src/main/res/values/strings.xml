@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ReadJSONFile</string>
+    <string name="action_settings">Settings</string>
+</resources>

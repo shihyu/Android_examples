@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion compileSdkVer
+    
+
+    defaultConfig {
+        applicationId "sample.github.nisrulz.usingrxjava"
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
+        versionCode 1
+        versionName "1.0"
+  testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+  // Testing-only dependencies
+  testImplementation "junit:junit:$junitVer"
+  androidTestImplementation "androidx.test:runner:$androidTestRunnerVer"
+  androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVer"
+
+    implementation "androidx.appcompat:appcompat:$appCompat"
+
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVer"
+    implementation "com.google.code.gson:gson:$gsonVer"
+    implementation "com.jakewharton:butterknife:$butterknifeVer"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVer"
+    implementation "io.reactivex:rxandroid:$rxandroidVer"
+    // Because RxAndroid releases are few and far between, it is recommended you also
+    // explicitly depend on RxJava's latest version for bug fixes and new features.
+    implementation "io.reactivex:rxjava:$rxjavaVer"
+}

@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion compileSdkVer
+  
+  defaultConfig {
+    applicationId "github.nisrulz.sample.chromecustomtabs"
+
+    // Required minSDK is 15 for Chrome Custom Tabs
+    // The library only works on API 15 an above. If you are supporting previous API,
+    // you can add <uses-sdk tools:overrideLibrary="android.support.customtabs"/> to your
+    // manifest to force its use and check the API version at runtime and just use Chrome
+    // Custom tabs if its >= 16
+    minSdkVersion 15
+
+    targetSdkVersion targetSdkVer
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    
+    // Testing-only dependencies
+    testImplementation "junit:junit:$junitVer"
+    androidTestImplementation "androidx.test:runner:$androidTestRunnerVer"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVer"
+
+    implementation "androidx.appcompat:appcompat:$appCompat"
+    implementation "com.google.android.material:material:$supportLibVer"
+
+    // Chrome Custom Tabs
+    implementation "androidx.browser:browser:$supportLibVer"
+}

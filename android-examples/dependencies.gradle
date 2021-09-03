@@ -1,0 +1,63 @@
+ext {
+ androidGradlePlugin = "4.2.0"
+ googleServicesPluginVer = "4.3.3"
+ compileSdkVer = 30
+ kotlinVersion = "1.5.0"
+
+ googleOssLicensePlugin ="0.10.0"
+ googleOssLicense ="17.0.0"
+
+ minSdkVer = 21
+ targetSdkVer = compileSdkVer
+
+ supportLibVer = "1.1.0"
+ appCompat = "1.1.0"
+ recyclerview = "1.1.0"
+
+ gpsMobileVision= "17.0.2"
+ gpsGCM = "16.1.0"
+ gpsDrive = "16.1.0"
+
+ firebaseDatabase = "19.2.1"
+ firebaseMessaging = "20.1.0"
+
+ junitVer = "4.12"
+ junitExtVer = "1.1.1"
+ espressoCoreVer = "3.2.0"
+ androidTestRunnerVer = "1.2.0"
+
+ stethoVer = "1.5.1"
+ picassoVer = "2.71828"
+ robolectricVer = "3.5"
+ appintroVer = "4.1.0"
+ bottombarVer = "2.1.1"
+ butterknifeVer = "8.8.1"
+ daggerVer = "2.24"
+ jsr250apiVer = "1.0"
+ okhttpVer = "4.2.1"
+ okhttpLoggingInterceptorVer = "4.2.1"
+ gsonVer = "2.8.6"
+ retrofitVer = "2.6.2"
+ retrofitConverterGsonVer = "2.6.1"
+ mpAndroidChartVer = "v3.0.2"
+ easygcmVer = "1.6.2@aar"
+ altbeaconAndroidLibVer = "2+"
+ timberVer = "4.7.1"
+ sugarOrmVer = "1.5"
+ constraintLayoutVer = "1.1.3"
+ firebaseJobdispatcherVer="0.8.5"
+ dbflowVersion = "3.0.1"
+ parcelerVer = '1.1.9'
+
+ rxandroidVer = "1.2.1"
+ rxjavaVer = "1.3.4"
+
+ rxandroid2Ver = "2.1.1"
+ rxjava2Ver = "2.2.13"
+
+ lithoVer = "0.31.0"
+
+ lifecycleVer = "2.2.0"
+ roomVer = "2.2.3"
+ pagingVer = "2.1.1"
+}

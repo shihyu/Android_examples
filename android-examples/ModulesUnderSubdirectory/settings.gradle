@@ -1,0 +1,5 @@
+rootProject.name = 'ModulesUnderSubdirectory'
+include ':app'
+include ':group1:module1'
+include ':group2:module2'
+include ':module3'
