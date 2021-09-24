@@ -1,0 +1,267 @@
+2021-09-04 00:48:25,542 [   2004]   WARN - ntellij.ide.ui.UIThemeProvider - error loading UITheme '/themes/Light.theme.json', pluginDescriptor=PluginDescriptor(name=IDEA CORE, id=com.intellij, path=/home/shihyu/.mybin/android-studio, version=203.7717.56) 
+java.lang.reflect.InaccessibleObjectException: Unable to make private java.lang.module.Configuration() accessible: module java.base does not "opens java.lang.module" to unnamed module @2f98b8f
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:340)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:280)
+	at java.base/java.lang.reflect.Constructor.checkCanSetAccessible(Constructor.java:189)
+	at java.base/java.lang.reflect.Constructor.setAccessible(Constructor.java:182)
+	at com.google.gson.internal.ConstructorConstructor.newDefaultConstructor(ConstructorConstructor.java:101)
+	at com.google.gson.internal.ConstructorConstructor.get(ConstructorConstructor.java:83)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:99)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.createBoundField(ReflectiveTypeAdapterFactory.java:115)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:164)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:100)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.createBoundField(ReflectiveTypeAdapterFactory.java:115)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:164)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:100)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.createBoundField(ReflectiveTypeAdapterFactory.java:115)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:164)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:100)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.createBoundField(ReflectiveTypeAdapterFactory.java:115)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:164)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:100)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.Gson.fromJson(Gson.java:886)
+	at com.google.gson.Gson.fromJson(Gson.java:825)
+	at com.intellij.ide.ui.UITheme.loadFromJson(UITheme.java:121)
+	at com.intellij.ide.ui.UITheme.loadFromJson(UITheme.java:113)
+	at com.intellij.ide.ui.UIThemeProvider.createTheme(UIThemeProvider.java:39)
+	at com.intellij.ide.ui.laf.LafManagerImpl.getDefaultLightTheme(LafManagerImpl.java:151)
+	at com.intellij.ide.ui.laf.LafManagerImpl.<init>(LafManagerImpl.java:106)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at com.intellij.serviceContainer.ConstructorInjectionKt.instantiateUsingPicoContainer(constructorInjection.kt:47)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateClassWithConstructorInjection(ComponentManagerImpl.kt:733)
+	at com.intellij.serviceContainer.MyComponentAdapter.doCreateInstance(MyComponentAdapter.kt:35)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstanceUncached(BaseComponentAdapter.kt:113)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance(BaseComponentAdapter.kt:67)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance$default(BaseComponentAdapter.kt:60)
+	at com.intellij.serviceContainer.ComponentManagerImpl.createComponents(ComponentManagerImpl.kt:304)
+	at com.intellij.openapi.application.impl.ApplicationImpl.lambda$loadComponents$5(ApplicationImpl.java:353)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:178)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:658)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:610)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:65)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:165)
+	at com.intellij.openapi.application.impl.ApplicationImpl.loadComponents(ApplicationImpl.java:353)
+	at com.intellij.idea.ApplicationLoader$startApp$6$loadComponentInEdtFuture$1.run(ApplicationLoader.kt:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+	at com.intellij.openapi.application.TransactionGuardImpl.runWithWritingAllowed(TransactionGuardImpl.java:216)
+	at com.intellij.openapi.application.TransactionGuardImpl.access$200(TransactionGuardImpl.java:24)
+	at com.intellij.openapi.application.TransactionGuardImpl$2.run(TransactionGuardImpl.java:199)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:828)
+	at com.intellij.openapi.application.impl.ApplicationImpl.lambda$invokeLater$4(ApplicationImpl.java:330)
+	at com.intellij.openapi.application.impl.FlushQueue.doRun(FlushQueue.java:85)
+	at com.intellij.openapi.application.impl.FlushQueue.runNextEvent(FlushQueue.java:134)
+	at com.intellij.openapi.application.impl.FlushQueue.flushNow(FlushQueue.java:47)
+	at com.intellij.openapi.application.impl.FlushQueue$FlushNow.run(FlushQueue.java:190)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:776)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:727)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:746)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:421)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-09-04 00:48:25,551 [   2013]  ERROR - com.intellij.ide.ui.LafManager - Can't load JetBrainsLightTheme 
+java.lang.Throwable: Can't load JetBrainsLightTheme
+	at com.intellij.openapi.diagnostic.Logger.error(Logger.java:165)
+	at com.intellij.ide.ui.laf.LafManagerImpl.getDefaultLightTheme(LafManagerImpl.java:157)
+	at com.intellij.ide.ui.laf.LafManagerImpl.<init>(LafManagerImpl.java:106)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at com.intellij.serviceContainer.ConstructorInjectionKt.instantiateUsingPicoContainer(constructorInjection.kt:47)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateClassWithConstructorInjection(ComponentManagerImpl.kt:733)
+	at com.intellij.serviceContainer.MyComponentAdapter.doCreateInstance(MyComponentAdapter.kt:35)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstanceUncached(BaseComponentAdapter.kt:113)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance(BaseComponentAdapter.kt:67)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance$default(BaseComponentAdapter.kt:60)
+	at com.intellij.serviceContainer.ComponentManagerImpl.createComponents(ComponentManagerImpl.kt:304)
+	at com.intellij.openapi.application.impl.ApplicationImpl.lambda$loadComponents$5(ApplicationImpl.java:353)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:178)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:658)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:610)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:65)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:165)
+	at com.intellij.openapi.application.impl.ApplicationImpl.loadComponents(ApplicationImpl.java:353)
+	at com.intellij.idea.ApplicationLoader$startApp$6$loadComponentInEdtFuture$1.run(ApplicationLoader.kt:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+	at com.intellij.openapi.application.TransactionGuardImpl.runWithWritingAllowed(TransactionGuardImpl.java:216)
+	at com.intellij.openapi.application.TransactionGuardImpl.access$200(TransactionGuardImpl.java:24)
+	at com.intellij.openapi.application.TransactionGuardImpl$2.run(TransactionGuardImpl.java:199)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:828)
+	at com.intellij.openapi.application.impl.ApplicationImpl.lambda$invokeLater$4(ApplicationImpl.java:330)
+	at com.intellij.openapi.application.impl.FlushQueue.doRun(FlushQueue.java:85)
+	at com.intellij.openapi.application.impl.FlushQueue.runNextEvent(FlushQueue.java:134)
+	at com.intellij.openapi.application.impl.FlushQueue.flushNow(FlushQueue.java:47)
+	at com.intellij.openapi.application.impl.FlushQueue$FlushNow.run(FlushQueue.java:190)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:776)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:727)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:746)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:421)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-09-04 00:48:25,557 [   2019]  ERROR - com.intellij.ide.ui.LafManager - Android Studio Arctic Fox | 2020.3.1  Build #AI-203.7717.56.2031.7583922 
+2021-09-04 00:48:25,574 [   2036]  ERROR - com.intellij.ide.ui.LafManager - JDK: 11.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o. 
+2021-09-04 00:48:25,574 [   2036]  ERROR - com.intellij.ide.ui.LafManager - OS: Linux 
+2021-09-04 00:48:25,824 [   2286]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.AndroidInitialConfigurator) 
+2021-09-04 00:48:25,827 [   2289]   WARN - ntellij.ide.ui.UIThemeProvider - error loading UITheme '/themes/HighContrast.theme.json', pluginDescriptor=PluginDescriptor(name=IDEA CORE, id=com.intellij, path=/home/shihyu/.mybin/android-studio, version=203.7717.56) 
+java.lang.reflect.InaccessibleObjectException: Unable to make private java.lang.module.Configuration() accessible: module java.base does not "opens java.lang.module" to unnamed module @2f98b8f
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:340)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:280)
+	at java.base/java.lang.reflect.Constructor.checkCanSetAccessible(Constructor.java:189)
+	at java.base/java.lang.reflect.Constructor.setAccessible(Constructor.java:182)
+	at com.google.gson.internal.ConstructorConstructor.newDefaultConstructor(ConstructorConstructor.java:101)
+	at com.google.gson.internal.ConstructorConstructor.get(ConstructorConstructor.java:83)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:99)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.createBoundField(ReflectiveTypeAdapterFactory.java:115)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:164)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:100)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.createBoundField(ReflectiveTypeAdapterFactory.java:115)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:164)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:100)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.createBoundField(ReflectiveTypeAdapterFactory.java:115)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:164)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:100)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.createBoundField(ReflectiveTypeAdapterFactory.java:115)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:164)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:100)
+	at com.google.gson.Gson.getAdapter(Gson.java:423)
+	at com.google.gson.Gson.fromJson(Gson.java:886)
+	at com.google.gson.Gson.fromJson(Gson.java:825)
+	at com.intellij.ide.ui.UITheme.loadFromJson(UITheme.java:121)
+	at com.intellij.ide.ui.UITheme.loadFromJson(UITheme.java:113)
+	at com.intellij.ide.ui.UIThemeProvider.createTheme(UIThemeProvider.java:39)
+	at com.intellij.ide.ui.laf.LafManagerImpl.lambda$computeLafList$4(LafManagerImpl.java:187)
+	at com.intellij.openapi.extensions.impl.ExtensionProcessingHelper.forEachExtensionSafe(ExtensionProcessingHelper.java:33)
+	at com.intellij.openapi.extensions.ExtensionPointName.forEachExtensionSafe(ExtensionPointName.java:49)
+	at com.intellij.ide.ui.laf.LafManagerImpl.computeLafList(LafManagerImpl.java:185)
+	at com.intellij.ide.ui.laf.LafManagerImpl.lambda$new$0(LafManagerImpl.java:101)
+	at com.intellij.util.concurrency.SynchronizedClearableLazy.getValue(SynchronizedClearableLazy.kt:37)
+	at com.intellij.ide.ui.laf.LafManagerImpl.getInstalledLookAndFeels(LafManagerImpl.java:391)
+	at com.intellij.openapi.editor.colors.impl.EditorColorsManagerImpl.loadSchemesFromThemes(EditorColorsManagerImpl.java:261)
+	at com.intellij.openapi.editor.colors.impl.EditorColorsManagerImpl.<init>(EditorColorsManagerImpl.java:173)
+	at com.intellij.openapi.editor.colors.impl.EditorColorsManagerImpl.<init>(EditorColorsManagerImpl.java:81)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at com.intellij.serviceContainer.ConstructorInjectionKt.instantiateUsingPicoContainer(constructorInjection.kt:47)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateClassWithConstructorInjection(ComponentManagerImpl.kt:733)
+	at com.intellij.serviceContainer.ServiceComponentAdapter.createAndInitialize(ServiceComponentAdapter.kt:49)
+	at com.intellij.serviceContainer.ServiceComponentAdapter.doCreateInstance(ServiceComponentAdapter.kt:37)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstanceUncached(BaseComponentAdapter.kt:113)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance(BaseComponentAdapter.kt:67)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance$default(BaseComponentAdapter.kt:60)
+	at com.intellij.serviceContainer.ComponentManagerImpl$preloadServices$future$1.run(ComponentManagerImpl.kt:890)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+	at com.intellij.util.concurrency.BoundedTaskExecutor.doRun(BoundedTaskExecutor.java:216)
+	at com.intellij.util.concurrency.BoundedTaskExecutor.access$200(BoundedTaskExecutor.java:27)
+	at com.intellij.util.concurrency.BoundedTaskExecutor$1.execute(BoundedTaskExecutor.java:195)
+	at com.intellij.util.concurrency.BoundedTaskExecutor$1.run(BoundedTaskExecutor.java:187)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:668)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:665)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:665)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2021-09-04 00:48:28,317 [   4779]   WARN - tartup.impl.StartupManagerImpl - Activities registered via registerPostStartupActivity must be dumb-aware: com.android.tools.idea.stats.AndroidStudioUsageTracker$ProjectLifecycleTracker$projectComponentsInitialized$1@d4e0486 
+2021-09-04 00:48:30,187 [   6649]   WARN -        #com.intellij.idea.Main - can't parse gsettings line: @a(ss) [] 
+2021-09-04 00:49:24,074 [  60536]   WARN - tartup.impl.StartupManagerImpl - Activities registered via registerPostStartupActivity must be dumb-aware: com.android.tools.idea.stats.AndroidStudioUsageTracker$ProjectLifecycleTracker$projectComponentsInitialized$1@456d7e4e 
+Downloading https://services.gradle.org/distributions/gradle-7.0.1-bin.zip
+..........................................................................................................
+2021-09-04 00:50:42,075 [ 138537]   WARN -       GradleBuildOutputUtil.kt - Failed to read Json output file from /home/shihyu/github/Android_examples/android-examples/Service/app/build/outputs/apk/debug/output-metadata.json. Build may have failed. 
+2021-09-04 00:50:42,852 [ 139314]   WARN -            #com.android.ddmlib - * daemon not running; starting now at tcp:5037 
+2021-09-04 00:50:43,059 [ 139521]   WARN -            #com.android.ddmlib - * daemon started successfully 
+2021-09-04 00:51:21,408 [ 177870]   WARN - Container.ComponentManagerImpl - Do not use constructor injection (requestorClass=com.android.tools.idea.apk.ApkWritingAccessProvider) 
+2021-09-04 00:51:40,074 [ 196536]   WARN - ConfigurableExtensionPointUtil - ignore deprecated groupId: language for id: preferences.language.Kotlin.scripting 
+2021-09-04 00:51:40,108 [ 196570]   WARN - ConfigurableExtensionPointUtil - use other group instead of unexpected one: language.cpp 
+2021-09-04 00:51:40,109 [ 196571]   WARN - ConfigurableExtensionPointUtil - use other group instead of unexpected one: project.propCompiler 
+2021-09-04 00:52:35,878 [ 252340]   WARN - l.messages.impl.MessageBusImpl - Broadcast direction TO_CHILDREN  is not allowed for module level message bus. Please change to NONE or TO_PARENT 
+2021-09-04 00:53:05,137 [ 281599]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:53:05,139 [ 281601]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:53:27,228 [ 303690]   WARN - dea.sdk.SystemInfoStatsMonitor - CpuInfoFlags.fromExitCode(): unknown flag values '0x80' 
+2021-09-04 00:54:19,239 [ 355701]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:54:29,154 [ 365616]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:54:57,257 [ 393719]   WARN - n.process.BaseOSProcessHandler - Process hasn't generated any output for a long time.
+If it's a long-running mostly idle daemon process, consider overriding OSProcessHandler#readerOptions with 'BaseOutputReader.Options.forMostlySilentProcess()' to reduce CPU usage.
+Command line: /media/shihyu/Toshiba/android-sdk-linux/emulator/emulator -netdelay none -netspeed full -avd Pixel_4_XL_API_30 
+java.lang.Throwable: Process creation:
+	at com.intellij.execution.process.BaseOSProcessHandler.<init>(BaseOSProcessHandler.java:32)
+	at com.android.tools.idea.avdmanager.EmulatorProcessHandler.<init>(EmulatorProcessHandler.java:36)
+	at com.android.tools.idea.avdmanager.EmulatorRunner.start(EmulatorRunner.java:66)
+	at com.android.tools.idea.avdmanager.AvdManagerConnection.continueToStartAvd(AvdManagerConnection.java:567)
+	at com.android.tools.idea.avdmanager.AvdManagerConnection.continueToStartAvdIfAccelerationErrorIsNotBlocking(AvdManagerConnection.java:502)
+	at com.android.tools.idea.avdmanager.AvdManagerConnection.lambda$startAvd$4(AvdManagerConnection.java:492)
+	at com.google.common.util.concurrent.AbstractTransformFuture$AsyncTransformFuture.doTransform(AbstractTransformFuture.java:213)
+	at com.google.common.util.concurrent.AbstractTransformFuture$AsyncTransformFuture.doTransform(AbstractTransformFuture.java:202)
+	at com.google.common.util.concurrent.AbstractTransformFuture.run(AbstractTransformFuture.java:118)
+	at com.google.common.util.concurrent.DirectExecutor.execute(DirectExecutor.java:30)
+	at com.google.common.util.concurrent.AbstractFuture.executeListener(AbstractFuture.java:1174)
+	at com.google.common.util.concurrent.AbstractFuture.complete(AbstractFuture.java:969)
+	at com.google.common.util.concurrent.AbstractFuture.set(AbstractFuture.java:738)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.afterRanInterruptibly(TrustedListenableFutureTask.java:131)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:133)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:78)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:668)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:665)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:665)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2021-09-04 00:55:53,847 [ 450309]   WARN - actions.CopyTBXReferenceAction - Cannot find TBX tool for IDE: AndroidStudio 
+2021-09-04 00:55:54,273 [ 450735]   WARN - actions.CopyTBXReferenceAction - Cannot find TBX tool for IDE: AndroidStudio 
+2021-09-04 00:57:47,681 [ 564143]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:57:47,681 [ 564143]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:57:47,681 [ 564143]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:57:47,681 [ 564143]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:57:52,009 [ 568471]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:57:52,009 [ 568471]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:57:52,009 [ 568471]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:57:52,009 [ 568471]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:10,363 [ 586825]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:10,363 [ 586825]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:10,363 [ 586825]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:10,363 [ 586825]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:36,171 [ 612633]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:36,171 [ 612633]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:36,171 [ 612633]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:36,171 [ 612633]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:45,355 [ 621817]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:45,355 [ 621817]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:45,355 [ 621817]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:58:45,356 [ 621818]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:59:52,666 [ 689128]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:59:52,667 [ 689129]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:59:52,666 [ 689128]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 00:59:52,666 [ 689128]   WARN - itors.literals.LiteralsManager - Only Kotlin is supported for LiveLiterals 
+2021-09-04 03:40:00,427 [10296889]   WARN -            #com.android.ddmlib - Failed to start monitoring emulator-5554 
+2021-09-15 20:22:16,250 [1020832712]   WARN -            #com.android.ddmlib - Adb connection Error:EOF 
+2021-09-15 20:22:16,257 [1020832719]   WARN -            #com.android.ddmlib - Cannot reach ADB server, attempting to reconnect. 
