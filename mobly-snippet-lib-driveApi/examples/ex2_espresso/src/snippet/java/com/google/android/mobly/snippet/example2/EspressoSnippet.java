@@ -37,7 +37,7 @@ public class EspressoSnippet implements Snippet {
         System.out.println("YAO YAO");
         System.out.println("YAO hhh " + MainActivity.getHello());
         mActivityRule.launchActivity(null /* startIntent */);
-        mActivityRule.getActivity().getDriveService();
+        DriveServiceHelper service = mActivityRule.getActivity().getDriveService();
     }
 
     @Rpc(description="Pushes the main app button, and checks the label if this is the first time.")
