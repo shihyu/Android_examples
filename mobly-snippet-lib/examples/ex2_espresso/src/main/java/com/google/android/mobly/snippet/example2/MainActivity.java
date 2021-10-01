@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("YAO 1111111111111");
         setContentView(R.layout.activity_main);
 
         mTextView = (TextView) findViewById(R.id.main_text_view);
@@ -43,8 +44,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mNumPressed++;
-                mTextView.setText(String.format(Locale.ROOT, "Button pressed %d times.", mNumPressed));
+                mTextView.setText(String.format(Locale.ROOT, "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY Button pressed %d times.", mNumPressed));
             }
         });
+    }
+
+    public static String getHello() {
+        return "Hello worddddd!!";
     }
 }

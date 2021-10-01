@@ -34,11 +34,14 @@ public class EspressoSnippet implements Snippet {
 
     @Rpc(description="Opens the main activity of the app")
     public void startMainActivity() {
+        System.out.println("YAO YAO");
+        System.out.println("YAO hhh " + MainActivity.getHello());
         mActivityRule.launchActivity(null /* startIntent */);
     }
 
     @Rpc(description="Pushes the main app button, and checks the label if this is the first time.")
     public void pushMainButton(boolean checkFirstRun) {
+        System.out.println("YAO 2222222");
         if (checkFirstRun) {
             onView(withId(R.id.main_text_view)).check(matches(withText("Hello World!")));
         }
