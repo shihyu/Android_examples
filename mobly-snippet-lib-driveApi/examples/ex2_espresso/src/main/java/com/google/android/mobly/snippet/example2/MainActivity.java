@@ -136,4 +136,8 @@ public class MainActivity extends AppCompatActivity {
     public static String getHello() {
         return "Hello worddddd!!";
     }
+
+    public DriveServiceHelper getDriveService() {
+        return mDriveServiceHelper;
+    }
 }
