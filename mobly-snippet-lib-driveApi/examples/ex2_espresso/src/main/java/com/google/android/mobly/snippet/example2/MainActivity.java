@@ -93,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Signed in as " + googleSignInAccount.getEmail());
                 //email.setText(googleSignInAccount.getEmail());
                 System.out.println("YAO account.getEmail:" + googleSignInAccount.getEmail());
-                //mDriveServiceHelper = new DriveServiceHelper(getGoogleDriveService(getApplicationContext(), googleSignInAccount, "appName"));
+                //mDriveServiceHelper = new DriveServiceHelper(g
+                //tGoogleDriveService(getApplicationContext(), googleSignInAccount, "appName"));
                 //Log.d(TAG, "handleSignInResult: " + mDriveServiceHelper);
             }
         })
