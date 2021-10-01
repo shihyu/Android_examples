@@ -16,12 +16,15 @@
 
 package com.google.android.mobly.snippet.example2;
 
+import android.util.Log;
+import android.content.Intent;
 import java.util.Locale;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -35,7 +38,8 @@ import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.Scope;
-
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextView;
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private int mNumPressed;
     private static final int REQUEST_CODE_SIGN_IN = 100;
     private GoogleSignInClient mGoogleSignInClient;
+    private static final String TAG = "MainActivity";
 
     /**
      * Attaches a simple listener that increments the text in the textbox whenever the button is
@@ -78,6 +83,43 @@ public class MainActivity extends AppCompatActivity {
             // mDriveServiceHelper = new DriveServiceHelper(getGoogleDriveService(getApplicationContext(), account, "appName"));
         }
     }
+
+    private void handleSignInResult(Intent result)
+    {
+        GoogleSignIn.getSignedInAccountFromIntent(result)
+        .addOnSuccessListener(new OnSuccessListener<GoogleSignInAccount>() {
+            @Override
+            public void onSuccess(GoogleSignInAccount googleSignInAccount) {
+                Log.d(TAG, "Signed in as " + googleSignInAccount.getEmail());
+                //email.setText(googleSignInAccount.getEmail());
+                System.out.println("YAO account.getEmail:" + googleSignInAccount.getEmail());
+                //mDriveServiceHelper = new DriveServiceHelper(getGoogleDriveService(getApplicationContext(), googleSignInAccount, "appName"));
+                //Log.d(TAG, "handleSignInResult: " + mDriveServiceHelper);
+            }
+        })
+        .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e(TAG, "Unable to sign in.", e);
+            }
+        });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent resultData)
+    {
+        switch (requestCode) {
+        case REQUEST_CODE_SIGN_IN:
+            if (resultCode == AppCompatActivity.RESULT_OK && resultData != null) {
+                handleSignInResult(resultData);
+            }
+
+            break;
+        }
+
+        super.onActivityResult(requestCode, resultCode, resultData);
+    }
+
 
     private void signIn()
     {
