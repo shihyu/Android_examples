@@ -68,9 +68,6 @@ dependencies {
     snippetImplementation 'androidx.annotation:annotation:1.0.1'
     snippetImplementation 'androidx.test:rules:1.1.1'
     snippetImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    api 'com.google.android.gms:play-services-drive:17.0.0'
-    api 'com.google.http-client:google-http-client-gson:1.26.0'
-    api('com.google.api-client:google-api-client-android:1.26.0') {
-        exclude group: 'org.apache.httpcomponents'
-    }
+
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
 }
