@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mButton;
     private int mNumPressed;
     private static final int REQUEST_CODE_SIGN_IN = 100;
+    private GoogleSignInClient mGoogleSignInClient;
 
     /**
      * Attaches a simple listener that increments the text in the textbox whenever the button is
@@ -80,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void signIn()
     {
-        //mGoogleSignInClient = buildGoogleSignInClient();
-        // startActivityForResult(mGoogleSignInClient.getSignInIntent(), REQUEST_CODE_SIGN_IN);
+        mGoogleSignInClient = buildGoogleSignInClient();
+        startActivityForResult(mGoogleSignInClient.getSignInIntent(), REQUEST_CODE_SIGN_IN);
     }
 
     private GoogleSignInClient buildGoogleSignInClient()
