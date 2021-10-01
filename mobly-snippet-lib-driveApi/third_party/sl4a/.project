@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>mobly-snippet-lib-mobly-snippet-lib</name>
+	<name>mobly-snippet-lib</name>
 	<comment>Project mobly-snippet-lib-mobly-snippet-lib created by Buildship.</comment>
 	<projects>
 	</projects>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1631878859018</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

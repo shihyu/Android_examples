@@ -33,13 +33,15 @@ import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccoun
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
-
+import com.google.android.gms.common.Scopes;
+import com.google.android.gms.common.api.Scope;
 
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextView;
     private Button mButton;
     private int mNumPressed;
+    private static final int REQUEST_CODE_SIGN_IN = 100;
 
     /**
      * Attaches a simple listener that increments the text in the textbox whenever the button is
@@ -60,6 +62,36 @@ public class MainActivity extends AppCompatActivity {
                 mTextView.setText(String.format(Locale.ROOT, "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY Button pressed %d times.", mNumPressed));
             }
         });
+    }
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+        
+        if (account == null) {
+            signIn();
+        } else {
+            System.out.println("YAO account.getEmail:" + account.getEmail());
+            // mDriveServiceHelper = new DriveServiceHelper(getGoogleDriveService(getApplicationContext(), account, "appName"));
+        }
+    }
+
+    private void signIn()
+    {
+        //mGoogleSignInClient = buildGoogleSignInClient();
+        // startActivityForResult(mGoogleSignInClient.getSignInIntent(), REQUEST_CODE_SIGN_IN);
+    }
+
+    private GoogleSignInClient buildGoogleSignInClient()
+    {
+        GoogleSignInOptions signInOptions =
+            new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        .requestScopes(new Scope(DriveScopes.DRIVE_FILE))
+        .requestEmail()
+        .build();
+        return GoogleSignIn.getClient(getApplicationContext(), signInOptions);
     }
 
     public static String getHello() {
