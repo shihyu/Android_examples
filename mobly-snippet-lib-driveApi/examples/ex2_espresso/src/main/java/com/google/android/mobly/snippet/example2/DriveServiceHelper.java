@@ -1,4 +1,4 @@
-package com.ammarptn.gdriverest;
+package com.google.android.mobly.snippet.example2;
 /**
  * Copyright 2018 Google LLC
  * <p>

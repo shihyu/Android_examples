@@ -1,5 +1,7 @@
-package com.ammarptn.gdriverest;
+package com.google.android.mobly.snippet.example2;
+
 import com.google.api.client.util.DateTime;
+
 public class GoogleDriveFileHolder
 {
     private String id;
