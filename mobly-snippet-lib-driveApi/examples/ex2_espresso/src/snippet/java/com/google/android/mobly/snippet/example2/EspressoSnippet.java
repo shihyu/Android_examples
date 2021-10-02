@@ -39,6 +39,11 @@ public class EspressoSnippet implements Snippet {
     public ActivityTestRule<MainActivity> mActivityRule =
         new ActivityTestRule<>(MainActivity.class);
 
+    @Rpc(description = "Returns the given integer with the prefix \"foo\"")
+    public String getFoo(Integer input) {
+        return "foo " + input;
+    }
+
     @Rpc(description = "Opens the main activity of the app")
     public void startMainActivity() {
         System.out.println("YAO YAO");
