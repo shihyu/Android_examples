@@ -34,6 +34,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 public class EspressoSnippet implements Snippet {
     private static final String TAG = "EspressoSnippet";
+    private static DriveServiceHelper service;
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule =
@@ -49,7 +50,7 @@ public class EspressoSnippet implements Snippet {
         System.out.println("YAO YAO");
         System.out.println("YAO hhh " + MainActivity.getHello());
         mActivityRule.launchActivity(null /* startIntent */);
-        DriveServiceHelper service = mActivityRule.getActivity().getDriveService();
+        service = mActivityRule.getActivity().getDriveService();
         System.out.println("YAO service:" + service);
 
         service.createTextFile("textfilename.txt", "some text", null)
@@ -66,8 +67,27 @@ public class EspressoSnippet implements Snippet {
                 Log.d(TAG, "onFailure: " + e.getMessage());
             }
         });
-
     }
+
+    @Rpc(description = "add file")
+    public void addFile() {
+        System.out.println("YAO add file");
+        service.createTextFile("textfilename.txt", "some text", null)
+        .addOnSuccessListener(new OnSuccessListener<GoogleDriveFileHolder>() {
+            @Override
+            public void onSuccess(GoogleDriveFileHolder googleDriveFileHolder) {
+                Gson gson = new Gson();
+                Log.d(TAG, "onSuccess: " + gson.toJson(googleDriveFileHolder));
+            }
+        })
+        .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "onFailure: " + e.getMessage());
+            }
+        });
+    }
+
 
     @Rpc(description = "Pushes the main app button, and checks the label if this is the first time.")
     public void pushMainButton(boolean checkFirstRun) {
