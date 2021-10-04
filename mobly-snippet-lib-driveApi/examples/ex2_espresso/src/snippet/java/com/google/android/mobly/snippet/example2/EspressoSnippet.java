@@ -52,21 +52,6 @@ public class EspressoSnippet implements Snippet {
         mActivityRule.launchActivity(null /* startIntent */);
         service = mActivityRule.getActivity().getDriveService();
         System.out.println("YAO service:" + service);
-
-        service.createTextFile("textfilename.txt", "some text", null)
-        .addOnSuccessListener(new OnSuccessListener<GoogleDriveFileHolder>() {
-            @Override
-            public void onSuccess(GoogleDriveFileHolder googleDriveFileHolder) {
-                Gson gson = new Gson();
-                Log.d(TAG, "onSuccess: " + gson.toJson(googleDriveFileHolder));
-            }
-        })
-        .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d(TAG, "onFailure: " + e.getMessage());
-            }
-        });
     }
 
     @Rpc(description = "add file")
