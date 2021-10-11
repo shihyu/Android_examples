@@ -320,6 +320,18 @@ public class DriveServiceHelper {
             }
         });
     }
+
+    public void deleteFolderFileX(final String fileId) {
+        try {
+            if (fileId != null) {
+                mDriveService.files().delete(fileId).execute();
+            }
+        } catch (IOException e) {
+            // An error occurred.
+            e.printStackTrace();
+        }
+    }
+
     public Task<Void> deleteFolderFile(final String fileId) {
         return Tasks.call(mExecutor, new Callable<Void>() {
             @Override
