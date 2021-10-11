@@ -99,6 +99,15 @@ public class EspressoSnippet implements Snippet {
         }
     }
 
+    @Rpc(description = "upload file")
+    public void uploadFile() {
+        System.out.println("YAO upload");
+        service = mActivityRule.getActivity().getDriveService();
+        if (service != null) {
+            service.uploadFileX(new java.io.File("/data/xxx", "dummy.txt"), "text/plain", null);
+        }
+    }
+
     @Override
     public void shutdown() {
         mActivityRule.getActivity().finish();
