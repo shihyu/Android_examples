@@ -358,6 +358,33 @@ public class DriveServiceHelper {
             }
         });
     }
+
+    public GoogleDriveFileHolder uploadFileX(final java.io.File localFile, final String mimeType, @Nullable final String folderId) {
+        List<String> root;
+
+        if (folderId == null) {
+            root = Collections.singletonList("root");
+        } else {
+            root = Collections.singletonList(folderId);
+        }
+
+        try {
+            File metadata = new File()
+            .setParents(root)
+            .setMimeType(mimeType)
+            .setName(localFile.getName());
+            FileContent fileContent = new FileContent(mimeType, localFile);
+            File fileMeta = mDriveService.files().create(metadata, fileContent).execute();
+            GoogleDriveFileHolder googleDriveFileHolder = new GoogleDriveFileHolder();
+            googleDriveFileHolder.setId(fileMeta.getId());
+            googleDriveFileHolder.setName(fileMeta.getName());
+            return googleDriveFileHolder;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public Task<GoogleDriveFileHolder> uploadFile(final java.io.File localFile, final String mimeType, @Nullable final String folderId) {
         return Tasks.call(mExecutor, new Callable<GoogleDriveFileHolder>() {
             @Override
