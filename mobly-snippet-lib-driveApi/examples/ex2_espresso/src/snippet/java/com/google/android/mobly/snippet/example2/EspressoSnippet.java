@@ -89,6 +89,16 @@ public class EspressoSnippet implements Snippet {
         }
     }
 
+    @Rpc(description = "download file")
+    public void downloadFile() {
+        System.out.println("YAO download");
+        service = mActivityRule.getActivity().getDriveService();
+        if (service != null) {
+            // service.downloadFileX(new java.io.File(getApplicationContext().getFilesDir(), "filename.txt"), "google_drive_file_id_here");
+            service.downloadFileX(new java.io.File("/data/xxx", "filename.txt"), "google_drive_file_id_here");
+        }
+    }
+
     @Override
     public void shutdown() {
         mActivityRule.getActivity().finish();
