@@ -18,6 +18,7 @@ package com.google.android.mobly.snippet.example2;
 
 import android.util.Log;
 import android.content.Intent;
+import android.app.Activity;
 import java.util.Locale;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,7 +42,7 @@ import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private TextView mTextView;
     private Button mButton;
     private int mNumPressed;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println("YAO 1111111111111");
+        /*
         setContentView(R.layout.activity_main);
 
         mTextView = (TextView) findViewById(R.id.main_text_view);
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 mTextView.setText(String.format(Locale.ROOT, "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY Button pressed %d times.", mNumPressed));
             }
         });
+        */
     }
 
     @Override
