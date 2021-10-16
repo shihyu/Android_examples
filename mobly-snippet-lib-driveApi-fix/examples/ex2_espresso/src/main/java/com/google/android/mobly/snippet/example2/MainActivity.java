@@ -50,6 +50,11 @@ public class MainActivity extends Activity {
     private GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "MainActivity";
     private DriveServiceHelper mDriveServiceHelper;
+    private static MainActivity instance;
+
+    public static MainActivity getInstance() {
+        return instance;
+    }
 
     /**
      * Attaches a simple listener that increments the text in the textbox whenever the button is
@@ -58,7 +63,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("YAO 1111111111111");
+        this.instance = this;
+        System.out.println("YAO onCreate");
     }
 
     @Override
