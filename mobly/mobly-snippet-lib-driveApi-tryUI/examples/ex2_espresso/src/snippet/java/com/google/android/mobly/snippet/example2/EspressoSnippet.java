@@ -116,9 +116,7 @@ private ActivityScenario<MainActivity> mActivityScenario;
 
     @Override
     public void shutdown() {
-        //mActivityRule.getActivity().finish();
         System.out.println("YAO shutdown");
-        //ActivityScenario.close();
         mActivityScenario.close();
     }
 }
