@@ -62,7 +62,7 @@ public class EspressoSnippet implements Snippet {
             new ActivityAction<MainActivity>() {
                 @Override
                 public void perform(MainActivity activity) {
-                    //activity.setExitOnBackPressed(false);
+                    service = activity.getDriveService();
                 }
             });
 
