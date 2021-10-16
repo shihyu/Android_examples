@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2016 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
-
 package com.google.android.mobly.snippet.example2;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -36,16 +20,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 public class EspressoSnippet implements Snippet {
-    private static final String TAG = "EspressoSnippet";
-    private static DriveServiceHelper service;
-    private ActivityScenario<MainActivity> mActivityScenario;
-    private MainActivity mainActivity;
+private static final String TAG = "EspressoSnippet";
+private static DriveServiceHelper service;
+private ActivityScenario<MainActivity> mActivityScenario;
 
-    //@Rule
-    //public ActivityTestRule<MainActivity> mActivityRule =
-    //    new ActivityTestRule<>(MainActivity.class);
-
-    @Rpc(description = "Returns the given integer with the prefix \"foo\"")
+@Rpc(description = "Returns the given integer with the prefix \"foo\"")
     public String getFoo(Integer input) {
         return "foo " + input;
     }
@@ -56,28 +35,15 @@ public class EspressoSnippet implements Snippet {
 
         if (mActivityScenario == null) {
             mActivityScenario = ActivityScenario.launch(MainActivity.class);
-            mainActivity = MainActivity.getInstance();
-
             mActivityScenario.onActivity(
             new ActivityAction<MainActivity>() {
                 @Override
                 public void perform(MainActivity activity) {
                     service = activity.getDriveService();
-                    System.out.println("YAO Instance:" + mainActivity);
+                    System.out.println("YAO service:" + service);
                 }
             });
-
-
-            if (mainActivity != null) {
-                System.out.println("YAO Instance:" + mainActivity);
-                System.out.println("YAO google drive:" + mainActivity.getDriveService());
-            }
         }
-
-        //mActivityRule.launchActivity(null /* startIntent */);
-        //service = mActivityRule.getActivity().getDriveService();
-        // ActivityScenario.launch(MainActivity.class);
-        System.out.println("YAO service:" + service);
     }
 
     @Rpc(description = "add file")
@@ -88,7 +54,6 @@ public class EspressoSnippet implements Snippet {
             @Override
             public void perform(MainActivity activity) {
                 service = activity.getDriveService();
-                System.out.println("YAO Instance:" + mainActivity);
             }
         });
 
@@ -108,24 +73,6 @@ public class EspressoSnippet implements Snippet {
                 }
             });
         }
-
-        //if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
-        //    service = MainActivity.getInstance().getDriveService();
-        //    service.createTextFile("textfilename.txt", "some text", null)
-        //    .addOnSuccessListener(new OnSuccessListener<GoogleDriveFileHolder>() {
-        //        @Override
-        //        public void onSuccess(GoogleDriveFileHolder googleDriveFileHolder) {
-        //            Gson gson = new Gson();
-        //            Log.d(TAG, "onSuccess: " + gson.toJson(googleDriveFileHolder));
-        //        }
-        //    })
-        //    .addOnFailureListener(new OnFailureListener() {
-        //        @Override
-        //        public void onFailure(@NonNull Exception e) {
-        //            Log.d(TAG, "onFailure: " + e.getMessage());
-        //        }
-        //    });
-        //}
     }
 
     @Rpc(description = "download file")
@@ -136,18 +83,12 @@ public class EspressoSnippet implements Snippet {
             @Override
             public void perform(MainActivity activity) {
                 service = activity.getDriveService();
-                System.out.println("YAO Instance:" + mainActivity);
             }
         });
 
         if (service != null) {
             service.downloadFileX(new java.io.File("/data/xxx", "filename.txt"), "google_drive_file_id_here");
         }
-
-        //if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
-        //    service = MainActivity.getInstance().getDriveService();
-        //    service.downloadFileX(new java.io.File("/data/xxx", "filename.txt"), "google_drive_file_id_here");
-        //}
     }
 
     @Rpc(description = "upload file")
@@ -159,19 +100,12 @@ public class EspressoSnippet implements Snippet {
             @Override
             public void perform(MainActivity activity) {
                 service = activity.getDriveService();
-                System.out.println("YAO Instance:" + mainActivity);
             }
         });
 
         if (service != null) {
             service.uploadFileX(new java.io.File("/data/xxx", "dummy.txt"), "text/plain", null);
         }
-
-        //service = mActivityRule.getActivity().getDriveService();
-        //if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
-        //    service = MainActivity.getInstance().getDriveService();
-        //    service.uploadFileX(new java.io.File("/data/xxx", "dummy.txt"), "text/plain", null);
-        //}
     }
 
     @Rpc(description = "close")
