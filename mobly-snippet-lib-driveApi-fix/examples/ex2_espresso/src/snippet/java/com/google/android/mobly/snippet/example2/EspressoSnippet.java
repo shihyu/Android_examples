@@ -112,6 +112,12 @@ public class EspressoSnippet implements Snippet {
         }
     }
 
+    @Rpc(description = "close")
+    public void close() {
+        System.out.println("YAO close");
+        mActivityScenario.close();
+    }
+
     @Override
     public void shutdown() {
         //mActivityRule.getActivity().finish();
