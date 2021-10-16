@@ -70,20 +70,7 @@ public class EspressoSnippet implements Snippet {
         });
 
         if (service != null) {
-            service.createTextFile("textfilename.txt", "some text", null)
-            .addOnSuccessListener(new OnSuccessListener<GoogleDriveFileHolder>() {
-                @Override
-                public void onSuccess(GoogleDriveFileHolder googleDriveFileHolder) {
-                    Gson gson = new Gson();
-                    Log.d(TAG, "onSuccess: " + gson.toJson(googleDriveFileHolder));
-                }
-            })
-            .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.d(TAG, "onFailure: " + e.getMessage());
-                }
-            });
+            service.createTextFileX("textfilename.txt", "some text", null);
         }
     }
 
