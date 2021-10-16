@@ -40,9 +40,9 @@ public class EspressoSnippet implements Snippet {
     private ActivityScenario<MainActivity> mActivityScenario;
     private MainActivity mainActivity;
 
-    @Rule
-    public ActivityTestRule<MainActivity> mActivityRule =
-        new ActivityTestRule<>(MainActivity.class);
+    //@Rule
+    //public ActivityTestRule<MainActivity> mActivityRule =
+    //    new ActivityTestRule<>(MainActivity.class);
 
     @Rpc(description = "Returns the given integer with the prefix \"foo\"")
     public String getFoo(Integer input) {
@@ -114,7 +114,9 @@ public class EspressoSnippet implements Snippet {
 
     @Override
     public void shutdown() {
-        mActivityRule.getActivity().finish();
+        //mActivityRule.getActivity().finish();
         System.out.println("YAO shutdown");
+        //ActivityScenario.close();
+        mActivityScenario.close();
     }
 }
