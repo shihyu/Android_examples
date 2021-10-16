@@ -5,6 +5,7 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+import java.util.concurrent.ExecutionException;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.rule.ActivityTestRule;
@@ -19,6 +20,8 @@ import android.content.Intent;
 import android.content.Context;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import java.util.concurrent.Future;
+import java.util.concurrent.Executors;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
@@ -59,7 +62,7 @@ public class EspressoSnippet implements Snippet {
     }
 
     @Rpc(description = "add file")
-    public void addFile() {
+    public void addFile() throws InterruptedException, ExecutionException {
         System.out.println("YAO add file");
         mActivityScenario.onActivity(
         new ActivityAction<MainActivity>() {
@@ -70,7 +73,7 @@ public class EspressoSnippet implements Snippet {
         });
 
         if (service != null) {
-            service.createTextFileX("textfilename.txt", "some text", null);
+            service.createTextFileX("textfilename.txt", "some text", null).get();
         }
     }
 

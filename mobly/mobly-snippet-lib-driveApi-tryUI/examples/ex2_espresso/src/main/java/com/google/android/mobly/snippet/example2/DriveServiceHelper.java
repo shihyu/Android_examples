@@ -49,12 +49,16 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import javax.annotation.Nullable;
+import java.util.concurrent.Future;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 /**
  * A utility for performing read/write operations on Drive files via the REST API and opening a
  * file picker UI via Storage Access Framework.
  */
 public class DriveServiceHelper {
     private final Executor mExecutor = Executors.newSingleThreadExecutor();
+    private static ExecutorService executor = Executors.newSingleThreadExecutor();
     private final Drive mDriveService;
     public static String TYPE_AUDIO = "application/vnd.google-apps.audio";
     public static String TYPE_GOOGLE_DOCS = "application/vnd.google-apps.document";
@@ -155,25 +159,28 @@ public class DriveServiceHelper {
         });
     }
 
-    public void createTextFileX(final String fileName, final String content, @Nullable final String folderId) {
-        List<String> root;
+    public Future<Void> createTextFileX(final String fileName, final String content, @Nullable final String folderId) {
+        return executor.submit(() -> {
+            List<String> root;
 
-        if (folderId == null) {
-            root = Collections.singletonList("root");
-        } else {
-            root = Collections.singletonList(folderId);
-        }
+            if (folderId == null) {
+                root = Collections.singletonList("root");
+            } else {
+                root = Collections.singletonList(folderId);
+            }
 
-        try {
-            File metadata = new File()
-            .setParents(root)
-            .setMimeType("text/plain")
-            .setName(fileName);
-            ByteArrayContent contentStream = ByteArrayContent.fromString("text/plain", content);
-            mDriveService.files().create(metadata, contentStream).execute();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            try {
+                File metadata = new File()
+                .setParents(root)
+                .setMimeType("text/plain")
+                .setName(fileName);
+                ByteArrayContent contentStream = ByteArrayContent.fromString("text/plain", content);
+                mDriveService.files().create(metadata, contentStream).execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        });
     }
 
     public Task<GoogleDriveFileHolder> createTextFile(final String fileName, final String content, @Nullable final String folderId) {
