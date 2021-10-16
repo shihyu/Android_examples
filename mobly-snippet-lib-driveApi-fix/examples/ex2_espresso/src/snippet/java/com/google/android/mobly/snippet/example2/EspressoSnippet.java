@@ -29,6 +29,7 @@ import com.google.android.mobly.snippet.Snippet;
 import com.google.android.mobly.snippet.rpc.Rpc;
 import org.junit.Rule;
 import com.google.gson.Gson;
+import androidx.test.core.app.ActivityScenario.ActivityAction;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -57,6 +58,15 @@ public class EspressoSnippet implements Snippet {
             mActivityScenario = ActivityScenario.launch(MainActivity.class);
             mainActivity = MainActivity.getInstance();
 
+            mActivityScenario.onActivity(
+            new ActivityAction<MainActivity>() {
+                @Override
+                public void perform(MainActivity activity) {
+                    //activity.setExitOnBackPressed(false);
+                }
+            });
+
+
             if (mainActivity != null) {
                 System.out.println("YAO Instance:" + mainActivity);
                 System.out.println("YAO google drive:" + mainActivity.getDriveService());
@@ -72,6 +82,7 @@ public class EspressoSnippet implements Snippet {
     @Rpc(description = "add file")
     public void addFile() {
         System.out.println("YAO add file");
+
         if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
             service = MainActivity.getInstance().getDriveService();
             service.createTextFile("textfilename.txt", "some text", null)
