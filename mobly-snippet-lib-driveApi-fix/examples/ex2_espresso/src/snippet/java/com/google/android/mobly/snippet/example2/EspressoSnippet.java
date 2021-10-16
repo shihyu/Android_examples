@@ -35,10 +35,9 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
 import org.junit.runner.RunWith;
 
-@RunWith(AndroidJUnit4ClassRunner.class)
+@RunWith(AndroidJUnit4.class)
 @SmallTest
 public class EspressoSnippet implements Snippet {
     private static final String TAG = "EspressoSnippet";
