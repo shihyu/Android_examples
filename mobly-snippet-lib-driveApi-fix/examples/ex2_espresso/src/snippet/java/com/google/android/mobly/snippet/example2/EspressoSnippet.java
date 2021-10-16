@@ -56,11 +56,13 @@ public class EspressoSnippet implements Snippet {
         if (mActivityScenario == null) {
             mActivityScenario = ActivityScenario.launch(MainActivity.class);
             mainActivity = MainActivity.getInstance();
+
             if (mainActivity != null) {
                 System.out.println("YAO Instance:" + mainActivity);
                 System.out.println("YAO google drive:" + mainActivity.getDriveService());
             }
         }
+
         //mActivityRule.launchActivity(null /* startIntent */);
         //service = mActivityRule.getActivity().getDriveService();
         // ActivityScenario.launch(MainActivity.class);
@@ -70,29 +72,31 @@ public class EspressoSnippet implements Snippet {
     @Rpc(description = "add file")
     public void addFile() {
         System.out.println("YAO add file");
-        service.createTextFile("textfilename.txt", "some text", null)
-        .addOnSuccessListener(new OnSuccessListener<GoogleDriveFileHolder>() {
-            @Override
-            public void onSuccess(GoogleDriveFileHolder googleDriveFileHolder) {
-                Gson gson = new Gson();
-                Log.d(TAG, "onSuccess: " + gson.toJson(googleDriveFileHolder));
-            }
-        })
-        .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d(TAG, "onFailure: " + e.getMessage());
-            }
-        });
+        if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
+            service = MainActivity.getInstance().getDriveService();
+            service.createTextFile("textfilename.txt", "some text", null)
+            .addOnSuccessListener(new OnSuccessListener<GoogleDriveFileHolder>() {
+                @Override
+                public void onSuccess(GoogleDriveFileHolder googleDriveFileHolder) {
+                    Gson gson = new Gson();
+                    Log.d(TAG, "onSuccess: " + gson.toJson(googleDriveFileHolder));
+                }
+            })
+            .addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG, "onFailure: " + e.getMessage());
+                }
+            });
+        }
     }
 
     @Rpc(description = "download file")
     public void downloadFile() {
         System.out.println("YAO download");
-        service = mActivityRule.getActivity().getDriveService();
 
-        if (service != null) {
-            // service.downloadFileX(new java.io.File(getApplicationContext().getFilesDir(), "filename.txt"), "google_drive_file_id_here");
+        if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
+            service = MainActivity.getInstance().getDriveService();
             service.downloadFileX(new java.io.File("/data/xxx", "filename.txt"), "google_drive_file_id_here");
         }
     }
@@ -100,9 +104,10 @@ public class EspressoSnippet implements Snippet {
     @Rpc(description = "upload file")
     public void uploadFile() {
         System.out.println("YAO upload");
-        service = mActivityRule.getActivity().getDriveService();
 
-        if (service != null) {
+        //service = mActivityRule.getActivity().getDriveService();
+        if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
+            service = MainActivity.getInstance().getDriveService();
             service.uploadFileX(new java.io.File("/data/xxx", "dummy.txt"), "text/plain", null);
         }
     }
