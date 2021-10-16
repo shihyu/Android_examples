@@ -16,17 +16,19 @@ import org.junit.Rule;
 import com.google.gson.Gson;
 import androidx.test.core.app.ActivityScenario.ActivityAction;
 import android.content.Intent;
+import android.content.Context;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 public class EspressoSnippet implements Snippet {
-private static final String TAG = "EspressoSnippet";
-private static DriveServiceHelper service;
-private ActivityScenario<MainActivity> mActivityScenario;
+    private static final String TAG = "EspressoSnippet";
+    private static DriveServiceHelper service;
+    private ActivityScenario<MainActivity> mActivityScenario;
+    private Context mContext;
 
-@Rpc(description = "Returns the given integer with the prefix \"foo\"")
+    @Rpc(description = "Returns the given integer with the prefix \"foo\"")
     public String getFoo(Integer input) {
         return "foo " + input;
     }
@@ -34,8 +36,11 @@ private ActivityScenario<MainActivity> mActivityScenario;
     @Rpc(description = "Opens the main activity of the app")
     public void startMainActivity() {
         System.out.println("YAO startMainActivity");
+        mContext = InstrumentationRegistry.getInstrumentation().getContext();
 
         if (mActivityScenario == null) {
+            Intent intent = new Intent();
+            intent.setClass(mContext.getApplicationContext(), MainActivity.class);
             mActivityScenario = ActivityScenario.launch(MainActivity.class);
             mActivityScenario.onActivity(
             new ActivityAction<MainActivity>() {
