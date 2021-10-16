@@ -5,6 +5,7 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -14,6 +15,7 @@ import com.google.android.mobly.snippet.rpc.Rpc;
 import org.junit.Rule;
 import com.google.gson.Gson;
 import androidx.test.core.app.ActivityScenario.ActivityAction;
+import android.content.Intent;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnFailureListener;
