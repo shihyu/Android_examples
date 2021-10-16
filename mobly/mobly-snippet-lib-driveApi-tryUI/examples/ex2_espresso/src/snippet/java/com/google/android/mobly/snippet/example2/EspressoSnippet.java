@@ -41,6 +41,7 @@ public class EspressoSnippet implements Snippet {
         if (mActivityScenario == null) {
             Intent intent = new Intent();
             intent.setClass(mContext.getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             mActivityScenario = ActivityScenario.launch(intent);
 
             //mActivityScenario = ActivityScenario.launch(MainActivity.class);
