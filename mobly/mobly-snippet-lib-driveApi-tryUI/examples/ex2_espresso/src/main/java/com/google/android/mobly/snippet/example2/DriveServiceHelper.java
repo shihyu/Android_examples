@@ -154,6 +154,28 @@ public class DriveServiceHelper {
             }
         });
     }
+
+    public void createTextFileX(final String fileName, final String content, @Nullable final String folderId) {
+        List<String> root;
+
+        if (folderId == null) {
+            root = Collections.singletonList("root");
+        } else {
+            root = Collections.singletonList(folderId);
+        }
+
+        try {
+            File metadata = new File()
+            .setParents(root)
+            .setMimeType("text/plain")
+            .setName(fileName);
+            ByteArrayContent contentStream = ByteArrayContent.fromString("text/plain", content);
+            mDriveService.files().create(metadata, contentStream).execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public Task<GoogleDriveFileHolder> createTextFile(final String fileName, final String content, @Nullable final String folderId) {
         return Tasks.call(mExecutor, new Callable<GoogleDriveFileHolder>() {
             @Override
