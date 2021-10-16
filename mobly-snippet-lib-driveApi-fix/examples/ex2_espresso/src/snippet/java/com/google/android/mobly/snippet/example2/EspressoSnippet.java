@@ -63,6 +63,7 @@ public class EspressoSnippet implements Snippet {
                 @Override
                 public void perform(MainActivity activity) {
                     service = activity.getDriveService();
+                    System.out.println("YAO Instance:" + mainActivity);
                 }
             });
 
@@ -82,9 +83,16 @@ public class EspressoSnippet implements Snippet {
     @Rpc(description = "add file")
     public void addFile() {
         System.out.println("YAO add file");
+        mActivityScenario.onActivity(
+        new ActivityAction<MainActivity>() {
+            @Override
+            public void perform(MainActivity activity) {
+                service = activity.getDriveService();
+                System.out.println("YAO Instance:" + mainActivity);
+            }
+        });
 
-        if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
-            service = MainActivity.getInstance().getDriveService();
+        if (service != null) {
             service.createTextFile("textfilename.txt", "some text", null)
             .addOnSuccessListener(new OnSuccessListener<GoogleDriveFileHolder>() {
                 @Override
@@ -100,27 +108,70 @@ public class EspressoSnippet implements Snippet {
                 }
             });
         }
+
+        //if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
+        //    service = MainActivity.getInstance().getDriveService();
+        //    service.createTextFile("textfilename.txt", "some text", null)
+        //    .addOnSuccessListener(new OnSuccessListener<GoogleDriveFileHolder>() {
+        //        @Override
+        //        public void onSuccess(GoogleDriveFileHolder googleDriveFileHolder) {
+        //            Gson gson = new Gson();
+        //            Log.d(TAG, "onSuccess: " + gson.toJson(googleDriveFileHolder));
+        //        }
+        //    })
+        //    .addOnFailureListener(new OnFailureListener() {
+        //        @Override
+        //        public void onFailure(@NonNull Exception e) {
+        //            Log.d(TAG, "onFailure: " + e.getMessage());
+        //        }
+        //    });
+        //}
     }
 
     @Rpc(description = "download file")
     public void downloadFile() {
         System.out.println("YAO download");
+        mActivityScenario.onActivity(
+        new ActivityAction<MainActivity>() {
+            @Override
+            public void perform(MainActivity activity) {
+                service = activity.getDriveService();
+                System.out.println("YAO Instance:" + mainActivity);
+            }
+        });
 
-        if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
-            service = MainActivity.getInstance().getDriveService();
+        if (service != null) {
             service.downloadFileX(new java.io.File("/data/xxx", "filename.txt"), "google_drive_file_id_here");
         }
+
+        //if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
+        //    service = MainActivity.getInstance().getDriveService();
+        //    service.downloadFileX(new java.io.File("/data/xxx", "filename.txt"), "google_drive_file_id_here");
+        //}
     }
 
     @Rpc(description = "upload file")
     public void uploadFile() {
         System.out.println("YAO upload");
 
-        //service = mActivityRule.getActivity().getDriveService();
-        if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
-            service = MainActivity.getInstance().getDriveService();
+        mActivityScenario.onActivity(
+        new ActivityAction<MainActivity>() {
+            @Override
+            public void perform(MainActivity activity) {
+                service = activity.getDriveService();
+                System.out.println("YAO Instance:" + mainActivity);
+            }
+        });
+
+        if (service != null) {
             service.uploadFileX(new java.io.File("/data/xxx", "dummy.txt"), "text/plain", null);
         }
+
+        //service = mActivityRule.getActivity().getDriveService();
+        //if (MainActivity.getInstance() != null && MainActivity.getInstance().getDriveService() != null) {
+        //    service = MainActivity.getInstance().getDriveService();
+        //    service.uploadFileX(new java.io.File("/data/xxx", "dummy.txt"), "text/plain", null);
+        //}
     }
 
     @Rpc(description = "close")
