@@ -1,0 +1,908 @@
+> Transform runner.aar (androidx.test:runner:1.1.1) with JetifyTransform
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with JetifyTransform
+> Task :mobly-snippet-lib:preBuild UP-TO-DATE
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with ExtractAarTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with ExtractAarTransform
+> Task :mobly-snippet-lib:preDebugBuild UP-TO-DATE
+> Transform kxml2.jar (net.sf.kxml:kxml2:2.3.0) with JetifyTransform
+> Transform kxml2.jar (net.sf.kxml:kxml2:2.3.0) with IdentityTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarTransform
+> Transform annotation.jar (androidx.annotation:annotation:1.0.0) with JetifyTransform
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarCompileClassesTransform
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarCompileClassesTransform
+> Transform hamcrest-core.jar (org.hamcrest:hamcrest-core:1.3) with JetifyTransform
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarTransform
+> Transform junit.jar (junit:junit:4.12) with JetifyTransform
+> Task :mobly-snippet-lib:compileDebugAidl NO-SOURCE
+> Transform junit.jar (junit:junit:4.12) with IdentityTransform
+> Transform annotation.jar (androidx.annotation:annotation:1.0.0) with IdentityTransform
+> Transform hamcrest-core.jar (org.hamcrest:hamcrest-core:1.3) with IdentityTransform
+> Task :mobly-snippet-lib:compileDebugRenderscript UP-TO-DATE
+> Task :mobly-snippet-lib:checkDebugManifest UP-TO-DATE
+> Task :mobly-snippet-lib:generateDebugBuildConfig UP-TO-DATE
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with LibrarySymbolTableTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with LibrarySymbolTableTransform
+> Task :mobly-snippet-lib:generateDebugResValues UP-TO-DATE
+> Task :mobly-snippet-lib:generateDebugResources UP-TO-DATE
+> Transform aapt2-linux.jar (com.android.tools.build:aapt2:3.3.0-5013011) with Aapt2Extractor
+> Task :mobly-snippet-lib:processDebugManifest UP-TO-DATE
+> Task :mobly-snippet-lib:packageDebugResources UP-TO-DATE
+> Task :mobly-snippet-lib:generateDebugRFile UP-TO-DATE
+> Task :mobly-snippet-lib:prepareLintJar UP-TO-DATE
+> Task :mobly-snippet-lib:generateDebugSources UP-TO-DATE
+> Task :mobly-snippet-lib:javaPreCompileDebug UP-TO-DATE
+> Task :mobly-snippet-lib:compileDebugJavaWithJavac UP-TO-DATE
+> Task :mobly-snippet-lib:extractDebugAnnotations UP-TO-DATE
+> Task :mobly-snippet-lib:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :mobly-snippet-lib:mergeDebugShaders UP-TO-DATE
+> Task :mobly-snippet-lib:compileDebugShaders UP-TO-DATE
+> Task :mobly-snippet-lib:generateDebugAssets UP-TO-DATE
+> Task :mobly-snippet-lib:packageDebugAssets UP-TO-DATE
+> Task :mobly-snippet-lib:packageDebugRenderscript NO-SOURCE
+> Task :mobly-snippet-lib:processDebugJavaRes NO-SOURCE
+> Task :mobly-snippet-lib:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+> Task :mobly-snippet-lib:transformClassesAndResourcesWithSyncLibJarsForDebug UP-TO-DATE
+> Task :mobly-snippet-lib:compileDebugNdk NO-SOURCE
+> Task :mobly-snippet-lib:mergeDebugJniLibFolders UP-TO-DATE
+> Task :mobly-snippet-lib:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+> Task :mobly-snippet-lib:transformNativeLibsWithSyncJniLibsForDebug UP-TO-DATE
+> Task :mobly-snippet-lib:bundleDebugAar UP-TO-DATE
+> Task :mobly-snippet-lib:compileDebugSources UP-TO-DATE
+> Task :mobly-snippet-lib:assembleDebug UP-TO-DATE
+> Task :mobly-snippet-lib:transformClassesAndResourcesWithPrepareIntermediateJarsForDebug UP-TO-DATE
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarTransform
+> Task :examples:ex1_standalone_app:preBuild UP-TO-DATE
+> Task :examples:ex1_standalone_app:prepareLintJar UP-TO-DATE
+> Task :examples:ex1_standalone_app:preDebugBuild UP-TO-DATE
+> Task :examples:ex1_standalone_app:compileDebugAidl NO-SOURCE
+> Task :examples:ex1_standalone_app:compileDebugRenderscript UP-TO-DATE
+> Task :examples:ex1_standalone_app:checkDebugManifest UP-TO-DATE
+> Task :examples:ex1_standalone_app:generateDebugBuildConfig UP-TO-DATE
+> Task :examples:ex1_standalone_app:generateDebugSources UP-TO-DATE
+> Task :examples:ex1_standalone_app:javaPreCompileDebug UP-TO-DATE
+> Task :examples:ex1_standalone_app:mainApkListPersistenceDebug UP-TO-DATE
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarTransform
+> Task :examples:ex1_standalone_app:generateDebugResValues UP-TO-DATE
+> Task :examples:ex1_standalone_app:generateDebugResources UP-TO-DATE
+> Task :examples:ex1_standalone_app:mergeDebugResources UP-TO-DATE
+> Task :examples:ex1_standalone_app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :examples:ex1_standalone_app:processDebugManifest UP-TO-DATE
+> Task :examples:ex1_standalone_app:processDebugResources UP-TO-DATE
+> Task :examples:ex1_standalone_app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :examples:ex1_standalone_app:compileDebugNdk NO-SOURCE
+> Task :examples:ex1_standalone_app:compileDebugSources UP-TO-DATE
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarTransform
+> Task :examples:ex1_standalone_app:mergeDebugShaders UP-TO-DATE
+> Task :examples:ex1_standalone_app:compileDebugShaders UP-TO-DATE
+> Task :examples:ex1_standalone_app:generateDebugAssets UP-TO-DATE
+> Task :examples:ex1_standalone_app:mergeDebugAssets UP-TO-DATE
+> Task :examples:ex1_standalone_app:validateSigningDebug UP-TO-DATE
+> Task :examples:ex1_standalone_app:signingConfigWriterDebug UP-TO-DATE
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarTransform
+> Transform annotation.jar (androidx.annotation:annotation:1.0.0) with IdentityTransform
+> Transform kxml2.jar (net.sf.kxml:kxml2:2.3.0) with IdentityTransform
+> Task :examples:ex1_standalone_app:transformClassesWithDexBuilderForDebug UP-TO-DATE
+> Task :examples:ex1_standalone_app:transformDexArchiveWithExternalLibsDexMergerForDebug UP-TO-DATE
+> Task :examples:ex1_standalone_app:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
+> Transform hamcrest-core.jar (org.hamcrest:hamcrest-core:1.3) with IdentityTransform
+> Transform monitor.aar (androidx.test:monitor:1.1.1) with AarTransform
+> Transform junit.jar (junit:junit:4.12) with IdentityTransform
+> Transform runner.aar (androidx.test:runner:1.1.1) with AarTransform
+> Task :mobly-snippet-lib:transformNativeLibsWithIntermediateJniLibsForDebug UP-TO-DATE
+> Task :examples:ex1_standalone_app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :examples:ex1_standalone_app:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+> Task :examples:ex1_standalone_app:processDebugJavaRes NO-SOURCE
+> Task :examples:ex1_standalone_app:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+> Task :examples:ex1_standalone_app:packageDebug UP-TO-DATE
+> Task :examples:ex1_standalone_app:assembleDebug UP-TO-DATE
+> Transform commons-logging.jar (commons-logging:commons-logging:1.2) with JetifyTransform
+> Transform commons-logging.jar (commons-logging:commons-logging:1.2) with IdentityTransform
+> Transform jsr305.jar (com.google.code.findbugs:jsr305:3.0.2) with JetifyTransform
+> Transform commons-codec.jar (commons-codec:commons-codec:1.10) with JetifyTransform
+> Transform jsr305.jar (com.google.code.findbugs:jsr305:3.0.2) with IdentityTransform
+> Transform commons-codec.jar (commons-codec:commons-codec:1.10) with IdentityTransform
+> Transform httpcore.jar (org.apache.httpcomponents:httpcore:4.4.9) with JetifyTransform
+> Transform jackson-core.jar (com.fasterxml.jackson.core:jackson-core:2.9.6) with JetifyTransform
+> Transform httpcore.jar (org.apache.httpcomponents:httpcore:4.4.9) with IdentityTransform
+> Transform gson.jar (com.google.code.gson:gson:2.1) with JetifyTransform
+> Transform jackson-core.jar (com.fasterxml.jackson.core:jackson-core:2.9.6) with IdentityTransform
+> Transform google-http-client.jar (com.google.http-client:google-http-client:1.26.0) with JetifyTransform
+> Transform gson.jar (com.google.code.gson:gson:2.1) with IdentityTransform
+> Transform google-http-client-jackson2.jar (com.google.http-client:google-http-client-jackson2:1.26.0) with JetifyTransform
+> Transform google-http-client.jar (com.google.http-client:google-http-client:1.26.0) with IdentityTransform
+> Transform httpclient.jar (org.apache.httpcomponents:httpclient:4.5.5) with JetifyTransform
+> Transform google-http-client-jackson2.jar (com.google.http-client:google-http-client-jackson2:1.26.0) with IdentityTransform
+> Transform guava.jar (com.google.guava:guava:20.0) with JetifyTransform
+> Transform httpclient.jar (org.apache.httpcomponents:httpclient:4.5.5) with IdentityTransform
+> Transform google-oauth-client.jar (com.google.oauth-client:google-oauth-client:1.26.0) with JetifyTransform
+> Transform guava.jar (com.google.guava:guava:20.0) with IdentityTransform
+> Transform google-api-client.jar (com.google.api-client:google-api-client:1.26.0) with JetifyTransform
+> Transform google-http-client-android.jar (com.google.http-client:google-http-client-android:1.26.0) with JetifyTransform
+> Transform google-oauth-client.jar (com.google.oauth-client:google-oauth-client:1.26.0) with IdentityTransform
+> Transform lifecycle-common.jar (androidx.lifecycle:lifecycle-common:2.0.0) with JetifyTransform
+> Transform google-api-client.jar (com.google.api-client:google-api-client:1.26.0) with IdentityTransform
+> Transform google-http-client-android.jar (com.google.http-client:google-http-client-android:1.26.0) with IdentityTransform
+> Transform lifecycle-common.jar (androidx.lifecycle:lifecycle-common:2.0.0) with IdentityTransform
+> Transform print.aar (androidx.print:print:1.0.0) with JetifyTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with JetifyTransform
+> Transform print.aar (androidx.print:print:1.0.0) with ExtractAarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with ExtractAarTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with JetifyTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with JetifyTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with ExtractAarTransform
+> Transform core-common.jar (androidx.arch.core:core-common:2.0.0) with JetifyTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with ExtractAarTransform
+> Transform core-common.jar (androidx.arch.core:core-common:2.0.0) with IdentityTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with JetifyTransform
+> Transform print.aar (androidx.print:print:1.0.0) with AarCompileClassesTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with ExtractAarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarCompileClassesTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarCompileClassesTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarCompileClassesTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with JetifyTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with JetifyTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with ExtractAarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarCompileClassesTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with JetifyTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with ExtractAarTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with ExtractAarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with JetifyTransform
+> Transform j2objc-annotations.jar (com.google.j2objc:j2objc-annotations:1.1) with JetifyTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with ExtractAarTransform
+> Transform j2objc-annotations.jar (com.google.j2objc:j2objc-annotations:1.1) with IdentityTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarCompileClassesTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarCompileClassesTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarCompileClassesTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarCompileClassesTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with JetifyTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with ExtractAarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with JetifyTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with JetifyTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with ExtractAarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with ExtractAarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with JetifyTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with JetifyTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with ExtractAarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with ExtractAarTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarCompileClassesTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with JetifyTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with ExtractAarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarCompileClassesTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarCompileClassesTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with JetifyTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarCompileClassesTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarCompileClassesTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with JetifyTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with JetifyTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with ExtractAarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with ExtractAarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with ExtractAarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with JetifyTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with JetifyTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with ExtractAarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with ExtractAarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarCompileClassesTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarCompileClassesTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarCompileClassesTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarCompileClassesTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarCompileClassesTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with JetifyTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with JetifyTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with ExtractAarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with ExtractAarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with JetifyTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with JetifyTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with ExtractAarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with ExtractAarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarCompileClassesTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarCompileClassesTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarCompileClassesTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarCompileClassesTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with JetifyTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with JetifyTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with JetifyTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with ExtractAarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with ExtractAarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with ExtractAarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarCompileClassesTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with JetifyTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with ExtractAarTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarCompileClassesTransform
+> Transform google-api-services-drive.jar (com.google.apis:google-api-services-drive:v3-rev136-1.25.0) with JetifyTransform
+> Transform google-api-services-drive.jar (com.google.apis:google-api-services-drive:v3-rev136-1.25.0) with IdentityTransform
+> Transform google-api-client-android.jar (com.google.api-client:google-api-client-android:1.26.0) with JetifyTransform
+> Transform google-api-client-android.jar (com.google.api-client:google-api-client-android:1.26.0) with IdentityTransform
+> Transform google-http-client-gson.jar (com.google.http-client:google-http-client-gson:1.26.0) with JetifyTransform
+> Transform google-http-client-gson.jar (com.google.http-client:google-http-client-gson:1.26.0) with IdentityTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with JetifyTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with ExtractAarTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarCompileClassesTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with JetifyTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with ExtractAarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarCompileClassesTransform
+> Transform print.aar (androidx.print:print:1.0.0) with AarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarCompileClassesTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with JetifyTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with JetifyTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with ExtractAarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with ExtractAarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with JetifyTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with ExtractAarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarCompileClassesTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarTransform
+> Transform collection.jar (androidx.collection:collection:1.1.0-alpha01) with JetifyTransform
+> Transform collection.jar (androidx.collection:collection:1.1.0-alpha01) with IdentityTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarCompileClassesTransform
+> Transform print.aar (androidx.print:print:1.0.0) with AarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarCompileClassesTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarTransform
+> Transform print.aar (androidx.print:print:1.0.0) with AarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarCompileClassesTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarTransform
+> Task :examples:ex2_espresso:preBuild UP-TO-DATE
+> Transform print.aar (androidx.print:print:1.0.0) with AarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarTransform
+> Task :examples:ex2_espresso:prepareLintJar UP-TO-DATE
+> Transform print.aar (androidx.print:print:1.0.0) with LibrarySymbolTableTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with LibrarySymbolTableTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with LibrarySymbolTableTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with LibrarySymbolTableTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with LibrarySymbolTableTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with LibrarySymbolTableTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with LibrarySymbolTableTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with LibrarySymbolTableTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with LibrarySymbolTableTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with LibrarySymbolTableTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with LibrarySymbolTableTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with LibrarySymbolTableTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with LibrarySymbolTableTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with LibrarySymbolTableTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with LibrarySymbolTableTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with LibrarySymbolTableTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with LibrarySymbolTableTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with LibrarySymbolTableTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with LibrarySymbolTableTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with LibrarySymbolTableTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with LibrarySymbolTableTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with LibrarySymbolTableTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with LibrarySymbolTableTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with LibrarySymbolTableTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with LibrarySymbolTableTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with LibrarySymbolTableTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with LibrarySymbolTableTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with LibrarySymbolTableTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with LibrarySymbolTableTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with LibrarySymbolTableTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with LibrarySymbolTableTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with LibrarySymbolTableTransform
+> Transform print.aar (androidx.print:print:1.0.0) with AarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarTransform
+> Transform print.aar (androidx.print:print:1.0.0) with AarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarCompileClassesTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarTransform
+> Transform print.aar (androidx.print:print:1.0.0) with AarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarTransform
+> Transform print.aar (androidx.print:print:1.0.0) with AarTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarTransform
+> Transform jackson-core.jar (com.fasterxml.jackson.core:jackson-core:2.9.6) with IdentityTransform
+> Transform commons-codec.jar (commons-codec:commons-codec:1.10) with IdentityTransform
+> Transform commons-logging.jar (commons-logging:commons-logging:1.2) with IdentityTransform
+> Transform httpcore.jar (org.apache.httpcomponents:httpcore:4.4.9) with IdentityTransform
+> Transform guava.jar (com.google.guava:guava:20.0) with IdentityTransform
+> Transform j2objc-annotations.jar (com.google.j2objc:j2objc-annotations:1.1) with IdentityTransform
+> Transform httpclient.jar (org.apache.httpcomponents:httpclient:4.5.5) with IdentityTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarTransform
+> Transform jsr305.jar (com.google.code.findbugs:jsr305:3.0.2) with IdentityTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarTransform
+> Transform gson.jar (com.google.code.gson:gson:2.1) with IdentityTransform
+> Transform google-http-client.jar (com.google.http-client:google-http-client:1.26.0) with IdentityTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarTransform
+> Transform google-http-client-jackson2.jar (com.google.http-client:google-http-client-jackson2:1.26.0) with IdentityTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with LibrarySymbolTableTransform
+> Task :examples:ex2_espresso:preOriginalDebugBuild UP-TO-DATE
+> Task :examples:ex2_espresso:compileOriginalDebugAidl NO-SOURCE
+> Task :examples:ex2_espresso:compileOriginalDebugRenderscript UP-TO-DATE
+> Task :examples:ex2_espresso:checkOriginalDebugManifest UP-TO-DATE
+> Task :examples:ex2_espresso:generateOriginalDebugBuildConfig UP-TO-DATE
+> Task :examples:ex2_espresso:generateOriginalDebugSources UP-TO-DATE
+> Task :examples:ex2_espresso:javaPreCompileOriginalDebug UP-TO-DATE
+> Task :examples:ex2_espresso:mainApkListPersistenceOriginalDebug UP-TO-DATE
+> Task :examples:ex2_espresso:generateOriginalDebugResValues UP-TO-DATE
+> Task :examples:ex2_espresso:generateOriginalDebugResources UP-TO-DATE
+> Task :examples:ex2_espresso:mergeOriginalDebugResources UP-TO-DATE
+> Task :examples:ex2_espresso:createOriginalDebugCompatibleScreenManifests UP-TO-DATE
+> Task :examples:ex2_espresso:processOriginalDebugManifest
+> Task :examples:ex2_espresso:processOriginalDebugResources UP-TO-DATE
+> Task :examples:ex2_espresso:compileOriginalDebugJavaWithJavac UP-TO-DATE
+> Task :examples:ex2_espresso:compileOriginalDebugNdk NO-SOURCE
+> Task :examples:ex2_espresso:compileOriginalDebugSources UP-TO-DATE
+> Task :examples:ex2_espresso:mergeOriginalDebugShaders UP-TO-DATE
+> Task :examples:ex2_espresso:compileOriginalDebugShaders UP-TO-DATE
+> Task :examples:ex2_espresso:generateOriginalDebugAssets UP-TO-DATE
+> Task :examples:ex2_espresso:mergeOriginalDebugAssets UP-TO-DATE
+> Task :examples:ex2_espresso:validateSigningOriginalDebug UP-TO-DATE
+> Task :examples:ex2_espresso:signingConfigWriterOriginalDebug UP-TO-DATE
+> Task :examples:ex2_espresso:transformClassesWithDexBuilderForOriginalDebug UP-TO-DATE
+> Task :examples:ex2_espresso:transformDexArchiveWithExternalLibsDexMergerForOriginalDebug UP-TO-DATE
+> Task :examples:ex2_espresso:transformDexArchiveWithDexMergerForOriginalDebug UP-TO-DATE
+> Transform google-oauth-client.jar (com.google.oauth-client:google-oauth-client:1.26.0) with IdentityTransform
+> Transform google-http-client-android.jar (com.google.http-client:google-http-client-android:1.26.0) with IdentityTransform
+> Transform google-api-client.jar (com.google.api-client:google-api-client:1.26.0) with IdentityTransform
+> Transform lifecycle-common.jar (androidx.lifecycle:lifecycle-common:2.0.0) with IdentityTransform
+> Transform localbroadcastmanager.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with AarTransform
+> Transform print.aar (androidx.print:print:1.0.0) with AarTransform
+> Transform core-common.jar (androidx.arch.core:core-common:2.0.0) with IdentityTransform
+> Transform documentfile.aar (androidx.documentfile:documentfile:1.0.0) with AarTransform
+> Transform core-runtime.aar (androidx.arch.core:core-runtime:2.0.0) with AarTransform
+> Transform lifecycle-livedata-core.aar (androidx.lifecycle:lifecycle-livedata-core:2.0.0) with AarTransform
+> Transform lifecycle-livedata.aar (androidx.lifecycle:lifecycle-livedata:2.0.0) with AarTransform
+> Transform interpolator.aar (androidx.interpolator:interpolator:1.0.0) with AarTransform
+> Transform lifecycle-runtime.aar (androidx.lifecycle:lifecycle-runtime:2.0.0) with AarTransform
+> Transform lifecycle-viewmodel.aar (androidx.lifecycle:lifecycle-viewmodel:2.0.0) with AarTransform
+> Transform collection.jar (androidx.collection:collection:1.1.0-alpha01) with IdentityTransform
+> Transform cursoradapter.aar (androidx.cursoradapter:cursoradapter:1.0.0) with AarTransform
+> Transform versionedparcelable.aar (androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01) with AarTransform
+> Transform core.aar (androidx.core:core:1.1.0-alpha01) with AarTransform
+> Transform asynclayoutinflater.aar (androidx.asynclayoutinflater:asynclayoutinflater:1.0.0) with AarTransform
+> Transform swiperefreshlayout.aar (androidx.swiperefreshlayout:swiperefreshlayout:1.0.0) with AarTransform
+> Transform customview.aar (androidx.customview:customview:1.0.0) with AarTransform
+> Transform slidingpanelayout.aar (androidx.slidingpanelayout:slidingpanelayout:1.0.0) with AarTransform
+> Transform coordinatorlayout.aar (androidx.coordinatorlayout:coordinatorlayout:1.0.0) with AarTransform
+> Transform activity.aar (androidx.activity:activity:1.0.0-alpha02) with AarTransform
+> Transform viewpager.aar (androidx.viewpager:viewpager:1.0.0) with AarTransform
+> Transform loader.aar (androidx.loader:loader:1.0.0) with AarTransform
+> Transform legacy-support-core-utils.aar (androidx.legacy:legacy-support-core-utils:1.0.0) with AarTransform
+> Transform drawerlayout.aar (androidx.drawerlayout:drawerlayout:1.0.0) with AarTransform
+> Transform legacy-support-core-ui.aar (androidx.legacy:legacy-support-core-ui:1.0.0) with AarTransform
+> Transform vectordrawable.aar (androidx.vectordrawable:vectordrawable:1.0.1) with AarTransform
+> Transform vectordrawable-animated.aar (androidx.vectordrawable:vectordrawable-animated:1.0.0) with AarTransform
+> Transform fragment.aar (androidx.fragment:fragment:1.1.0-alpha02) with AarTransform
+> Transform play-services-basement.aar (com.google.android.gms:play-services-basement:17.1.1) with AarTransform
+> Transform play-services-tasks.aar (com.google.android.gms:play-services-tasks:17.0.0) with AarTransform
+> Transform play-services-base.aar (com.google.android.gms:play-services-base:17.1.0) with AarTransform
+> Transform play-services-auth-base.aar (com.google.android.gms:play-services-auth-base:17.0.0) with AarTransform
+> Transform google-api-services-drive.jar (com.google.apis:google-api-services-drive:v3-rev136-1.25.0) with IdentityTransform
+> Transform google-api-client-android.jar (com.google.api-client:google-api-client-android:1.26.0) with IdentityTransform
+> Transform play-services-auth-api-phone.aar (com.google.android.gms:play-services-auth-api-phone:17.0.0) with AarTransform
+> Transform google-http-client-gson.jar (com.google.http-client:google-http-client-gson:1.26.0) with IdentityTransform
+> Transform play-services-auth.aar (com.google.android.gms:play-services-auth:19.0.0) with AarTransform
+> Transform appcompat.aar (androidx.appcompat:appcompat:1.1.0-alpha01) with AarTransform
+> Task :examples:ex2_espresso:mergeOriginalDebugJniLibFolders UP-TO-DATE
+> Task :examples:ex2_espresso:transformNativeLibsWithMergeJniLibsForOriginalDebug UP-TO-DATE
+> Task :examples:ex2_espresso:processOriginalDebugJavaRes NO-SOURCE
+> Task :examples:ex2_espresso:transformResourcesWithMergeJavaResForOriginalDebug UP-TO-DATE
+> Task :examples:ex2_espresso:packageOriginalDebug UP-TO-DATE
+> Task :examples:ex2_espresso:assembleOriginalDebug UP-TO-DATE
+> Transform javax.inject.jar (javax.inject:javax.inject:1) with JetifyTransform
+> Transform javax.inject.jar (javax.inject:javax.inject:1) with IdentityTransform
+> Transform hamcrest-integration.jar (org.hamcrest:hamcrest-integration:1.3) with JetifyTransform
+> Transform javawriter.jar (com.squareup:javawriter:2.1.1) with JetifyTransform
+> Transform hamcrest-integration.jar (org.hamcrest:hamcrest-integration:1.3) with IdentityTransform
+> Transform core.aar (androidx.test:core:1.2.0) with JetifyTransform
+> Transform javawriter.jar (com.squareup:javawriter:2.1.1) with IdentityTransform
+> Transform core.aar (androidx.test:core:1.2.0) with ExtractAarTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with JetifyTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with ExtractAarTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarCompileClassesTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with JetifyTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with ExtractAarTransform
+> Transform annotation.jar (androidx.annotation:annotation:1.0.1) with JetifyTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with JetifyTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarCompileClassesTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with ExtractAarTransform
+> Transform annotation.jar (androidx.annotation:annotation:1.0.1) with IdentityTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with JetifyTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with ExtractAarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarCompileClassesTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with JetifyTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarCompileClassesTransform
+> Transform hamcrest-library.jar (org.hamcrest:hamcrest-library:1.3) with JetifyTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with ExtractAarTransform
+> Transform hamcrest-library.jar (org.hamcrest:hamcrest-library:1.3) with IdentityTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarCompileClassesTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarCompileClassesTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with LibrarySymbolTableTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with LibrarySymbolTableTransform
+> Transform core.aar (androidx.test:core:1.2.0) with LibrarySymbolTableTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with LibrarySymbolTableTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with LibrarySymbolTableTransform
+> Task :examples:ex2_espresso:preSnippetDebugBuild UP-TO-DATE
+> Task :examples:ex2_espresso:compileSnippetDebugAidl NO-SOURCE
+> Task :examples:ex2_espresso:compileSnippetDebugRenderscript UP-TO-DATE
+> Task :examples:ex2_espresso:checkSnippetDebugManifest UP-TO-DATE
+> Task :examples:ex2_espresso:generateSnippetDebugBuildConfig UP-TO-DATE
+> Task :examples:ex2_espresso:generateSnippetDebugSources UP-TO-DATE
+> Task :examples:ex2_espresso:javaPreCompileSnippetDebug UP-TO-DATE
+> Transform rules.aar (androidx.test:rules:1.1.1) with LibrarySymbolTableTransform
+> Task :examples:ex2_espresso:mainApkListPersistenceSnippetDebug UP-TO-DATE
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarTransform
+> Task :examples:ex2_espresso:generateSnippetDebugResValues UP-TO-DATE
+> Task :examples:ex2_espresso:generateSnippetDebugResources UP-TO-DATE
+> Task :examples:ex2_espresso:mergeSnippetDebugResources UP-TO-DATE
+> Task :examples:ex2_espresso:createSnippetDebugCompatibleScreenManifests UP-TO-DATE
+> Task :examples:ex2_espresso:processSnippetDebugManifest
+> Task :examples:ex2_espresso:processSnippetDebugResources UP-TO-DATE
+> Task :examples:ex2_espresso:compileSnippetDebugJavaWithJavac UP-TO-DATE
+> Task :examples:ex2_espresso:compileSnippetDebugNdk NO-SOURCE
+> Task :examples:ex2_espresso:compileSnippetDebugSources UP-TO-DATE
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarTransform
+> Task :examples:ex2_espresso:mergeSnippetDebugShaders UP-TO-DATE
+> Task :examples:ex2_espresso:compileSnippetDebugShaders UP-TO-DATE
+> Task :examples:ex2_espresso:generateSnippetDebugAssets UP-TO-DATE
+> Task :examples:ex2_espresso:mergeSnippetDebugAssets UP-TO-DATE
+> Task :examples:ex2_espresso:validateSigningSnippetDebug UP-TO-DATE
+> Task :examples:ex2_espresso:signingConfigWriterSnippetDebug UP-TO-DATE
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarTransform
+> Transform hamcrest-library.jar (org.hamcrest:hamcrest-library:1.3) with IdentityTransform
+> Transform hamcrest-integration.jar (org.hamcrest:hamcrest-integration:1.3) with IdentityTransform
+> Transform javawriter.jar (com.squareup:javawriter:2.1.1) with IdentityTransform
+> Transform javax.inject.jar (javax.inject:javax.inject:1) with IdentityTransform
+> Transform annotation.jar (androidx.annotation:annotation:1.0.1) with IdentityTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarTransform
+> Transform espresso-idling-resource.aar (androidx.test.espresso:espresso-idling-resource:3.1.1) with AarTransform
+> Transform monitor.aar (androidx.test:monitor:1.2.0) with AarTransform
+> Transform core.aar (androidx.test:core:1.2.0) with AarTransform
+> Transform junit.aar (androidx.test.ext:junit:1.1.1) with AarTransform
+> Transform espresso-core.aar (androidx.test.espresso:espresso-core:3.1.1) with AarTransform
+> Transform rules.aar (androidx.test:rules:1.1.1) with AarTransform
+> Task :examples:ex2_espresso:mergeSnippetDebugJniLibFolders UP-TO-DATE
+> Task :examples:ex2_espresso:transformClassesWithDexBuilderForSnippetDebug UP-TO-DATE
+> Task :examples:ex2_espresso:transformDexArchiveWithExternalLibsDexMergerForSnippetDebug UP-TO-DATE
+> Task :examples:ex2_espresso:transformDexArchiveWithDexMergerForSnippetDebug UP-TO-DATE
+> Task :examples:ex2_espresso:transformNativeLibsWithMergeJniLibsForSnippetDebug UP-TO-DATE
+> Task :examples:ex2_espresso:processSnippetDebugJavaRes NO-SOURCE
+> Task :examples:ex2_espresso:transformResourcesWithMergeJavaResForSnippetDebug UP-TO-DATE
+> Task :examples:ex2_espresso:packageSnippetDebug UP-TO-DATE
+> Task :examples:ex2_espresso:assembleSnippetDebug UP-TO-DATE
+> Task :examples:ex2_espresso:assembleDebug UP-TO-DATE
+> Task :examples:ex3_async_event:preBuild UP-TO-DATE
+> Task :examples:ex3_async_event:preDebugBuild UP-TO-DATE
+> Task :examples:ex3_async_event:compileDebugAidl NO-SOURCE
+> Task :examples:ex3_async_event:compileDebugRenderscript UP-TO-DATE
+> Task :examples:ex3_async_event:checkDebugManifest UP-TO-DATE
+> Task :examples:ex3_async_event:generateDebugBuildConfig UP-TO-DATE
+> Task :examples:ex3_async_event:prepareLintJar UP-TO-DATE
+> Task :examples:ex3_async_event:generateDebugSources UP-TO-DATE
+> Task :examples:ex3_async_event:javaPreCompileDebug UP-TO-DATE
+> Task :examples:ex3_async_event:mainApkListPersistenceDebug UP-TO-DATE
+> Task :examples:ex3_async_event:generateDebugResValues UP-TO-DATE
+> Task :examples:ex3_async_event:generateDebugResources UP-TO-DATE
+> Task :examples:ex3_async_event:mergeDebugResources UP-TO-DATE
+> Task :examples:ex3_async_event:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :examples:ex3_async_event:processDebugManifest UP-TO-DATE
+> Task :examples:ex3_async_event:processDebugResources UP-TO-DATE
+> Task :examples:ex3_async_event:compileDebugJavaWithJavac UP-TO-DATE
+> Task :examples:ex3_async_event:compileDebugNdk NO-SOURCE
+> Task :examples:ex3_async_event:compileDebugSources UP-TO-DATE
+> Task :examples:ex3_async_event:mergeDebugShaders UP-TO-DATE
+> Task :examples:ex3_async_event:compileDebugShaders UP-TO-DATE
+> Task :examples:ex3_async_event:generateDebugAssets UP-TO-DATE
+> Task :examples:ex3_async_event:mergeDebugAssets UP-TO-DATE
+> Task :examples:ex3_async_event:validateSigningDebug UP-TO-DATE
+> Task :examples:ex3_async_event:signingConfigWriterDebug UP-TO-DATE
+> Task :examples:ex3_async_event:transformClassesWithDexBuilderForDebug UP-TO-DATE
+> Task :examples:ex3_async_event:transformDexArchiveWithExternalLibsDexMergerForDebug UP-TO-DATE
+> Task :examples:ex3_async_event:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
+> Task :examples:ex3_async_event:mergeDebugJniLibFolders UP-TO-DATE
+> Task :examples:ex3_async_event:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+> Task :examples:ex3_async_event:processDebugJavaRes NO-SOURCE
+> Task :examples:ex3_async_event:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+> Task :examples:ex3_async_event:packageDebug UP-TO-DATE
+> Task :examples:ex3_async_event:assembleDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:preBuild UP-TO-DATE
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with JetifyTransform
+> Task :examples:ex4_uiautomator:prepareLintJar UP-TO-DATE
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with ExtractAarTransform
+> Task :examples:ex5_schedule_rpc:preBuild UP-TO-DATE
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarCompileClassesTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with LibrarySymbolTableTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarTransform
+> Transform uiautomator.aar (androidx.test.uiautomator:uiautomator:2.2.0) with AarTransform
+> Task :examples:ex5_schedule_rpc:preDebugBuild UP-TO-DATE
+> Task :examples:ex4_uiautomator:preDebugBuild UP-TO-DATE
+> Task :examples:ex4_uiautomator:compileDebugAidl NO-SOURCE
+> Task :examples:ex4_uiautomator:compileDebugRenderscript UP-TO-DATE
+> Task :examples:ex4_uiautomator:checkDebugManifest UP-TO-DATE
+> Task :examples:ex4_uiautomator:generateDebugBuildConfig UP-TO-DATE
+> Task :examples:ex4_uiautomator:generateDebugSources UP-TO-DATE
+> Task :examples:ex4_uiautomator:javaPreCompileDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:mainApkListPersistenceDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:generateDebugResValues UP-TO-DATE
+> Task :examples:ex4_uiautomator:generateDebugResources UP-TO-DATE
+> Task :examples:ex4_uiautomator:mergeDebugResources UP-TO-DATE
+> Task :examples:ex4_uiautomator:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :examples:ex4_uiautomator:processDebugManifest UP-TO-DATE
+> Task :examples:ex4_uiautomator:processDebugResources UP-TO-DATE
+> Task :examples:ex4_uiautomator:compileDebugJavaWithJavac UP-TO-DATE
+> Task :examples:ex4_uiautomator:compileDebugNdk NO-SOURCE
+> Task :examples:ex4_uiautomator:compileDebugSources UP-TO-DATE
+> Task :examples:ex4_uiautomator:mergeDebugShaders UP-TO-DATE
+> Task :examples:ex4_uiautomator:compileDebugShaders UP-TO-DATE
+> Task :examples:ex4_uiautomator:generateDebugAssets UP-TO-DATE
+> Task :examples:ex4_uiautomator:mergeDebugAssets UP-TO-DATE
+> Task :examples:ex4_uiautomator:validateSigningDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:signingConfigWriterDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:transformClassesWithDexBuilderForDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:transformDexArchiveWithExternalLibsDexMergerForDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:mergeDebugJniLibFolders UP-TO-DATE
+> Task :examples:ex4_uiautomator:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:processDebugJavaRes NO-SOURCE
+> Task :examples:ex4_uiautomator:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:packageDebug UP-TO-DATE
+> Task :examples:ex4_uiautomator:assembleDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:compileDebugAidl NO-SOURCE
+> Task :examples:ex5_schedule_rpc:compileDebugRenderscript UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:checkDebugManifest UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:generateDebugBuildConfig UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:prepareLintJar UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:generateDebugSources UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:javaPreCompileDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:mainApkListPersistenceDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:generateDebugResValues UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:generateDebugResources UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:mergeDebugResources UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:processDebugManifest UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:processDebugResources UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:compileDebugJavaWithJavac UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:compileDebugNdk NO-SOURCE
+> Task :examples:ex5_schedule_rpc:compileDebugSources UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:mergeDebugShaders UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:compileDebugShaders UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:generateDebugAssets UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:mergeDebugAssets UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:validateSigningDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:signingConfigWriterDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:transformClassesWithDexBuilderForDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:transformDexArchiveWithExternalLibsDexMergerForDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:mergeDebugJniLibFolders UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:processDebugJavaRes NO-SOURCE
+> Task :examples:ex5_schedule_rpc:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:packageDebug UP-TO-DATE
+> Task :examples:ex5_schedule_rpc:assembleDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:preBuild UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:preDebugBuild UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:compileDebugAidl NO-SOURCE
+> Task :examples:ex6_complex_type_conversion:compileDebugRenderscript UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:checkDebugManifest UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:generateDebugBuildConfig UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:prepareLintJar UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:generateDebugSources UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:javaPreCompileDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:mainApkListPersistenceDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:generateDebugResValues UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:generateDebugResources UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:mergeDebugResources UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:processDebugManifest UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:processDebugResources UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:compileDebugJavaWithJavac UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:compileDebugNdk NO-SOURCE
+> Task :examples:ex6_complex_type_conversion:compileDebugSources UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:mergeDebugShaders UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:compileDebugShaders UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:generateDebugAssets UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:mergeDebugAssets UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:validateSigningDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:signingConfigWriterDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:transformClassesWithDexBuilderForDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:transformDexArchiveWithExternalLibsDexMergerForDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:mergeDebugJniLibFolders UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:processDebugJavaRes NO-SOURCE
+> Task :examples:ex6_complex_type_conversion:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:packageDebug UP-TO-DATE
+> Task :examples:ex6_complex_type_conversion:assembleDebug UP-TO-DATE
+
+BUILD SUCCESSFUL in 1s
+197 actionable tasks: 2 executed, 195 up-to-date
