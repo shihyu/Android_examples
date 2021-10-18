@@ -35,7 +35,10 @@ public class EspressoSnippet implements Snippet {
     }
 
     public DriveServiceHelper getDriveService() {
-        return MainActivity.getInstance().getDriveService();
+        if (MainActivity.getInstance() != null) {
+            return MainActivity.getInstance().getDriveService();
+        }
+        return null;
     }
 
     @Rpc(description = "Returns the given integer with the prefix \"foo\"")
