@@ -1,0 +1,8 @@
+java:
+  java_version: java-7-openjdk
+  gradle_version: '2.13'  # See our Java documentation for versions
+tests:
+  - type: junit
+    command: gradle test
+    report_files:
+    - "target/surefire-reports/*.xml"
