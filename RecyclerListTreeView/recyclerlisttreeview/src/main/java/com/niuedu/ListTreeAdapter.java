@@ -15,58 +15,59 @@ import niuedu.com.R;
  * 为RecyclerView提供数据
  */
 public abstract class ListTreeAdapter<VH extends ListTreeAdapter.ListTreeViewHolder>
-        extends RecyclerView.Adapter<VH> {
+    extends RecyclerView.Adapter<VH> {
 
     protected ListTree tree;
 
     //展开和收起图标的Drawable资源id
-    private Bitmap expandIcon=null;
-    private Bitmap collapseIcon=null;
+    private Bitmap expandIcon = null;
+    private Bitmap collapseIcon = null;
 
     //构造方法
-    public ListTreeAdapter(ListTree tree){
-        this.tree=tree;
+    public ListTreeAdapter(ListTree tree) {
+        this.tree = tree;
 
     }
-    public ListTreeAdapter(ListTree tree,Bitmap expandIcon,Bitmap collapseIcon){
-        this.tree=tree;
+    public ListTreeAdapter(ListTree tree, Bitmap expandIcon, Bitmap collapseIcon) {
+        this.tree = tree;
 
-        this.expandIcon=expandIcon;
-        this.collapseIcon=collapseIcon;
+        this.expandIcon = expandIcon;
+        this.collapseIcon = collapseIcon;
     }
 
     @Override
     final public VH onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(expandIcon==null){
-            expandIcon=BitmapFactory.decodeResource(
-                    parent.getContext().getResources(), R.drawable.expand);
+        if (expandIcon == null) {
+            expandIcon = BitmapFactory.decodeResource(
+                             parent.getContext().getResources(), R.drawable.expand);
         }
 
-        if(collapseIcon==null){
-            collapseIcon=BitmapFactory.decodeResource(
-                    parent.getContext().getResources(),R.drawable.collapse);
+        if (collapseIcon == null) {
+            collapseIcon = BitmapFactory.decodeResource(
+                               parent.getContext().getResources(), R.drawable.collapse);
         }
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ViewGroup container = (ViewGroup) inflater.inflate(
-                R.layout.row_container_layout,parent,false);
+                                  R.layout.row_container_layout, parent, false);
 
         //响应在Arrow上的点击事件，执行收缩或展开
         ImageView arrowIcon = container.findViewById(R.id.listtree_arrowIcon);
         //跟据列表控件的宽度为它计算一个合适的大小
-        int w= parent.getMeasuredWidth();
-        arrowIcon.getLayoutParams().width=w/15;
-        arrowIcon.getLayoutParams().height=w/15;
+        int w = parent.getMeasuredWidth();
+        arrowIcon.getLayoutParams().width = w / 15;
+        arrowIcon.getLayoutParams().height = w / 15;
 
         //子类创建自己的row view
-        VH vh = onCreateNodeView(container,viewType);
-        if(vh==null){
+        VH vh = onCreateNodeView(container, viewType);
+
+        if (vh == null) {
             return null;
         }
 
         vh.containerView = container;
-        vh.arrowIcon=arrowIcon;
-        vh.headSpace=container.findViewById(R.id.listtree_head_space);
+        vh.arrowIcon = arrowIcon;
+        vh.headSpace = container.findViewById(R.id.listtree_head_space);
 
         //不能在构造方法中设置各View，只能另搞一个方法了
         vh.initView();
@@ -76,11 +77,11 @@ public abstract class ListTreeAdapter<VH extends ListTreeAdapter.ListTreeViewHol
     }
 
     protected abstract VH onCreateNodeView(ViewGroup parent, int viewType);
-    protected abstract void onBindNodeViewHolder(VH viewHoler,int position);
+    protected abstract void onBindNodeViewHolder(VH viewHoler, int position);
 
     @Override
     final public int getItemViewType(int position) {
-        int count=0;
+        int count = 0;
         ListTree.TreeNode node = tree.getNodeByPlaneIndex(position);
         return node.getLayoutResId();
     }
@@ -89,23 +90,24 @@ public abstract class ListTreeAdapter<VH extends ListTreeAdapter.ListTreeViewHol
     final public void onBindViewHolder(VH holder, int position) {
         //get node at the position
         ListTree.TreeNode node = tree.getNodeByPlaneIndex(position);
-        if(node.isShowExpandIcon()) {
+
+        if (node.isShowExpandIcon()) {
             if (node.isExpand()) {
                 holder.arrowIcon.setImageBitmap(collapseIcon);
             } else {
                 holder.arrowIcon.setImageBitmap(expandIcon);
             }
-        }else{
+        } else {
             //不需要显示图标
             holder.arrowIcon.setImageBitmap(null);
         }
 
         //跟据node的层深，改变缩进距离,从0开始计
         int layer = tree.getNodeLayerLevel(node);
-        holder.headSpace.getLayoutParams().width=layer*20;
+        holder.headSpace.getLayoutParams().width = layer * 50;
 
         //给子类机会去绑定行数据
-        onBindNodeViewHolder(holder,position);
+        onBindNodeViewHolder(holder, position);
     }
 
 
@@ -114,12 +116,13 @@ public abstract class ListTreeAdapter<VH extends ListTreeAdapter.ListTreeViewHol
         return tree.size();
     }
 
-    public void notifyTreeItemInserted(ListTree.TreeNode parent, ListTree.TreeNode node){
+    public void notifyTreeItemInserted(ListTree.TreeNode parent, ListTree.TreeNode node) {
         int parentPlaneIndex = tree.getNodePlaneIndex(parent);
-        if(parent.isExpand()) {
+
+        if (parent.isExpand()) {
             //已展开
             super.notifyItemInserted(tree.getNodePlaneIndex(node));
-        }else{
+        } else {
             //未展开，需展开爸爸
             int count = tree.expandNode(parentPlaneIndex);
             //通知改变爸爸的状态
@@ -129,7 +132,7 @@ public abstract class ListTreeAdapter<VH extends ListTreeAdapter.ListTreeViewHol
         }
     }
 
-    public class ListTreeViewHolder extends RecyclerView.ViewHolder{
+    public class ListTreeViewHolder extends RecyclerView.ViewHolder {
         protected ViewGroup containerView;
         protected ImageView arrowIcon;
         protected Space headSpace;
@@ -145,8 +148,10 @@ public abstract class ListTreeAdapter<VH extends ListTreeAdapter.ListTreeViewHol
                 public void onClick(View v) {
                     int planePos = getAdapterPosition();
                     ListTree.TreeNode node = tree.getNodeByPlaneIndex(planePos);
-                    if(node.isShowExpandIcon()) {
+
+                    if (node.isShowExpandIcon()) {
                         int nodePlaneIndex = tree.getNodePlaneIndex(node);
+
                         if (node.isExpand()) {
                             //收起
                             int count = tree.collapseNode(nodePlaneIndex);
