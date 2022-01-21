@@ -36,6 +36,8 @@ public class SelectDirectoryActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         super.onCreate(savedInstanceState);
         main_binding = ActivitySelectDirectoryBinding.inflate(getLayoutInflater());
         toolbarBinding = ToolbarBinding.inflate(getLayoutInflater());
@@ -63,6 +65,8 @@ public class SelectDirectoryActivity extends AppCompatActivity
 
     public void addFragment(FolderFragment fragment, boolean addToBackStack)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         fragments.push(fragment);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -83,6 +87,8 @@ public class SelectDirectoryActivity extends AppCompatActivity
     }
     private String[] storages()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         List<String> storages = new ArrayList<>();
 
         try {
@@ -114,6 +120,8 @@ public class SelectDirectoryActivity extends AppCompatActivity
     }
     private boolean validPath(String path)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         try {
             StatFs stat = new StatFs(path);
             stat.getBlockCount();
@@ -124,6 +132,8 @@ public class SelectDirectoryActivity extends AppCompatActivity
     }
     private void removeFragment(FolderFragment fragment)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         fragments.pop();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -141,6 +151,8 @@ public class SelectDirectoryActivity extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (fragments.size() > 0) {
             FolderFragment fragment = fragments.peek();
 

@@ -16,12 +16,16 @@ public class ThumbnailLoader
     private static final int MAX_DP = 24;
     public ThumbnailLoader(Resources resources)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         this.maxSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, MAX_DP,
                        resources.getDisplayMetrics());
         this.threadPool = Executors.newFixedThreadPool(10);
     }
     public void load(FileInfo fileInfo, ImageView imageView)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (fileInfo.hasCachedBitmap()) {
             imageView.setImageBitmap(fileInfo.bitmap(maxSize));
         } else {

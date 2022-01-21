@@ -13,12 +13,16 @@ public abstract class BaseListAdapter<T, V> extends ArrayAdapter<T>
     protected BaseListAdapter(Context context, int resourceId)
     {
         super(context, resourceId, new ArrayList<>());
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         this.resourceId = resourceId;
     }
     protected abstract V viewHolder(View view);
     protected abstract void fillView(View rowView, V viewHolder, T item);
     public void update(List<T> list)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         clear();
         addAll(list);
         notifyDataSetChanged();
@@ -28,6 +32,8 @@ public abstract class BaseListAdapter<T, V> extends ArrayAdapter<T>
     @SuppressWarnings("unchecked")
     public View getView(int position, View convertView, @NonNull ViewGroup parent)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         V viewHolder;
         View rowView = convertView;
 

@@ -27,6 +27,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
     public LegacyCompatCursorWrapper(Cursor cursor)
     {
         this(cursor, null);
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
     }
     /**
      * Constructor.
@@ -39,6 +41,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
     public LegacyCompatCursorWrapper(Cursor cursor, String mimeType)
     {
         this(cursor, mimeType, null);
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
     }
     /**
      * Constructor.
@@ -53,6 +57,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
                                      Uri uriForDataColumn)
     {
         super(cursor);
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         this.uriForDataColumn = uriForDataColumn;
 
         if (cursor.getColumnIndex(DATA) >= 0) {
@@ -77,6 +83,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
     @Override
     public int getColumnCount()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         int count = super.getColumnCount();
 
         if (!cursorHasDataColumn()) {
@@ -95,6 +103,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
     @Override
     public int getColumnIndex(String columnName)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (!cursorHasDataColumn() && DATA.equalsIgnoreCase(
                 columnName)) {
             return (fakeDataColumn);
@@ -113,6 +123,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
     @Override
     public String getColumnName(int columnIndex)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (columnIndex == fakeDataColumn) {
             return (DATA);
         }
@@ -129,6 +141,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
     @Override
     public String[] getColumnNames()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cursorHasDataColumn() && cursorHasMimeTypeColumn()) {
             return (super.getColumnNames());
         }
@@ -152,6 +166,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
     @Override
     public String getString(int columnIndex)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (!cursorHasDataColumn() && columnIndex == fakeDataColumn) {
             if (uriForDataColumn != null) {
                 return (uriForDataColumn.toString());
@@ -172,6 +188,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
     @Override
     public int getType(int columnIndex)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (!cursorHasDataColumn() && columnIndex == fakeDataColumn) {
             return (Cursor.FIELD_TYPE_STRING);
         }
@@ -187,6 +205,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
      */
     private boolean cursorHasDataColumn()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return (fakeDataColumn == -1);
     }
     /**
@@ -195,6 +215,8 @@ public class LegacyCompatCursorWrapper extends CursorWrapper
      */
     private boolean cursorHasMimeTypeColumn()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return (fakeMimeTypeColumn == -1);
     }
 }

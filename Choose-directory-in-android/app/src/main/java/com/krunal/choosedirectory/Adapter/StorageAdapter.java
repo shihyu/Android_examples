@@ -10,15 +10,21 @@ public class StorageAdapter extends BaseListAdapter<String, StorageAdapter.ViewH
     public StorageAdapter(Context context)
     {
         super(context, R.layout.row_storage);
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
     }
     @Override
     protected ViewHolder viewHolder(View view)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return new ViewHolder(view);
     }
     @Override
     protected void fillView(View rowView, ViewHolder viewHolder, String item)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         viewHolder.name.setText(item);
 
         try {
@@ -42,6 +48,8 @@ public class StorageAdapter extends BaseListAdapter<String, StorageAdapter.ViewH
         public final TextView space;
         public ViewHolder(View view)
         {
+            System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
             this.name = view.findViewById(R.id.name);
             this.space = view.findViewById(R.id.space);
         }

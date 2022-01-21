@@ -17,16 +17,22 @@ public class FolderAdapter extends BaseListAdapter<FileInfo, FolderAdapter.ViewH
     public FolderAdapter(Context context)
     {
         super(context, R.layout.row_file);
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         this.thumbnailLoader = new ThumbnailLoader(context.getResources());
     }
     @Override
     protected ViewHolder viewHolder(View view)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return new ViewHolder(view);
     }
     @Override
     protected void fillView(View rowView, ViewHolder viewHolder, FileInfo fileInfo)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         viewHolder.name.setText(fileInfo.name());
 
         if (fileInfo.isDirectory()) {
@@ -83,16 +89,22 @@ public class FolderAdapter extends BaseListAdapter<FileInfo, FolderAdapter.ViewH
     }
     public void updateSelection(boolean itemAdded)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         notifyDataSetChanged();
         itemsSelected += itemAdded ? 1 : -1;
     }
     public void setData(List<FileInfo> list)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         update(list);
         unselectAll();
     }
     public void unselectAll()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         for (int i = 0; i < getCount(); i++) {
             FileInfo fileInfo = getItem(i);
 
@@ -106,6 +118,8 @@ public class FolderAdapter extends BaseListAdapter<FileInfo, FolderAdapter.ViewH
     }
     public void selectAll()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         for (int i = 0; i < getCount(); i++) {
             FileInfo fileInfo = getItem(i);
 
@@ -119,18 +133,26 @@ public class FolderAdapter extends BaseListAdapter<FileInfo, FolderAdapter.ViewH
     }
     public boolean isSelectionMode()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return itemsSelected > 0;
     }
     public int itemsSelected()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return itemsSelected;
     }
     public boolean allItemsSelected()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return itemsSelected == getCount();
     }
     public List<FileInfo> selectedItems(boolean onlyFiles)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         List<FileInfo> list = new ArrayList<>();
 
         for (int i = 0; i < getCount(); i++) {
@@ -149,6 +171,8 @@ public class FolderAdapter extends BaseListAdapter<FileInfo, FolderAdapter.ViewH
     }
     public boolean hasFiles()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         for (int i = 0; i < getCount(); i++) {
             FileInfo fileInfo = getItem(i);
 
@@ -169,6 +193,8 @@ public class FolderAdapter extends BaseListAdapter<FileInfo, FolderAdapter.ViewH
         public final ImageView icon;
         public ViewHolder(View view)
         {
+            System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
             this.name = view.findViewById(R.id.name);
             this.size = view.findViewById(R.id.size);
             this.extension = view.findViewById(R.id.extension);

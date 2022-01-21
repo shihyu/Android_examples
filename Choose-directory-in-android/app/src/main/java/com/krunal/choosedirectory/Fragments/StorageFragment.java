@@ -20,6 +20,8 @@ public class StorageFragment extends Fragment
     private ScreenStorageBinding binding;
     public static StorageFragment newInstance(String[] storagesPath)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         StorageFragment fragment = new StorageFragment();
         Bundle parameters = new Bundle();
         parameters.putStringArray(PARAMETER_STORAGES_PATH, storagesPath);
@@ -29,6 +31,8 @@ public class StorageFragment extends Fragment
     @Override
     public void onAttach(Context context)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         super.onAttach(context);
         mainActivity = (SelectDirectoryActivity) context;
     }
@@ -37,12 +41,16 @@ public class StorageFragment extends Fragment
                                    ViewGroup container,
                                    Bundle savedInstanceState)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         binding = ScreenStorageBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
     @Override
     public final void onActivityCreated(Bundle savedInstanceState)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         super.onActivityCreated(savedInstanceState);
         adapter = new StorageAdapter(mainActivity);
         binding.list.setAdapter(adapter);
@@ -54,21 +62,29 @@ public class StorageFragment extends Fragment
     }
     public void reload()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         adapter.update(Arrays.asList(storages()));
     }
     private String[] storages()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         Bundle extras = getArguments();
         return (extras != null) ? extras.getStringArray(PARAMETER_STORAGES_PATH) : new String[0];
     }
     private void openStorage(String storagePath)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         FolderFragment folderFragment = FolderFragment.newInstance(storagePath);
         mainActivity.addFragment(folderFragment, true);
     }
     @Override
     public void onSaveInstanceState(Bundle outState)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         // no call for super(). Bug on API Level > 11.
     }
 }

@@ -11,6 +11,8 @@ public class ExampleUnitTest
     @Test
     public void addition_isCorrect()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         assertEquals(4, 2 + 2);
     }
 }

@@ -36,11 +36,15 @@ public class FileInfo
     private boolean isSelected = false;
     public FileInfo(File file)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         this.file = file;
         this.cachedBitmap = new SoftReference<>(null);
     }
     public List<FileInfo> files()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         List<FileInfo> result = new ArrayList<>();
 
         if (isDirectory()) {
@@ -58,15 +62,21 @@ public class FileInfo
     }
     public boolean exists()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return file.exists();
     }
     public boolean rename(String newName)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         File newFile = new File(file.getParentFile(), newName);
         return !newFile.exists() && file.renameTo(newFile);
     }
     public boolean copy(FileInfo target, boolean delete)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (isDirectory()) {
             File newTargetFolder = new File(target.file, file.getName());
             boolean allCopied = (newTargetFolder.exists() || newTargetFolder.mkdirs());
@@ -96,6 +106,8 @@ public class FileInfo
     }
     private boolean copy(File source, File destination)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         File target = new File(destination, source.getName());
         InputStream inputStream = null;
         OutputStream outputStream = null;
@@ -124,6 +136,8 @@ public class FileInfo
     }
     private void close(Closeable closeable)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         try {
             if (closeable != null) {
                 closeable.close();
@@ -134,6 +148,8 @@ public class FileInfo
     }
     public boolean delete ()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (isDirectory()) {
             for (File currentFile : children()) {
                 if (currentFile != null) {
@@ -147,6 +163,8 @@ public class FileInfo
     }
     public boolean hasFiles()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (isDirectory()) {
             for (File currentFile : children()) {
                 if (currentFile != null) {
@@ -165,10 +183,14 @@ public class FileInfo
     }
     public File parent()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return file.getParentFile();
     }
     public String name()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedName == null) {
             cachedName = file.getName();
         }
@@ -177,6 +199,8 @@ public class FileInfo
     }
     public Uri uri(Context context)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             try {
                 return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", file);
@@ -189,6 +213,8 @@ public class FileInfo
     }
     public String path()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedPath == null) {
             cachedPath = file.getAbsolutePath();
         }
@@ -197,6 +223,8 @@ public class FileInfo
     }
     public String mimeType()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedMimeType == null) {
             cachedMimeType = mimeTypeV1();
 
@@ -213,6 +241,8 @@ public class FileInfo
     }
     private String mimeTypeV1()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         try {
             return URLConnection.guessContentTypeFromName(file.getAbsolutePath());
         } catch (Exception e) {
@@ -221,6 +251,8 @@ public class FileInfo
     }
     private String mimeTypeV2()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         try {
             String extension = MimeTypeMap.getFileExtensionFromUrl(file.getAbsolutePath());
             return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
@@ -230,6 +262,8 @@ public class FileInfo
     }
     public boolean isImage()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedIsImage == null) {
             String mimeType = mimeType();
             cachedIsImage = (mimeType != null) && mimeType.startsWith("image/");
@@ -239,6 +273,8 @@ public class FileInfo
     }
     public boolean isPdf()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedIsPdf == null) {
             String mimeType = mimeType();
             cachedIsPdf = (mimeType != null) && mimeType.startsWith("application/pdf");
@@ -248,6 +284,8 @@ public class FileInfo
     }
     public boolean isAudio()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedIsAudio == null) {
             String mimeType = mimeType();
             cachedIsAudio = (mimeType != null) && mimeType.startsWith("audio/");
@@ -257,6 +295,8 @@ public class FileInfo
     }
     public boolean isVideo()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedIsVideo == null) {
             String mimeType = mimeType();
             cachedIsVideo = (mimeType != null) && mimeType.startsWith("video");
@@ -266,6 +306,8 @@ public class FileInfo
     }
     public boolean isDirectory()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedIsDirectory == null) {
             cachedIsDirectory = file.isDirectory();
         }
@@ -274,6 +316,8 @@ public class FileInfo
     }
     public int numberOfChildren()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedNumberOfChildren == null) {
             cachedNumberOfChildren = children().length;
         }
@@ -282,11 +326,15 @@ public class FileInfo
     }
     private File[] children()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         File[] children = file.listFiles();
         return (children != null) ? children : new File[0];
     }
     public String extension()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedExtension == null) {
             cachedExtension = "";
             String name = name();
@@ -305,6 +353,8 @@ public class FileInfo
     }
     public String size()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (cachedSize == null) {
             SpaceFormatter spaceFormatter = new SpaceFormatter();
             cachedSize = spaceFormatter.format(file.length());
@@ -314,10 +364,14 @@ public class FileInfo
     }
     public boolean hasCachedBitmap()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return (cachedBitmap.get() != null);
     }
     public Bitmap bitmap(int maxSize)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         Bitmap bitmap = cachedBitmap.get();
 
         if (bitmap == null) {
@@ -338,6 +392,8 @@ public class FileInfo
     }
     private int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         // raw height and width of image
         int height = options.outHeight;
         int width = options.outWidth;
@@ -358,15 +414,21 @@ public class FileInfo
     }
     public boolean toggleSelection()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         isSelected = !isSelected;
         return isSelected;
     }
     public void select(boolean value)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         isSelected = value;
     }
     public boolean isSelected()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return isSelected;
     }
 }

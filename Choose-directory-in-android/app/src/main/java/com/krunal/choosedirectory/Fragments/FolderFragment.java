@@ -42,6 +42,8 @@ public class FolderFragment extends Fragment
     private ScreenFolderBinding binding;
     public static FolderFragment newInstance(String folderPath)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         FolderFragment fragment = new FolderFragment();
         Bundle parameters = new Bundle();
         parameters.putSerializable(PARAMETER_FOLDER_PATH, folderPath);
@@ -51,6 +53,8 @@ public class FolderFragment extends Fragment
     @Override
     public void onAttach(Context context)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         super.onAttach(context);
         mainActivity = (SelectDirectoryActivity) context;
     }
@@ -58,6 +62,8 @@ public class FolderFragment extends Fragment
     public final View onCreateView(LayoutInflater inflater, ViewGroup container,
                                    Bundle savedInstanceState)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         binding = ScreenFolderBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -65,6 +71,8 @@ public class FolderFragment extends Fragment
     @SuppressLint("ClickableViewAccessibility")
     public final void onActivityCreated(Bundle savedInstanceState)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         super.onActivityCreated(savedInstanceState);
         binding.fab.setOnClickListener(v -> {
             Intent intent = new Intent();
@@ -115,6 +123,8 @@ public class FolderFragment extends Fragment
     }
     public synchronized boolean onBackPressed()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if ((adapter != null) && adapter.isSelectionMode()) {
             unselectAll();
             return false;
@@ -124,11 +134,15 @@ public class FolderFragment extends Fragment
     }
     private void unselectAll()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         adapter.unselectAll();
         updateButtonBar();
     }
     private void updateButtonBar()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         //        Clipboard clipboard = mainActivity.clipboard();
         //
         //        mainActivity.buttonBar().displayButtons(adapter.itemsSelected(),
@@ -137,16 +151,22 @@ public class FolderFragment extends Fragment
     }
     public String folderName()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         return folder().getAbsolutePath();
     }
     private File folder()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         String folderPath = parameter(PARAMETER_FOLDER_PATH, "/");
         Log.e("Check", "folderPath: " + folderPath);
         return new File(folderPath);
     }
     private List<FileInfo> fileList()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         File root = folder();
         File[] fileArray = root.listFiles();
 
@@ -180,6 +200,8 @@ public class FolderFragment extends Fragment
     @SuppressWarnings({"unchecked", "SameParameterValue"})
     private <Type> Type parameter(String key, Type defaultValue)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         Bundle extras = getArguments();
 
         if ((extras != null) && extras.containsKey(key)) {
@@ -190,20 +212,28 @@ public class FolderFragment extends Fragment
     }
     private void openFolder(FileInfo fileInfo)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         FolderFragment folderFragment = FolderFragment.newInstance(fileInfo.path());
         mainActivity.addFragment(folderFragment, true);
     }
     public void onSelectAll()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         adapter.selectAll();
         updateButtonBar();
     }
     private void showMessage(@StringRes int text)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         Toast.makeText(context(), text, Toast.LENGTH_SHORT).show();
     }
     public void refreshFolder()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         List<FileInfo> files = fileList();
         adapter.setData(files);
         updateButtonBar();
@@ -218,6 +248,8 @@ public class FolderFragment extends Fragment
     }
     private void startActivity(Intent intent, @StringRes int resId)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         try {
             startActivity(intent);
         } catch (Exception e) {
@@ -227,12 +259,16 @@ public class FolderFragment extends Fragment
     }
     private boolean isResolvable(Intent intent)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         PackageManager manager = mainActivity.getPackageManager();
         List<ResolveInfo> resolveInfo = manager.queryIntentActivities(intent, 0);
         return !resolveInfo.isEmpty();
     }
     private Context context()
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         Context context = getContext();
 
         if (context != null) {
@@ -250,6 +286,8 @@ public class FolderFragment extends Fragment
     @Override
     public void onSaveInstanceState(Bundle outState)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         // no call for super(). Bug on API Level > 11.
     }
 }

@@ -18,6 +18,8 @@ public class ClsGlobal
     @AfterPermissionGranted(REQUEST_PERMISSION)
     public static void requestPermission(Activity ActivityContext)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         if (!EasyPermissions.hasPermissions(ActivityContext, permissions_perms)) {
             EasyPermissions.requestPermissions(ActivityContext, "Please grant the permissions",
                                                REQUEST_PERMISSION, permissions_perms);
@@ -31,6 +33,8 @@ public class ClsGlobal
      */
     public static String getExternalStoragePath(Context mContext, boolean is_removable)
     {
+        System.out.println("YAO [" + Thread.currentThread().getStackTrace()[2].getClassName() + "|" + Thread.currentThread().getStackTrace()[2].getMethodName() + "|" + Thread.currentThread().getStackTrace()[2].getFileName() + ":" + Thread.currentThread().getStackTrace()[2].getLineNumber() + "]");
+
         StorageManager mStorageManager = (StorageManager) mContext.getSystemService(Context.STORAGE_SERVICE);
         Class<?> storageVolumeClazz = null;
 
